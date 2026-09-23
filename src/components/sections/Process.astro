@@ -1,0 +1,189 @@
+---
+const steps = [
+  {
+    title: 'Choose a piece',
+    text: 'Pick something currently available, or tell us what you’d like changed.',
+    icon: '<path d="M9 6h14l5 7-12 14L4 13z"/><path d="M4 13h24M12 6l-3 7 7 14 7-14-3-7"/>',
+  },
+  {
+    title: 'We confirm the details',
+    text: 'You’ll get availability, pricing and timing before anything moves forward.',
+    icon: '<path d="M5 8h22v13H14l-6 5v-5H5z"/><path d="M11 14.5l3 3 7-6"/>',
+  },
+  {
+    title: 'It’s made for you',
+    text: 'Your piece is finished by hand, then shipped or arranged for local pickup.',
+    icon: '<path d="M5 11l11-5 11 5v11l-11 5-11-5z"/><path d="M5 11l11 5 11-5M16 16v11"/><path d="M10.5 8.5l11 5" stroke-dasharray="2 2.5"/>',
+  },
+];
+---
+
+<section class="process">
+  <div class="tt-container">
+    <div class="section-head">
+      <div data-reveal>
+        <div class="eyebrow">How ordering works</div>
+        <h2 class="display">No cart. Just a <em>conversation.</em></h2>
+      </div>
+      <p data-reveal style="--d:1">
+        See something you love or have an idea of your own? Ordering stays simple and personal
+        from the start.
+      </p>
+    </div>
+
+    <ol class="steps">
+      <svg class="thread" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 20 C 160 -4, 330 44, 500 20 S 840 -4, 1000 20" />
+      </svg>
+      {
+        steps.map((step, i) => (
+          <li class="step" data-reveal style={`--d:${i + 1}`}>
+            <div class="step-top">
+              <span class="step-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="step-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" set:html={step.icon} />
+              </span>
+            </div>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .process {
+    padding: 120px 0;
+  }
+  .steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin: 46px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .thread {
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 58px;
+    width: 84%;
+    height: 40px;
+    z-index: 0;
+    overflow: visible;
+  }
+  .thread path {
+    fill: none;
+    stroke: var(--tt-leather);
+    stroke-width: 1.6;
+    stroke-dasharray: 6 7;
+    opacity: 0.55;
+    vector-effect: non-scaling-stroke;
+  }
+  .step {
+    position: relative;
+    z-index: 1;
+    background: var(--tt-paper);
+    border: 1px solid var(--tt-line);
+    border-radius: 24px;
+    padding: 30px 30px 34px;
+    transition:
+      transform 0.5s var(--ease-out-soft),
+      box-shadow 0.5s ease,
+      border-color 0.3s ease;
+  }
+  .step::after {
+    content: '';
+    position: absolute;
+    inset: 7px;
+    border: 1px dashed transparent;
+    border-radius: 18px;
+    transition: border-color 0.3s ease;
+    pointer-events: none;
+  }
+  .step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 50px -32px rgba(58, 37, 24, 0.5);
+    border-color: var(--tt-desert);
+  }
+  .step:hover::after {
+    border-color: var(--tt-desert);
+  }
+  .step-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .step-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 330;
+    font-variation-settings: 'SOFT' 100;
+    font-size: 64px;
+    line-height: 0.9;
+    color: var(--tt-leather);
+  }
+  .step-icon {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--tt-sand);
+    transition: transform 0.5s var(--ease-out-soft);
+  }
+  .step:hover .step-icon {
+    transform: rotate(-12deg);
+  }
+  .step-icon svg {
+    width: 26px;
+    height: 26px;
+    fill: none;
+    stroke: var(--tt-ink);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .step h3 {
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 420;
+    font-variation-settings: 'SOFT' 100;
+    letter-spacing: -0.01em;
+    margin: 26px 0 10px;
+  }
+  .step p {
+    color: var(--tt-muted);
+    font-size: 14.5px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  @media (max-width: 960px) {
+    .process {
+      padding: 88px 0;
+    }
+    .steps {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .thread {
+      display: none;
+    }
+  }
+  @media (max-width: 640px) {
+    .process {
+      padding: 72px 0;
+    }
+    .step {
+      padding: 24px;
+    }
+    .step-num {
+      font-size: 52px;
+    }
+  }
+</style>

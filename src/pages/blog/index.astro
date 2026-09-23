@@ -30,7 +30,7 @@ const sortedPosts = posts.sort(
               <a href={`/blog/${post.id}`} class="block">
                 {post.data.image && (
                   <img
-                    src={post.data.image}
+                    src={post.data.image.src}
                     alt={post.data.title}
                     class="aspect-video w-full rounded-lg object-cover mb-4"
                   />

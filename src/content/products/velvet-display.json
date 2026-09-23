@@ -1,0 +1,41 @@
+{
+  "name": "Filigree & Turquoise",
+  "details": "Five lace-filigree necklaces",
+  "status": "Available",
+  "imageAlt": "Handmade filigree and turquoise necklaces displayed on black velvet",
+  "imagePosition": "30% 50%",
+  "order": 5,
+  "pieces": [
+    {
+      "name": "Rhinestone Cross Statement Necklace",
+      "details": "Turquoise cross with rhinestone side crosses",
+      "x": 27,
+      "y": 80
+    },
+    {
+      "name": "Filigree Lace Pendant",
+      "details": "Oversized lace filigree drop with turquoise",
+      "x": 53,
+      "y": 70
+    },
+    {
+      "name": "Open Teardrop Filigree",
+      "details": "Airy silver teardrop on filigree links",
+      "x": 69,
+      "y": 61
+    },
+    {
+      "name": "Turquoise Oval Concho",
+      "details": "Oval concho with a turquoise center",
+      "x": 83,
+      "y": 62
+    },
+    {
+      "name": "Turquoise Sunburst Oval",
+      "details": "Sunburst oval inlaid with turquoise",
+      "x": 95,
+      "y": 70
+    }
+  ],
+  "image": "../../assets/images/story-velvet-display.jpg"
+}

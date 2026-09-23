@@ -1,0 +1,38 @@
+---
+/**
+ * SiteLayout
+ * Texas Trinkets page shell: announcement bar + sticky header, content, footer.
+ * Wraps Velocity's BaseLayout so SEO, JSON-LD, analytics and consent still apply.
+ */
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '@/components/site/SiteHeader.astro';
+import SiteFooter from '@/components/site/SiteFooter.astro';
+import Motion from '@/components/site/Motion.astro';
+import '@/styles/site.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  noindex?: boolean;
+}
+
+const { title, description, image, imageAlt, noindex } = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  imageAlt={imageAlt}
+  noindex={noindex}
+  includeOrgSchema
+>
+  <Fragment slot="header">
+    <Motion />
+    <SiteHeader />
+  </Fragment>
+  <slot />
+  <SiteFooter slot="footer" />
+</BaseLayout>

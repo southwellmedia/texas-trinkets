@@ -1,0 +1,42 @@
+{
+  "name": "Western Pendants",
+  "details": "Five cameo & statement pendants",
+  "status": "One of one",
+  "imageAlt": "Five western pendant necklaces: a carved buffalo, a horse head, a turquoise slab, a copper bison and a horse cameo",
+  "imagePosition": "8% 48%",
+  "order": 2,
+  "pieces": [
+    {
+      "name": "Carved Buffalo Pendant",
+      "details": "Ivory-tone buffalo with silver horns",
+      "x": 12,
+      "y": 44
+    },
+    {
+      "name": "Horse Head Oval Pendant",
+      "details": "Silver horse framed in an etched oval",
+      "x": 33,
+      "y": 45
+    },
+    {
+      "name": "Cracked Turquoise Pendant",
+      "details": "Rectangular turquoise in an ornate silver frame",
+      "x": 52,
+      "y": 40
+    },
+    {
+      "name": "Tribal Bison Charm",
+      "details": "Copper-tone bison with turquoise inlay",
+      "x": 71,
+      "y": 47
+    },
+    {
+      "name": "Western Cameo Pendant",
+      "details": "Horse cameo on navy, silver bezel",
+      "price": "$38–52",
+      "x": 91,
+      "y": 53
+    }
+  ],
+  "image": "../../assets/images/western-cameo-pendant.jpg"
+}

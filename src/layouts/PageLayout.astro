@@ -1,13 +1,10 @@
 ---
 /**
  * PageLayout
- * Layout wrapper for standard content pages (non-landing)
- * Uses Header + Footer for consistent navigation
- * Used when demo content is not included
+ * Layout wrapper for standard content pages (404, blog index, etc.).
+ * Delegates to SiteLayout so every page shares the Texas Trinkets header/footer.
  */
-import BaseLayout from './BaseLayout.astro';
-import Header from '@/components/layout/Header.astro';
-import Footer from '@/components/layout/Footer.astro';
+import SiteLayout from './SiteLayout.astro';
 
 interface Props {
   title?: string;
@@ -18,22 +15,17 @@ interface Props {
   nofollow?: boolean;
 }
 
-const { title, description, image, imageAlt, noindex, nofollow } = Astro.props;
+const { title, description, image, imageAlt, noindex } = Astro.props;
 ---
 
-<BaseLayout
+<SiteLayout
   title={title}
   description={description}
   image={image}
   imageAlt={imageAlt}
   noindex={noindex}
-  nofollow={nofollow}
 >
-  <Header slot="header" />
-
-  <main class="min-h-screen pt-16">
+  <div class="min-h-[60vh]">
     <slot />
-  </main>
-
-  <Footer slot="footer" />
-</BaseLayout>
+  </div>
+</SiteLayout>

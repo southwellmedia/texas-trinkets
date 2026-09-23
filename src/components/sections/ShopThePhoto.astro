@@ -1,0 +1,814 @@
+---
+/**
+ * ShopThePhoto
+ * Lightbox that shows a product photo uncropped with numbered hotspots on
+ * every piece. Hover/tap a hotspot (or its list row) for details; "Inquire"
+ * closes the lightbox and pre-fills the order form for that piece.
+ *
+ * Open it from anywhere with an element carrying data-open-shot="<shot id>"
+ * (optionally data-open-piece="<piece id>"). Deep link: /#shop/<shot id>.
+ */
+import { Image } from 'astro:assets';
+import { piecesOf, type Shot } from '@/lib/shots';
+
+interface Props {
+  shots: Shot[];
+}
+
+const { shots } = Astro.props;
+---
+
+<dialog class="stp" data-stp aria-label="Shop this photo">
+  <div class="stp-shell">
+    <button class="stp-close" type="button" data-stp-close aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+    </button>
+
+    {
+      shots.map((shot, s) => {
+        const pieces = piecesOf(shot);
+        const { width, height } = shot.data.image;
+        return (
+          <section
+            class="slide"
+            data-slide={shot.id}
+            data-index={s}
+            aria-labelledby={`stp-title-${shot.id}`}
+            hidden
+          >
+            <div class="stage-area">
+              <div class="stage" style={`--ratio:${width}/${height}`}>
+                <Image
+                  src={shot.data.image}
+                  alt={shot.data.imageAlt}
+                  widths={[640, 960, 1400, 1800]}
+                  sizes="(max-width: 860px) 100vw, 880px"
+                  loading="lazy"
+                  decoding="async"
+                />
+                {pieces.map((p, i) => (
+                  <button
+                    type="button"
+                    class:list={[
+                      'spot',
+                      { 'spot--left': p.x < 22, 'spot--right': p.x > 78, 'spot--below': p.y < 18 },
+                    ]}
+                    style={`left:${p.x}%;top:${p.y}%;--i:${i}`}
+                    data-piece={p.id}
+                    aria-label={`${i + 1}: ${p.name}${p.price ? `, ${p.price}` : ''}`}
+                  >
+                    <span class="spot-num" aria-hidden="true">{i + 1}</span>
+                    <span class="spot-tip" aria-hidden="true">
+                      <b>{p.name}</b>
+                      <em>{p.price ?? 'Ask for price'}</em>
+                    </span>
+                  </button>
+                ))}
+              </div>
+
+              {shots.length > 1 && (
+                <>
+                  <button class="nav nav--prev" type="button" data-stp-prev aria-label="Previous photo">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+                  </button>
+                  <button class="nav nav--next" type="button" data-stp-next aria-label="Next photo">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+                  </button>
+                </>
+              )}
+              <span class="counter" aria-hidden="true">
+                {s + 1} / {shots.length}
+              </span>
+            </div>
+
+            <aside class="panel">
+              <div class="eyebrow">In this photo</div>
+              <h2 class="display panel-title" id={`stp-title-${shot.id}`}>
+                {shot.data.name}
+              </h2>
+              <p class="panel-sub">
+                {pieces.length > 1
+                  ? `${pieces.length} pieces · hover or tap a number`
+                  : 'Handmade by Salem'}
+              </p>
+
+              <div class="details">
+                {pieces.map((p, i) => (
+                  <article class="detail" data-detail-for={p.id} hidden>
+                    <div class="detail-head">
+                      <span class="num">{i + 1}</span>
+                      <h3>{p.name}</h3>
+                    </div>
+                    {p.details && <p class="detail-text">{p.details}</p>}
+                    <div class="detail-meta">
+                      <span class="price">{p.price ?? 'Ask Salem for price'}</span>
+                      <span class={`status status--${p.status.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <i aria-hidden="true" />
+                        {p.status}
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      class="tt-btn tt-btn-dark inquire"
+                      data-inquire
+                      data-name={p.name}
+                      data-price={p.price ?? ''}
+                      data-shot={shot.data.name}
+                      disabled={p.status === 'Sold'}
+                    >
+                      {p.status === 'Sold' ? 'Sold — ask about a similar piece' : 'Inquire about this piece'}
+                      <span class="arrow" aria-hidden="true">→</span>
+                    </button>
+                  </article>
+                ))}
+              </div>
+
+              {pieces.length > 1 && (
+                <ol class="list">
+                  {pieces.map((p, i) => (
+                    <li>
+                      <button type="button" class="row" data-select={p.id}>
+                        <span class="num">{i + 1}</span>
+                        <span class="row-name">{p.name}</span>
+                        <span class="row-price">{p.price ?? 'Ask'}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ol>
+              )}
+
+              <a class="tt-link custom-link" href="#custom" data-stp-close>
+                Want it changed? Design something custom <span aria-hidden="true">→</span>
+              </a>
+            </aside>
+          </section>
+        );
+      })
+    }
+  </div>
+</dialog>
+
+<script>
+  function initShopThePhoto() {
+    const dialog = document.querySelector<HTMLDialogElement>('[data-stp]');
+    if (!dialog || dialog.dataset.ready) return;
+    dialog.dataset.ready = 'true';
+
+    const slides = [...dialog.querySelectorAll<HTMLElement>('[data-slide]')];
+    let current: HTMLElement | null = null;
+
+    const setHash = (hash: string) => {
+      const url = location.pathname + location.search + hash;
+      history.replaceState(history.state, '', url);
+    };
+
+    function select(slide: HTMLElement, pieceId: string) {
+      slide.querySelectorAll<HTMLElement>('[data-piece], [data-select]').forEach((el) => {
+        const id = el.dataset.piece ?? el.dataset.select;
+        el.classList.toggle('is-active', id === pieceId);
+        if (el.dataset.select) el.setAttribute('aria-pressed', String(id === pieceId));
+      });
+      slide.querySelectorAll<HTMLElement>('[data-detail-for]').forEach((el) => {
+        el.hidden = el.dataset.detailFor !== pieceId;
+      });
+    }
+
+    function show(slide: HTMLElement, pieceId?: string) {
+      slides.forEach((s) => (s.hidden = s !== slide));
+      current = slide;
+      const first = slide.querySelector<HTMLElement>('[data-piece]')?.dataset.piece;
+      const target = pieceId && slide.querySelector(`[data-piece="${pieceId}"]`) ? pieceId : first;
+      if (target) select(slide, target);
+      setHash(`#shop/${slide.dataset.slide}`);
+    }
+
+    function open(shotId: string, pieceId?: string) {
+      const slide = slides.find((s) => s.dataset.slide === shotId);
+      if (!slide) return;
+      show(slide, pieceId);
+      if (!dialog!.open) {
+        dialog!.showModal();
+        document.documentElement.classList.add('stp-open');
+      }
+    }
+
+    // Clean up synchronously (the native 'close' event fires a tick later,
+    // which is too late for callers that scroll right after closing).
+    function cleanup() {
+      document.documentElement.classList.remove('stp-open');
+      if (location.hash.startsWith('#shop/')) setHash('');
+    }
+
+    function close() {
+      if (dialog!.open) dialog!.close();
+      cleanup();
+    }
+
+    function step(dir: 1 | -1) {
+      if (!current) return;
+      const i = slides.indexOf(current);
+      show(slides[(i + dir + slides.length) % slides.length]);
+    }
+
+    // Esc / form-method close paths
+    dialog.addEventListener('close', cleanup);
+
+    // Backdrop click closes
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) close();
+    });
+
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') step(1);
+      if (e.key === 'ArrowLeft') step(-1);
+    });
+
+    dialog.querySelectorAll('[data-stp-close]').forEach((b) => b.addEventListener('click', close));
+    dialog.querySelectorAll('[data-stp-next]').forEach((b) => b.addEventListener('click', () => step(1)));
+    dialog.querySelectorAll('[data-stp-prev]').forEach((b) => b.addEventListener('click', () => step(-1)));
+
+    // Select on click; link hover between hotspot and list row
+    slides.forEach((slide) => {
+      slide.querySelectorAll<HTMLElement>('[data-piece], [data-select]').forEach((el) => {
+        const id = (el.dataset.piece ?? el.dataset.select)!;
+        el.addEventListener('click', () => select(slide, id));
+        const twins = () => slide.querySelectorAll<HTMLElement>(`[data-piece="${id}"], [data-select="${id}"]`);
+        el.addEventListener('pointerenter', () => twins().forEach((t) => t.classList.add('is-hover')));
+        el.addEventListener('pointerleave', () => twins().forEach((t) => t.classList.remove('is-hover')));
+      });
+    });
+
+    // Inquire → close and pre-fill the order form
+    dialog.querySelectorAll<HTMLButtonElement>('[data-inquire]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const { name = '', price = '', shot = '' } = btn.dataset;
+        close();
+        const select = document.querySelector<HTMLSelectElement>('#order-piece');
+        const message = document.querySelector<HTMLTextAreaElement>('#order-message');
+        if (select) select.value = name;
+        if (message) {
+          message.value =
+            `Hi Salem! I'm interested in the ${name}${price ? ` (${price})` : ''}` +
+            `${shot && shot !== name ? ` from the “${shot}” photo` : ''}.\n\n`;
+        }
+        document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+        window.setTimeout(() => {
+          document.querySelector<HTMLInputElement>('#order-name')?.focus({ preventScroll: true });
+        }, 650);
+      });
+    });
+
+    // Triggers anywhere on the page
+    document.addEventListener('click', (e) => {
+      const trigger = (e.target as Element).closest<HTMLElement>('[data-open-shot]');
+      if (!trigger) return;
+      e.preventDefault();
+      open(trigger.dataset.openShot!, trigger.dataset.openPiece);
+    });
+
+    // Deep link: /#shop/<shot-id>
+    const openFromHash = () => {
+      const m = location.hash.match(/^#shop\/(.+)$/);
+      if (m) open(decodeURIComponent(m[1]));
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+  }
+
+  initShopThePhoto();
+  document.addEventListener('astro:page-load', initShopThePhoto);
+</script>
+
+<style>
+  :global(html.stp-open) {
+    overflow: hidden;
+  }
+
+  .stp {
+    width: min(1240px, calc(100vw - 32px));
+    height: min(860px, calc(100dvh - 32px));
+    max-width: none;
+    max-height: none;
+    margin: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    background: var(--tt-paper);
+    color: var(--tt-ink);
+    box-shadow: 0 40px 120px -30px rgba(20, 12, 6, 0.7);
+  }
+  .stp::backdrop {
+    background: rgba(34, 22, 14, 0.72);
+    backdrop-filter: blur(6px);
+  }
+  .stp[open] {
+    animation: stp-in 0.45s var(--ease-out-soft);
+  }
+  .stp[open]::backdrop {
+    animation: stp-fade 0.35s ease;
+  }
+
+  .stp-shell {
+    position: relative;
+    height: 100%;
+  }
+  .stp-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 5;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--tt-line);
+    background: var(--tt-paper);
+    color: var(--tt-ink);
+    cursor: pointer;
+    transition: transform 0.3s var(--ease-out-soft), background-color 0.2s ease;
+  }
+  .stp-close:hover {
+    transform: rotate(90deg);
+    background: var(--tt-sand);
+  }
+  .stp-close svg,
+  .nav svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .slide {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    height: 100%;
+  }
+  .slide[hidden] {
+    display: none;
+  }
+
+  /* ---- Stage ---- */
+  .stage-area {
+    --area-h: calc(min(860px, 100dvh - 32px) - 64px);
+    position: relative;
+    display: grid;
+    place-items: center;
+    /* side gutters keep the prev/next arrows off the photo */
+    padding: 32px 72px;
+    background:
+      radial-gradient(circle at 50% 40%, #3a2a1f 0%, #1c130d 75%);
+    overflow: hidden;
+  }
+  .stage {
+    position: relative;
+    aspect-ratio: var(--ratio);
+    width: min(100%, calc(var(--area-h) * var(--ratio)));
+    border-radius: 14px;
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+  }
+  .stage :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 14px;
+    display: block;
+  }
+
+  .spot {
+    position: absolute;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    animation: spot-in 0.5s var(--ease-out-soft) both;
+    animation-delay: calc(var(--i) * 70ms + 150ms);
+  }
+  .spot::before {
+    /* soft pulsing ring */
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 250, 241, 0.75);
+    animation: spot-pulse 2.4s ease-out infinite;
+    animation-delay: calc(var(--i) * 300ms);
+  }
+  .spot-num {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--tt-paper);
+    color: var(--tt-ink);
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow:
+      0 0 0 2px rgba(34, 26, 20, 0.25),
+      0 6px 16px rgba(0, 0, 0, 0.45);
+    transition:
+      transform 0.3s var(--ease-out-soft),
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+  .spot:hover .spot-num,
+  .spot:focus-visible .spot-num,
+  .spot.is-hover .spot-num {
+    transform: scale(1.15);
+    background: var(--tt-desert);
+  }
+  .spot.is-active .spot-num {
+    transform: scale(1.2);
+    background: var(--tt-leather);
+    color: #fff;
+  }
+  .spot.is-active::before {
+    border-color: var(--tt-leather);
+  }
+  .spot:focus-visible {
+    outline: none;
+  }
+  .spot:focus-visible .spot-num {
+    box-shadow: 0 0 0 3px var(--tt-turquoise-light);
+  }
+
+  .spot-tip {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 12px);
+    transform: translate(-50%, 6px);
+    display: grid;
+    gap: 2px;
+    min-width: 170px;
+    max-width: 230px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: var(--tt-paper);
+    color: var(--tt-ink);
+    text-align: left;
+    box-shadow: 0 16px 34px -12px rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity 0.2s ease,
+      transform 0.3s var(--ease-out-soft);
+  }
+  .spot-tip b {
+    font-family: var(--font-display);
+    font-variation-settings: 'SOFT' 100;
+    font-weight: 450;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  .spot-tip em {
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 750;
+    color: var(--tt-leather);
+  }
+  .spot--left .spot-tip {
+    left: 0;
+    transform: translate(-6px, 6px);
+  }
+  .spot--right .spot-tip {
+    left: auto;
+    right: 0;
+    transform: translate(6px, 6px);
+  }
+  .spot--below .spot-tip {
+    bottom: auto;
+    top: calc(100% + 12px);
+  }
+  @media (hover: hover) {
+    .spot:hover .spot-tip,
+    .spot:focus-visible .spot-tip,
+    .spot.is-hover .spot-tip {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    .spot--left:hover .spot-tip,
+    .spot--left:focus-visible .spot-tip,
+    .spot--left.is-hover .spot-tip {
+      transform: translate(-6px, 0);
+    }
+    .spot--right:hover .spot-tip,
+    .spot--right:focus-visible .spot-tip,
+    .spot--right.is-hover .spot-tip {
+      transform: translate(6px, 0);
+    }
+  }
+  .spot:hover,
+  .spot:focus-visible,
+  .spot.is-hover,
+  .spot.is-active {
+    z-index: 3;
+  }
+
+  .nav {
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 250, 241, 0.3);
+    background: rgba(34, 22, 14, 0.55);
+    color: var(--tt-paper);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.3s var(--ease-out-soft);
+  }
+  .nav:hover {
+    background: var(--tt-leather);
+  }
+  .nav--prev {
+    left: 14px;
+  }
+  .nav--next {
+    right: 14px;
+  }
+  .nav--prev:hover {
+    transform: translateX(-2px);
+  }
+  .nav--next:hover {
+    transform: translateX(2px);
+  }
+  .counter {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 0.14em;
+    color: rgba(255, 250, 241, 0.6);
+  }
+
+  /* ---- Panel ---- */
+  .panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 34px 30px 28px;
+    overflow-y: auto;
+    border-left: 1px solid var(--tt-line);
+  }
+  .panel-title {
+    font-size: 34px;
+    line-height: 1.02;
+    margin: 12px 48px 6px 0;
+  }
+  .panel-sub {
+    margin: 0 0 20px;
+    font-size: 13px;
+    color: var(--tt-muted);
+  }
+
+  .num {
+    display: inline-grid;
+    place-items: center;
+    flex: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--tt-sand);
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .detail {
+    padding: 20px;
+    border-radius: 18px;
+    background: var(--tt-sand);
+    animation: detail-in 0.35s var(--ease-out-soft);
+  }
+  .detail .num {
+    background: var(--tt-leather);
+    color: #fff;
+  }
+  .detail-head {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .detail h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-variation-settings: 'SOFT' 100;
+    font-size: 22px;
+    font-weight: 450;
+    line-height: 1.15;
+  }
+  .detail-text {
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--tt-muted);
+  }
+  .detail-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 14px 0 16px;
+  }
+  .price {
+    font-weight: 800;
+    font-size: 15px;
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--tt-paper);
+  }
+  .status i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--tt-turquoise);
+  }
+  .status--one-of-one i {
+    background: var(--tt-leather);
+  }
+  .status--made-to-order i {
+    background: #c49a5c;
+  }
+  .status--sold i {
+    background: #9a9088;
+  }
+  .inquire {
+    width: 100%;
+  }
+
+  .list {
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 2px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 9px 10px;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .row:hover,
+  .row.is-hover {
+    background: var(--tt-ivory);
+  }
+  .row.is-active {
+    background: var(--tt-ivory);
+  }
+  .row.is-active .num {
+    background: var(--tt-leather);
+    color: #fff;
+  }
+  .row:focus-visible {
+    outline: 2px solid var(--tt-turquoise);
+    outline-offset: 1px;
+  }
+  .row-name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 650;
+  }
+  .row-price {
+    font-size: 12px;
+    font-weight: 750;
+    color: var(--tt-muted);
+  }
+  .custom-link {
+    margin-top: auto;
+    padding-top: 22px;
+    align-self: flex-start;
+    font-size: 13px;
+    background-position: left calc(100% - 0px);
+  }
+
+  @keyframes stp-in {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+    }
+  }
+  @keyframes stp-fade {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes spot-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.4);
+    }
+  }
+  @keyframes spot-pulse {
+    0% {
+      transform: scale(0.85);
+      opacity: 0.9;
+    }
+    70%,
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  @keyframes detail-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+  }
+
+  /* ---- Small screens: full-screen sheet, photo on top ---- */
+  @media (max-width: 860px) {
+    .stp {
+      width: 100vw;
+      height: 100dvh;
+      border-radius: 0;
+    }
+    .slide {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+    .stage-area {
+      --area-h: calc(52dvh - 36px);
+      padding: 56px 44px 26px;
+    }
+    .stage {
+      border-radius: 10px;
+    }
+    .panel {
+      border-left: 0;
+      padding: 22px 18px 24px;
+    }
+    .panel-title {
+      font-size: 28px;
+      margin-right: 0;
+    }
+    .stp-close {
+      top: 10px;
+      right: 10px;
+    }
+    .nav {
+      width: 38px;
+      height: 38px;
+      margin-top: -19px;
+    }
+    .nav--prev {
+      left: 6px;
+    }
+    .nav--next {
+      right: 6px;
+    }
+    .spot {
+      width: 24px;
+      height: 24px;
+    }
+    .spot::before {
+      inset: -4px;
+    }
+    .spot-num {
+      font-size: 11px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spot::before {
+      animation: none;
+      opacity: 0;
+    }
+  }
+</style>

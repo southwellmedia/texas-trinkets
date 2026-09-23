@@ -24,7 +24,7 @@ export default [
     },
   },
   {
-    ignores: ['dist/', 'node_modules/', '.astro/', 'public/pagefind/'],
+    ignores: ['dist/', 'node_modules/', '.astro/', '.vercel/', 'public/pagefind/'],
   },
   {
     rules: {

@@ -1,0 +1,210 @@
+---
+/**
+ * SiteFooter
+ * Desert sunset silhouette flowing into a saddle-brown footer: seal, blurb, link columns and an
+ * oversized wordmark.
+ */
+import { getNavItems, navCta, socialNav } from '@/config/nav.config';
+import siteConfig from '@/config/site.config';
+import Seal from '@/components/site/Seal.astro';
+import DesertScene from '@/components/site/DesertScene.astro';
+
+const year = new Date().getFullYear();
+const nav = getNavItems();
+const shopLinks = [nav[0], nav[1], { label: 'Start an Order', href: navCta.href }];
+const followLinks = [...socialNav, nav[2]];
+---
+
+<footer class="site-footer">
+  <DesertScene tone="sunset" bottom={1296} class="footer-desert" />
+
+  <div class="footer-body">
+    <div class="tt-container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <Seal size={132} tone="dark" text="Texas Trinkets ✦ Handmade western jewelry ✦" />
+          <p class="footer-blurb">
+            Handmade western jewelry with turquoise, silver and a whole lot of heart. Made in
+            Texas, one piece at a time.
+          </p>
+        </div>
+        <nav class="footer-col" aria-label="Shop">
+          <strong>Shop</strong>
+          {shopLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+        </nav>
+        <nav class="footer-col" aria-label="Follow">
+          <strong>Follow</strong>
+          {followLinks.map((l) => <a href={l.href}>{l.label}</a>)}
+        </nav>
+      </div>
+
+      <div class="footer-wordmark display" aria-hidden="true">
+        Texas <em>Trinkets</em>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="copyright">© {year} {siteConfig.name}</span>
+        <span class="hand tagline">Made with love, faith &amp; purpose.</span>
+        <a
+          class="credit"
+          href="https://www.southwellmedia.com/"
+          target="_blank"
+          rel="noopener"
+        >
+          Crafted by <strong>Southwell Media</strong>
+          <span class="credit-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    position: relative;
+    margin-top: 40px;
+  }
+  .site-footer :global(.footer-desert) {
+    min-height: 190px;
+    margin-bottom: -2px;
+  }
+  .footer-body {
+    position: relative;
+    background: var(--tt-saddle);
+    box-shadow: 0 -3px 0 var(--tt-saddle);
+    color: #eadccb;
+    padding: 12px 0 30px;
+    overflow: hidden;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr 0.7fr;
+    gap: 48px;
+    padding-bottom: 36px;
+  }
+  .footer-brand-col {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+  .footer-blurb {
+    color: #cdb9a3;
+    max-width: 330px;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .footer-col strong {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--tt-desert);
+    margin-bottom: 14px;
+  }
+  .footer-col a {
+    display: block;
+    width: fit-content;
+    color: #eadccb;
+    font-size: 14px;
+    margin: 10px 0;
+    transition:
+      color 0.2s ease,
+      transform 0.3s var(--ease-out-soft);
+  }
+  .footer-col a:hover {
+    color: #fff;
+    transform: translateX(4px);
+  }
+
+  .footer-wordmark {
+    font-size: clamp(64px, 14.5vw, 196px);
+    line-height: 0.85;
+    white-space: nowrap;
+    color: rgba(232, 201, 160, 0.16);
+    letter-spacing: -0.04em;
+    margin: 10px 0 0 -0.04em;
+    user-select: none;
+  }
+  .footer-wordmark em {
+    color: rgba(232, 201, 160, 0.26);
+  }
+
+  .footer-bottom {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+    padding-top: 22px;
+    border-top: 1px dashed rgba(232, 201, 160, 0.25);
+    color: #a8927c;
+    font-size: 12px;
+  }
+  .tagline {
+    text-align: center;
+  }
+  .credit {
+    justify-self: end;
+  }
+  .footer-bottom .hand {
+    color: var(--tt-desert);
+    font-size: 22px;
+  }
+  .credit {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #a8927c;
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+  }
+  .credit strong {
+    color: #eadccb;
+    font-weight: 700;
+  }
+  .credit-arrow {
+    font-size: 11px;
+    transition: transform 0.25s var(--ease-out-soft);
+  }
+  .credit:hover,
+  .credit:hover strong {
+    color: #fff;
+  }
+  .credit:hover .credit-arrow {
+    transform: translate(2px, -2px);
+  }
+  .credit:focus-visible {
+    outline: 2px solid var(--tt-turquoise-light);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 960px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-brand-col {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 640px) {
+    .footer-brand-col {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .footer-bottom {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      gap: 8px;
+    }
+    .tagline {
+      order: -1;
+    }
+    .credit {
+      justify-self: center;
+    }
+  }
+</style>

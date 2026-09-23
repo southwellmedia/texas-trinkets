@@ -12,10 +12,18 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-  { label: 'Components', href: '/components', order: 1 },
-  { label: 'Blog', href: '/blog', order: 2 },
-  { label: 'About', href: '/about', order: 3 },
-  { label: 'Contact', href: '/contact', order: 4 },
+  { label: 'Available Pieces', href: '/#shop', order: 1 },
+  { label: 'Custom Jewelry', href: '/#custom', order: 2 },
+  { label: 'Meet Salem', href: '/#story', order: 3 },
+];
+
+/** Primary call to action shown as a pill in the header */
+export const navCta = { label: 'Start a Custom Order', href: '/#contact' };
+
+/** Social profiles shown in the footer. TODO: add real URLs. */
+export const socialNav = [
+  { label: 'Instagram', href: '#' },
+  { label: 'Facebook', href: '#' },
 ];
 
 /**

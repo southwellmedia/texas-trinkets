@@ -62,7 +62,47 @@ const faqs = defineCollection({
   }),
 });
 
+// Products collection — each entry is one PHOTO ("shot") shown in
+// "Available now". A shot can contain several pieces; each piece gets a
+// hotspot (x/y as % of the photo) in the shop-the-photo lightbox.
+const pieceStatus = z.enum(['Available', 'One of one', 'Made to order', 'Sold']);
+
+const products = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/products' }),
+  schema: ({ image }) =>
+    z.object({
+      /** Card title (a single piece's name, or a collection name) */
+      name: z.string(),
+      details: z.string(),
+      /** Card price line; omit to show "Ask for pricing" */
+      priceRange: z.string().optional(),
+      status: pieceStatus,
+      image: image(),
+      imageAlt: z.string(),
+      /** CSS object-position for the card crop, e.g. "8% 48%" */
+      imagePosition: z.string().default('50% 50%'),
+      order: z.number().default(0),
+      featured: z.boolean().default(true),
+      /** Pieces visible in the photo, with hotspot positions */
+      pieces: z
+        .array(
+          z.object({
+            name: z.string(),
+            details: z.string().optional(),
+            /** Omit to show "Ask Salem for price" */
+            price: z.string().optional(),
+            /** Defaults to the shot's status */
+            status: pieceStatus.optional(),
+            x: z.number().min(0).max(100),
+            y: z.number().min(0).max(100),
+          })
+        )
+        .default([]),
+    }),
+});
+
 export const collections = {
+  products,
   blog,
   pages,
   authors,

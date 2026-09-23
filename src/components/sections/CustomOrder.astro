@@ -1,0 +1,390 @@
+---
+import { Image } from 'astro:assets';
+import spreadImage from '@/assets/images/custom-jewelry-spread.jpg';
+import { customOptionGroups } from '@/config/custom.config';
+---
+
+<section id="custom" class="custom">
+  <div class="tt-container custom-card" data-reveal="scale">
+    <div class="custom-copy">
+      <div class="eyebrow">Custom jewelry</div>
+      <h2 class="display">Have something <em>specific</em> in mind?</h2>
+      <p>
+        Choose a stone, charm, chain length or favorite western detail. We’ll talk through the
+        idea, confirm the price, and make it personal.
+      </p>
+
+      <form class="builder" data-builder aria-label="Build your piece">
+        {
+          customOptionGroups.map((group) => (
+            <div class="group" role="radiogroup" aria-labelledby={`grp-${group.id}`}>
+              <span class="legend" id={`grp-${group.id}`}>{group.label}</span>
+              <div class="chips">
+                {group.options.map((opt, i) => (
+                  <label class="chip">
+                    <input type="radio" name={group.id} value={opt} checked={i === 0} />
+                    <span>{opt}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+
+        <div class="builder-foot">
+          <p class="idea" aria-live="polite">
+            <span class="hand">your idea:</span>
+            <strong data-idea>{customOptionGroups.map((g) => g.options[0]).join(' · ')}</strong>
+          </p>
+          <button type="submit" class="tt-btn tt-btn-light">
+            Start with this idea <span class="arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="custom-img">
+      <div class="frame stitched">
+        <Image
+          src={spreadImage}
+          alt="Assorted handcrafted western jewelry laid out together"
+          widths={[480, 720, 960]}
+          sizes="(max-width: 960px) 100vw, 480px"
+        />
+      </div>
+      <span class="hand custom-note" aria-hidden="true">mix &amp; match ✦</span>
+      <a class="shop-photo" href="#shop/workbench-collection" data-open-shot="workbench-collection">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" /><circle cx="8" cy="8" r="2.2" /></svg>
+        Shop this photo
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initBuilder() {
+    const form = document.querySelector<HTMLFormElement>('[data-builder]');
+    if (!form || form.dataset.ready) return;
+    form.dataset.ready = 'true';
+
+    const out = form.querySelector<HTMLElement>('[data-idea]')!;
+    const summary = () => {
+      const fd = new FormData(form);
+      return [...new Set([...fd.keys()])].map((k) => String(fd.get(k))).join(' · ');
+    };
+
+    form.addEventListener('change', () => {
+      out.textContent = summary();
+      out.classList.remove('bump');
+      void out.offsetWidth;
+      out.classList.add('bump');
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      const piece = document.querySelector<HTMLSelectElement>('#order-piece');
+      const message = document.querySelector<HTMLTextAreaElement>('#order-message');
+      if (piece) piece.value = 'Something custom';
+      if (message) {
+        message.value =
+          `I'd love a custom piece:\n` +
+          `• Stone: ${fd.get('stone')}\n` +
+          `• Charm: ${fd.get('charm')}\n` +
+          `• Chain length: ${fd.get('length')}\n\n`;
+      }
+      document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+      window.setTimeout(() => {
+        message?.focus({ preventScroll: true });
+        message?.setSelectionRange(message.value.length, message.value.length);
+      }, 600);
+    });
+  }
+
+  initBuilder();
+  document.addEventListener('astro:page-load', initBuilder);
+</script>
+
+<style>
+  .custom {
+    padding: 0 0 120px;
+  }
+  .custom-card {
+    position: relative;
+    isolation: isolate;
+    background: var(--tt-saddle);
+    color: var(--tt-paper);
+    border-radius: 32px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    padding: 64px;
+    box-shadow: 0 50px 90px -50px rgba(58, 37, 24, 0.8);
+  }
+  /* tooled-leather rosette pattern */
+  .custom-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88' fill='none' stroke='%23fffaf1' stroke-width='1.2'%3E%3Ccircle cx='44' cy='44' r='14'/%3E%3Ccircle cx='44' cy='44' r='6'/%3E%3Cpath d='M44 22v8M44 58v8M22 44h8M58 44h8M28.4 28.4l5.7 5.7M53.9 53.9l5.7 5.7M28.4 59.6l5.7-5.7M53.9 34.1l5.7-5.7'/%3E%3Cpath d='M0 0l10 10M88 0L78 10M0 88l10-10M88 88L78 78' stroke-dasharray='2 3'/%3E%3C/svg%3E");
+  }
+  /* stitched inner border */
+  .custom-card::after {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1.5px dashed rgba(232, 201, 160, 0.32);
+    border-radius: 24px;
+    pointer-events: none;
+  }
+
+  .custom-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .custom-copy .eyebrow {
+    color: var(--tt-desert);
+  }
+  .custom-copy .eyebrow::before {
+    color: var(--tt-turquoise-light);
+  }
+  .custom-copy h2 {
+    font-size: clamp(46px, 5vw, 68px);
+    line-height: 0.98;
+    margin: 16px 0 20px;
+    max-width: 600px;
+    color: var(--tt-paper);
+  }
+  .custom-copy h2 em {
+    color: var(--tt-desert);
+  }
+  .custom-copy > p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #dccbb8;
+    max-width: 520px;
+    margin: 0 0 28px;
+  }
+
+  /* ---- Builder ---- */
+  .builder {
+    width: 100%;
+    display: grid;
+    gap: 16px;
+  }
+  .group {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    align-items: center;
+    gap: 12px;
+  }
+  .legend {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--tt-desert);
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .chip span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(232, 201, 160, 0.35);
+    font-size: 13px;
+    font-weight: 650;
+    color: #eadccb;
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.25s var(--ease-out-soft);
+  }
+  .chip:hover span {
+    border-color: var(--tt-desert);
+    transform: translateY(-1px);
+  }
+  .chip input:checked + span {
+    background: var(--tt-desert);
+    border-color: var(--tt-desert);
+    color: var(--tt-saddle);
+  }
+  .chip input:focus-visible + span {
+    outline: 2px solid var(--tt-turquoise-light);
+    outline-offset: 2px;
+  }
+
+  .builder-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    padding-top: 20px;
+    border-top: 1px dashed rgba(232, 201, 160, 0.3);
+  }
+  .idea {
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .idea .hand {
+    color: var(--tt-desert);
+    font-size: 22px;
+  }
+  .idea strong {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    font-variation-settings: 'SOFT' 100;
+    display: inline-block;
+  }
+  .idea strong:global(.bump) {
+    animation: bump 0.45s var(--ease-out-soft);
+  }
+
+  /* ---- Photo ---- */
+  .custom-img {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .frame {
+    --stitch-radius: 999px;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 999px 999px 24px 24px;
+    overflow: hidden;
+    transform: rotate(1.5deg);
+    box-shadow: 0 0 0 8px rgba(232, 201, 160, 0.14);
+  }
+  .frame::after {
+    border-radius: 999px 999px 18px 18px;
+  }
+  .frame :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 55% 50%;
+    transition: transform 1.2s var(--ease-out-soft);
+  }
+  .custom-card:hover .frame :global(img) {
+    transform: scale(1.04);
+  }
+  .custom-note {
+    position: absolute;
+    right: -6px;
+    bottom: 18px;
+    background: var(--tt-desert);
+    color: var(--tt-saddle);
+    padding: 6px 14px;
+    border-radius: 999px;
+    transform: rotate(-6deg);
+    font-size: 22px;
+  }
+
+  .shop-photo {
+    position: absolute;
+    left: 50%;
+    top: 22px;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(255, 250, 241, 0.94);
+    color: var(--tt-saddle);
+    font-size: 12.5px;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s var(--ease-out-soft), background-color 0.2s ease;
+  }
+  .shop-photo:hover {
+    transform: translateX(-50%) translateY(-2px);
+    background: var(--tt-desert);
+  }
+  .shop-photo:focus-visible {
+    outline: 2px solid var(--tt-turquoise-light);
+    outline-offset: 3px;
+  }
+  .shop-photo svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: var(--tt-leather);
+    stroke-width: 1.7;
+  }
+
+  @keyframes bump {
+    40% {
+      transform: translateY(-3px) scale(1.03);
+      color: var(--tt-desert);
+    }
+  }
+
+  @media (max-width: 960px) {
+    .custom-card {
+      grid-template-columns: 1fr;
+      padding: 48px;
+    }
+    .custom-img {
+      order: -1;
+      max-width: 420px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+  @media (max-width: 640px) {
+    .custom {
+      padding-bottom: 84px;
+    }
+    .custom-card {
+      border-radius: 22px;
+      padding: 34px 20px 28px;
+      gap: 28px;
+    }
+    .custom-card::after {
+      inset: 8px;
+      border-radius: 16px;
+    }
+    .custom-copy h2 {
+      font-size: 42px;
+    }
+    .group {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .chip span {
+      min-height: 34px;
+      padding: 0 12px;
+      font-size: 12.5px;
+    }
+    .custom-img {
+      max-width: 300px;
+    }
+  }
+</style>

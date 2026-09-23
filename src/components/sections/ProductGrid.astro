@@ -1,0 +1,67 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ProductCard from './ProductCard.astro';
+import ShopThePhoto from './ShopThePhoto.astro';
+
+interface Props {
+  products: CollectionEntry<'products'>[];
+}
+
+const { products } = Astro.props;
+---
+
+<section id="shop" class="shop">
+  <div class="tt-container">
+    <div class="section-head">
+      <div data-reveal>
+        <div class="eyebrow">Available now</div>
+        <h2 class="display">Find your <em>piece.</em></h2>
+      </div>
+      <p data-reveal style="--d:1">
+        A few current favorites. Every piece is finished in small batches, and some designs won’t
+        come around twice.
+        <span class="hand shop-note">tap a photo to see every piece ↓</span>
+      </p>
+    </div>
+    <div class="products">
+      {products.map((product, i) => <ProductCard product={product} index={i} />)}
+    </div>
+  </div>
+</section>
+
+<ShopThePhoto shots={products} />
+
+
+<style>
+  .shop {
+    padding: 88px 0 120px;
+  }
+  .shop-note {
+    display: block;
+    margin-top: 10px;
+    transform: rotate(-3deg);
+    transform-origin: left;
+  }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 34px 26px;
+  }
+
+  @media (max-width: 960px) {
+    .shop {
+      padding: 78px 0;
+    }
+    .products {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .shop {
+      padding: 68px 0;
+    }
+    .products {
+      gap: 13px;
+    }
+  }
+</style>

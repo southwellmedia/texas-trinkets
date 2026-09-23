@@ -1,0 +1,115 @@
+---
+const items = [
+  {
+    title: 'One-of-a-kind finds',
+    text: 'Small runs mean your piece still feels like yours.',
+    // concho rosette
+    icon: '<circle cx="16" cy="16" r="5"/><path d="M16 4v4M16 24v4M4 16h4M24 16h4M7.5 7.5l2.8 2.8M21.7 21.7l2.8 2.8M7.5 24.5l2.8-2.8M21.7 10.3l2.8-2.8"/><circle cx="16" cy="16" r="11" stroke-dasharray="2 3"/>',
+  },
+  {
+    title: 'Real turquoise & western details',
+    text: 'Designed around stones, charms and conchos with character.',
+    // faceted stone
+    icon: '<path d="M9 6h14l5 7-12 14L4 13z"/><path d="M4 13h24M12 6l-3 7 7 14 7-14-3-7"/>',
+  },
+  {
+    title: 'No mystery checkout',
+    text: 'We confirm availability, pricing and shipping before you pay.',
+    // handshake-ish speech bubble
+    icon: '<path d="M5 8h22v13H14l-6 5v-5H5z"/><path d="M10 14.5h12M10 18h7"/>',
+  },
+];
+---
+
+<section class="trust" aria-label="Why Texas Trinkets">
+  <div class="tt-container trust-row">
+    {
+      items.map((item, i) => (
+        <div class="trust-item" data-reveal style={`--d:${i}`}>
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" set:html={item.icon} />
+          </span>
+          <div>
+            <b>{item.title}</b>
+            <span>{item.text}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .trust {
+    padding: 34px 0 12px;
+  }
+  .trust-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .trust-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 22px 22px 22px 0;
+  }
+  .trust-item + .trust-item {
+    padding-left: 22px;
+    border-left: 1px dashed var(--tt-line);
+  }
+  .icon {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--tt-paper);
+    box-shadow: 0 0 0 1px var(--tt-line);
+    transition: transform 0.5s var(--ease-out-soft), background-color 0.3s ease;
+  }
+  .trust-item:hover .icon {
+    transform: rotate(-10deg) scale(1.06);
+    background: var(--tt-sand);
+  }
+  .icon svg {
+    width: 26px;
+    height: 26px;
+    fill: none;
+    stroke: var(--tt-leather);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .trust-item b {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 420;
+    line-height: 1.15;
+    font-variation-settings: 'SOFT' 100;
+  }
+  .trust-item span:not(.icon) {
+    display: block;
+    color: var(--tt-muted);
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-top: 5px;
+  }
+
+  @media (max-width: 960px) {
+    .trust-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .trust-item,
+    .trust-item + .trust-item {
+      padding: 16px 0;
+      border-left: 0;
+    }
+    .trust-item + .trust-item {
+      border-top: 1px dashed var(--tt-line);
+    }
+  }
+</style>

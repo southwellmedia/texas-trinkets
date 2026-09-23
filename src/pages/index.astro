@@ -1,36 +1,34 @@
 ---
-import PageLayout from '@/layouts/PageLayout.astro';
+import { getShots, piecesOf } from '@/lib/shots';
+import SiteLayout from '@/layouts/SiteLayout.astro';
+import Hero from '@/components/sections/Hero.astro';
+import Marquee from '@/components/sections/Marquee.astro';
+import TrustBar from '@/components/sections/TrustBar.astro';
+import ProductGrid from '@/components/sections/ProductGrid.astro';
+import CustomOrder from '@/components/sections/CustomOrder.astro';
+import MeetSalem from '@/components/sections/MeetSalem.astro';
+import Process from '@/components/sections/Process.astro';
+import OrderForm from '@/components/sections/OrderForm.astro';
+
+const products = await getShots();
+const pieceGroups = products.map((shot) => ({
+  label: shot.data.name,
+  pieces: piecesOf(shot).map((p) => p.name),
+}));
 ---
 
-<PageLayout
-  title="Welcome"
-  description="Welcome to your new Velocity site. Start building something amazing."
+<SiteLayout
+  title="Handmade Western Jewelry"
+  description="Turquoise, silver, conchos and one-of-a-kind finds, made by hand in Texas. Shop available pieces or start a custom order."
 >
-  <section class="py-24 md:py-32">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-        Welcome to <span class="text-primary">Velocity</span>
-      </h1>
-      <p class="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-        Your new Astro site is ready. Edit this page at
-        <code class="bg-muted px-2 py-1 rounded text-sm">src/pages/index.astro</code>
-      </p>
-      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/blog"
-          class="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
-        >
-          View Blog
-        </a>
-        <a
-          href="https://docs.astro.build"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center rounded-md border border-input bg-background px-6 py-3 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
-        >
-          Astro Docs
-        </a>
-      </div>
-    </div>
-  </section>
-</PageLayout>
+  <div id="top">
+    <Hero />
+    <Marquee bleed="var(--hero-ground)" />
+    <TrustBar />
+    <ProductGrid products={products} />
+    <CustomOrder />
+    <MeetSalem />
+    <Process />
+    <OrderForm groups={pieceGroups} />
+  </div>
+</SiteLayout>

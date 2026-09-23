@@ -1,0 +1,355 @@
+---
+/**
+ * MeetSalem
+ * About the owner, Salem Shields — her story in her own words.
+ */
+import { Image } from 'astro:assets';
+import salemPhoto from '@/assets/images/salem-shields.jpg';
+import logo from '@/assets/branding/tt-logo.png';
+---
+
+<section id="story" class="salem" aria-labelledby="salem-heading">
+  <div class="tt-container salem-grid">
+    <div class="salem-media" data-reveal>
+      <figure class="salem-photo-wrap">
+        <div class="salem-photo">
+          <Image
+            src={salemPhoto}
+            alt="Salem Shields smiling in a selfie with her young son"
+            widths={[420, 640, 860]}
+            sizes="(max-width: 960px) min(460px, 92vw), 440px"
+          />
+        </div>
+        <figcaption class="hand salem-caption">
+          <svg viewBox="0 0 60 44" aria-hidden="true"><path d="M56 40C40 38 22 28 10 8M10 8l12 3M10 8l-1 12" /></svg>
+          me &amp; my why ♡
+        </figcaption>
+      </figure>
+      <div class="salem-stamp" aria-hidden="true">
+        <Image src={logo} alt="" widths={[200, 320]} sizes="170px" />
+      </div>
+    </div>
+
+    <div class="salem-copy">
+      <div class="eyebrow" data-reveal>Meet the maker</div>
+      <h2 id="salem-heading" class="display" data-reveal style="--d:1">
+        Meet <em>Salem</em> Shields.
+      </h2>
+      <p class="hand salem-role" data-reveal style="--d:1">owner, maker &amp; proud mama</p>
+
+      <blockquote class="lead" data-reveal style="--d:2">
+        <span class="qmark" aria-hidden="true">“</span>Every piece I create is made with love,
+        faith, and purpose.”
+      </blockquote>
+
+      <div class="salem-story">
+        <p data-reveal style="--d:3">
+          After surviving cancer, I found healing through creativity and the unwavering grace of
+          God. What began as a way to restore my heart became a passion for creating meaningful,
+          handcrafted treasures that bring joy to others.
+        </p>
+        <p data-reveal style="--d:4">
+          As a Christian and a proud single mom, my greatest inspiration is my son. <span
+            class="why">He is my “why”<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"
+              ><path d="M3 9c40-6 92-8 194-3" /></svg
+            ></span> and the reason I continue building this dream. From handcrafted necklaces and
+          jewelry to painted birdhouses, hats, keychains, jewelry boxes, and one-of-a-kind keepsakes,
+          every item is created by hand with care, prayer, and attention to detail.
+        </p>
+      </div>
+
+      <div class="thanks stitched" data-reveal style="--d:5">
+        <p>
+          Thank you for supporting not just a small business, but a journey of faith, healing,
+          hope, and new beginnings. Your kindness helps a mother continue pursuing her dream while
+          sharing God’s love through creativity.
+        </p>
+        <div class="thanks-foot">
+          <div>
+            <span class="hand signature">Salem</span>
+            <span class="sig-name">Salem Shields · Owner &amp; maker, Texas Trinkets</span>
+          </div>
+          <a class="tt-link" href="#contact">Say hello to Salem <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .salem {
+    position: relative;
+    background: var(--tt-paper);
+    padding: 120px 0;
+    border-block: 1px solid var(--tt-line);
+  }
+  .salem::before,
+  .salem::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-top: 1.5px dashed var(--tt-desert);
+  }
+  .salem::before {
+    top: 10px;
+  }
+  .salem::after {
+    bottom: 10px;
+  }
+
+  .salem-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 96px;
+    align-items: start;
+  }
+
+  /* ---- Photo column (sticks while the story scrolls) ---- */
+  .salem-media {
+    position: sticky;
+    top: 110px;
+    padding: 0 0 60px;
+  }
+  .salem-photo-wrap {
+    margin: 0;
+    position: relative;
+  }
+  .salem-photo {
+    aspect-ratio: 2 / 3;
+    border-radius: 999px 999px 26px 26px;
+    overflow: hidden;
+    background: var(--tt-sand);
+    transform: rotate(-1.5deg);
+    box-shadow:
+      0 0 0 10px var(--tt-ivory),
+      0 0 0 11px var(--tt-line),
+      0 40px 70px -40px rgba(58, 37, 24, 0.55);
+  }
+  .salem-photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 45%;
+  }
+  .salem-caption {
+    position: absolute;
+    right: -26px;
+    bottom: -52px;
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    font-size: 28px;
+    transform: rotate(-4deg);
+  }
+  .salem-caption svg {
+    width: 40px;
+    height: 30px;
+    margin-top: -16px;
+    fill: none;
+    stroke: var(--tt-leather);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .salem-stamp {
+    position: absolute;
+    left: -58px;
+    bottom: 8px;
+    width: 170px;
+    transform: rotate(-9deg);
+    filter: drop-shadow(0 14px 20px rgba(58, 37, 24, 0.3));
+    transition: transform 0.6s var(--ease-out-soft);
+  }
+  .salem-media:hover .salem-stamp {
+    transform: rotate(0deg) scale(1.05);
+  }
+  .salem-stamp :global(img) {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ---- Story column ---- */
+  .salem-copy h2 {
+    font-size: clamp(46px, 5.4vw, 76px);
+    line-height: 0.98;
+    margin: 16px 0 6px;
+  }
+  .salem-role {
+    margin: 0 0 30px;
+    font-size: 27px;
+    transform: rotate(-2deg);
+    transform-origin: left;
+  }
+  .lead {
+    position: relative;
+    margin: 0 0 26px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 380;
+    font-variation-settings: 'SOFT' 100;
+    font-size: 30px;
+    line-height: 1.3;
+    color: var(--tt-ink);
+  }
+  .qmark {
+    position: absolute;
+    left: -0.62em;
+    top: -0.28em;
+    font-size: 2.6em;
+    line-height: 1;
+    color: var(--tt-leather);
+    opacity: 0.85;
+  }
+  .salem-story p {
+    font-size: 16.5px;
+    line-height: 1.8;
+    color: var(--tt-muted);
+    margin: 0 0 20px;
+    max-width: 600px;
+  }
+  .why {
+    position: relative;
+    white-space: nowrap;
+    color: var(--tt-ink);
+    font-weight: 700;
+  }
+  .why svg {
+    position: absolute;
+    left: -2%;
+    bottom: -7px;
+    width: 104%;
+    height: 10px;
+    overflow: visible;
+  }
+  .why path {
+    fill: none;
+    stroke: var(--tt-turquoise);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 210;
+    stroke-dashoffset: 210;
+    transition: stroke-dashoffset 1.2s 0.6s var(--ease-out-soft);
+  }
+  .is-in .why path,
+  :global(html:not(.reveal-ready)) .why path {
+    stroke-dashoffset: 0;
+  }
+
+  .thanks {
+    --stitch-radius: 22px;
+    margin-top: 34px;
+    padding: 34px 36px 30px;
+    border-radius: 22px;
+    background: var(--tt-sand);
+    max-width: 640px;
+  }
+  .thanks::after {
+    border-color: rgba(163, 86, 43, 0.35);
+  }
+  .thanks p {
+    margin: 0;
+    font-family: var(--font-display);
+    font-variation-settings: 'SOFT' 100;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--tt-ink);
+  }
+  .thanks-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .signature {
+    display: block;
+    font-size: 46px;
+    line-height: 1;
+    transform: rotate(-4deg);
+    transform-origin: left;
+  }
+  .sig-name {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--tt-muted);
+  }
+
+  @media (max-width: 960px) {
+    .salem {
+      padding: 88px 0;
+    }
+    .salem-grid {
+      grid-template-columns: 1fr;
+      gap: 72px;
+    }
+    .salem-media {
+      position: relative;
+      top: 0;
+      max-width: 420px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .salem-stamp {
+      left: -28px;
+      width: 140px;
+    }
+    .salem-caption {
+      right: -6px;
+    }
+    .lead {
+      padding-left: 0.5em;
+    }
+    .qmark {
+      left: -0.3em;
+    }
+  }
+  @media (max-width: 640px) {
+    .salem {
+      padding: 72px 0;
+    }
+    .salem-media {
+      max-width: 300px;
+      padding-bottom: 54px;
+    }
+    .salem-photo {
+      box-shadow:
+        0 0 0 7px var(--tt-ivory),
+        0 0 0 8px var(--tt-line),
+        0 30px 60px -30px rgba(58, 37, 24, 0.55);
+    }
+    .salem-stamp {
+      width: 112px;
+      left: -22px;
+    }
+    .salem-caption {
+      font-size: 23px;
+      right: -10px;
+      bottom: -46px;
+    }
+    .salem-copy h2 {
+      font-size: 46px;
+    }
+    .salem-role {
+      font-size: 23px;
+    }
+    .lead {
+      font-size: 24px;
+    }
+    .thanks {
+      padding: 26px 22px 24px;
+    }
+    .thanks p {
+      font-size: 17px;
+    }
+    .why {
+      white-space: normal;
+    }
+  }
+</style>

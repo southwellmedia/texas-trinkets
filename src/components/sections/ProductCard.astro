@@ -1,0 +1,265 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { piecesOf } from '@/lib/shots';
+
+interface Props {
+  product: CollectionEntry<'products'>;
+  index?: number;
+}
+
+const { product, index = 0 } = Astro.props;
+const { name, details, priceRange, status, image, imageAlt, imagePosition } = product.data;
+const statusKey = status.toLowerCase().replace(/\s+/g, '-');
+const count = piecesOf(product).length;
+const multi = count > 1;
+---
+
+<a
+  class="product"
+  href={`#shop/${product.id}`}
+  data-open-shot={product.id}
+  data-reveal
+  style={`--d:${index % 3}`}
+  aria-label={multi
+    ? `${name}: ${count} pieces in this photo. View the pieces`
+    : `${name}, ${priceRange ?? 'ask for pricing'}, ${status}. View details`}
+>
+  <div class="product-media stitched">
+    <Image
+      src={image}
+      alt={imageAlt}
+      widths={[320, 480, 640]}
+      sizes="(max-width: 960px) 50vw, 280px"
+      style={`object-position:${imagePosition}`}
+    />
+    <span class={`product-tag tag-${statusKey}`}><i aria-hidden="true"></i>{status}</span>
+    {
+      multi && (
+        <span class="product-count" aria-hidden="true">
+          <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.2" /><circle cx="8" cy="8" r="2.2" /></svg>
+          {count} pieces
+        </span>
+      )
+    }
+    <span class="product-ask" aria-hidden="true">{multi ? 'Explore the pieces' : 'View details'} <b>→</b></span>
+  </div>
+  <div class="product-info">
+    <div class="product-name">{name}</div>
+    <div class="product-meta">
+      <span>{details}</span>
+      <span class="product-price">{priceRange ?? 'Ask for pricing'}</span>
+    </div>
+  </div>
+</a>
+
+<style>
+  .product {
+    min-width: 0;
+    display: block;
+  }
+  .product:focus-visible {
+    outline: 2px solid var(--tt-turquoise);
+    outline-offset: 4px;
+    border-radius: 20px;
+  }
+  .product-media {
+    --stitch-radius: 20px;
+    aspect-ratio: 4 / 5;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--tt-sand);
+    position: relative;
+    transition:
+      transform 0.5s var(--ease-out-soft),
+      box-shadow 0.5s ease;
+  }
+  .product-media::after {
+    opacity: 0;
+    transform: scale(1.03);
+    transition:
+      opacity 0.4s ease,
+      transform 0.5s var(--ease-out-soft);
+    z-index: 2;
+  }
+  .product:hover .product-media,
+  .product:focus-visible .product-media {
+    transform: translateY(-6px) rotate(-0.6deg);
+    box-shadow: 0 30px 50px -28px rgba(58, 37, 24, 0.6);
+  }
+  .product:hover .product-media::after,
+  .product:focus-visible .product-media::after {
+    opacity: 1;
+    transform: none;
+  }
+  .product-media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-out-soft);
+  }
+  .product:hover .product-media :global(img) {
+    transform: scale(1.06);
+  }
+
+  .product-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255, 250, 241, 0.94);
+    backdrop-filter: blur(8px);
+    padding: 7px 11px 7px 9px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .product-tag i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--tt-turquoise);
+    box-shadow: 0 0 0 3px rgba(47, 125, 123, 0.18);
+  }
+  .tag-one-of-one i {
+    background: var(--tt-leather);
+    box-shadow: 0 0 0 3px rgba(163, 86, 43, 0.18);
+  }
+  .tag-made-to-order i {
+    background: #c49a5c;
+    box-shadow: 0 0 0 3px rgba(196, 154, 92, 0.2);
+  }
+  .tag-sold i {
+    background: #9a9088;
+    box-shadow: none;
+  }
+  .tag-available i {
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  .product-count {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(34, 26, 20, 0.78);
+    backdrop-filter: blur(8px);
+    color: var(--tt-paper);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+  .product-count svg {
+    width: 13px;
+    height: 13px;
+    fill: none;
+    stroke: var(--tt-desert);
+    stroke-width: 1.6;
+  }
+
+  .product-ask {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 999px;
+    background: var(--tt-ink);
+    color: var(--tt-paper);
+    font-size: 12.5px;
+    font-weight: 750;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.35s ease,
+      transform 0.45s var(--ease-out-soft);
+  }
+  .product:hover .product-ask,
+  .product:focus-visible .product-ask {
+    opacity: 1;
+    transform: none;
+  }
+
+  .product-info {
+    padding: 16px 4px 0;
+  }
+  .product-name {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 420;
+    line-height: 1.2;
+    font-variation-settings: 'SOFT' 100;
+    transition: color 0.2s ease;
+  }
+  .product:hover .product-name {
+    color: var(--tt-leather);
+  }
+  .product-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--tt-muted);
+    font-size: 12.5px;
+    margin-top: 7px;
+  }
+  .product-price {
+    font-weight: 750;
+    color: var(--tt-ink);
+  }
+
+  @keyframes pulse {
+    50% {
+      box-shadow: 0 0 0 6px rgba(47, 125, 123, 0);
+    }
+  }
+
+  @media (hover: none) {
+    .product-ask {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .product-name {
+      font-size: 17px;
+    }
+    .product-meta {
+      display: block;
+    }
+    .product-meta span {
+      display: block;
+      margin-top: 4px;
+    }
+    .product-media {
+      border-radius: 14px;
+      --stitch-radius: 14px;
+    }
+    .product-count {
+      top: auto;
+      bottom: 9px;
+      right: 9px;
+      font-size: 10px;
+      padding: 5px 8px;
+    }
+    .product-tag {
+      top: 9px;
+      left: 9px;
+      font-size: 8.5px;
+      padding: 6px 8px 6px 7px;
+    }
+  }
+</style>

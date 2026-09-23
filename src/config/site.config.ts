@@ -49,45 +49,30 @@ export interface SiteConfig {
 }
 
 const siteConfig: SiteConfig = {
-  name: 'Velocity',
-  description: 'A modern website built with Astro and Tailwind CSS',
+  name: 'Texas Trinkets',
+  description:
+    'Handmade western jewelry with turquoise, silver and a whole lot of heart. Made in Texas, one piece at a time. Custom orders welcome.',
   url: SITE_URL || 'https://example.com',
   ogImage: '/og-default.png',
-  author: 'Southwell Media',
-  // Demo contact info - replace with your actual business details
+  author: 'Salem Shields',
+  // TODO: replace with the real inbox that should receive order requests
   email: 'hello@example.com',
-  phone: '+1 (555) 123-4567',
-  address: {
-    street: '123 Main St',
-    city: 'Dallas',
-    state: 'TX',
-    zip: '75001',
-    country: 'US',
-  },
-  socialLinks: [
-    'https://github.com/southwellmedia',
-  ],
-  // Twitter metadata - update with your actual handles or remove
-  // twitter: {
-  //   site: '@yourhandle',
-  //   creator: '@yourhandle',
-  // },
+  // TODO: add real social profile URLs (used for Organization JSON-LD + footer)
+  socialLinks: [],
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
     bing: BING_SITE_VERIFICATION,
   },
-  // Branding: Logo files live in src/assets/branding/
-  // Replace the SVG files there with your own branding
   branding: {
     logo: {
-      alt: 'Velocity',
+      alt: 'Texas Trinkets',
     },
     favicon: {
       svg: '/favicon.svg',
     },
     colors: {
-      themeColor: '#F94C10',
-      backgroundColor: '#ffffff',
+      themeColor: '#3a2518',
+      backgroundColor: '#f6efe3',
     },
   },
 };

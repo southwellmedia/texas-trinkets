@@ -1,0 +1,143 @@
+---
+/**
+ * Marquee
+ * Slowly scrolling leather ribbon of brand phrases. Pauses on hover and
+ * stops entirely for reduced-motion visitors.
+ */
+interface Props {
+  items?: string[];
+  /** Colour painted behind the top half of the ribbon so the tilt never
+   *  reveals a sliver of page background (match the section above). */
+  bleed?: string;
+}
+
+const {
+  bleed = 'transparent',
+  items = [
+    'Real turquoise',
+    'Handmade in Texas',
+    'Silver & conchos',
+    'One of one',
+    'Custom lengths',
+    'Made with love, faith & purpose',
+  ],
+} = Astro.props;
+
+// Two identical runs let the track loop seamlessly at -50%.
+const runs = [0, 1];
+---
+
+<div class="marquee-wrap" style={`--bleed:${bleed}`}>
+<div class="marquee" aria-label={items.join(', ')} role="region">
+  <div class="track" aria-hidden="true">
+    {
+      runs.map(() => (
+        <ul class="run">
+          {items.map((item) => (
+            <li>
+              <span class="phrase">{item}</span>
+              <span class="star">✦</span>
+            </li>
+          ))}
+        </ul>
+      ))
+    }
+  </div>
+</div>
+</div>
+
+<style>
+  .marquee-wrap {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 18px;
+    padding-top: 1px;
+  }
+  .marquee-wrap::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -14px;
+    height: calc(50% + 14px);
+    background: var(--bleed);
+  }
+  .marquee {
+    position: relative;
+    overflow: hidden;
+    background: var(--tt-leather);
+    color: var(--tt-paper);
+    padding: 16px 0;
+    transform: rotate(-1.2deg) scale(1.03);
+    margin-top: -18px;
+    box-shadow: 0 18px 30px -24px rgba(58, 37, 24, 0.8);
+    z-index: 2;
+  }
+  .marquee::before,
+  .marquee::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 0;
+    border-top: 1.5px dashed rgba(255, 250, 241, 0.45);
+  }
+  .marquee::before {
+    top: 6px;
+  }
+  .marquee::after {
+    bottom: 6px;
+  }
+  .track {
+    display: flex;
+    width: max-content;
+    animation: scroll 42s linear infinite;
+  }
+  .marquee:hover .track {
+    animation-play-state: paused;
+  }
+  .run {
+    display: flex;
+    flex: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .run li {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .phrase {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 26px;
+    font-weight: 380;
+    letter-spacing: -0.01em;
+    font-variation-settings: 'SOFT' 100;
+  }
+  .star {
+    margin: 0 28px;
+    font-size: 15px;
+    color: var(--tt-desert);
+  }
+
+  @keyframes scroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .track {
+      animation: none;
+    }
+  }
+  @media (max-width: 640px) {
+    .phrase {
+      font-size: 20px;
+    }
+    .star {
+      margin: 0 18px;
+    }
+  }
+</style>

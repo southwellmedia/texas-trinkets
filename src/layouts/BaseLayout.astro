@@ -44,7 +44,7 @@ if (includeOrgSchema) {
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" style="color-scheme: light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -81,10 +81,16 @@ if (includeOrgSchema) {
     <!-- Theme script (runs before render to prevent flash) -->
     <script is:inline>
       (function () {
-        const theme = localStorage.getItem('theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        // Texas Trinkets is a light-only brand: ignore the OS preference and
+        // only honour an explicit stored choice.
+        let theme = null;
+        try {
+          theme = localStorage.getItem('theme');
+        } catch {
+          // storage unavailable (private mode) — stay light
+        }
 
-        if (theme === 'dark' || (!theme && systemDark)) {
+        if (theme === 'dark') {
           document.documentElement.classList.add('dark');
         } else {
           document.documentElement.classList.remove('dark');

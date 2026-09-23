@@ -1,0 +1,413 @@
+---
+import { Image } from 'astro:assets';
+import heroImage from '@/assets/images/hero-concho-necklace.jpg';
+import polaroidImage from '@/assets/images/star-concho-necklace.jpg';
+import Seal from '@/components/site/Seal.astro';
+import DesertScene from '@/components/site/DesertScene.astro';
+---
+
+<section class="hero">
+  <!-- Desert silhouette, tone-on-tone so it sits quietly behind the content -->
+  <DesertScene tone="sand" parallax={false} rise class="hero-desert" />
+
+  <div class="tt-container hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow hero-in" style="--i:0">Handmade western jewelry</div>
+      <h1 class="display">
+        <span class="line hero-in" style="--i:1">Pieces with</span>
+        <span class="line hero-in" style="--i:2">a little <em class="soul">soul<svg
+              class="swash"
+              viewBox="0 0 220 28"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+              ><path d="M4 18c38-10 84-15 128-12 30 2 58 7 84 14" /></svg
+            ></em></span>
+        <span class="line hero-in" style="--i:3">in them.</span>
+      </h1>
+      <p class="hero-in" style="--i:4">
+        Turquoise, silver, conchos and one-of-a-kind finds—made by hand in Texas for women who
+        like their jewelry personal, storied and a little untamed.
+      </p>
+      <div class="hero-actions hero-in" style="--i:5">
+        <a class="tt-btn tt-btn-dark" href="#shop">Shop Available Pieces <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="tt-btn tt-btn-line" href="#custom">Create Something Custom</a>
+      </div>
+      <div class="hero-note hero-in" style="--i:6">
+        <div>
+          <span class="note-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3l2.2 6.3H21l-5.4 4 2 6.4L12 15.8 6.4 19.7l2-6.4L3 9.3h6.8z" /></svg>
+          </span>
+          <div><strong>Made by hand</strong>Small-batch &amp; one-of-a-kind</div>
+        </div>
+        <div>
+          <span class="note-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" /></svg>
+          </span>
+          <div><strong>Made for you</strong>Custom lengths &amp; combinations</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <div class="hero-arch hero-in" style="--i:1">
+        <Image
+          src={heroImage}
+          alt="Silver and turquoise concho necklace being worn"
+          widths={[480, 720, 960, 1280]}
+          sizes="(max-width: 960px) min(640px, 100vw), 540px"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+
+      <figure class="polaroid hero-in" style="--i:4">
+        <span class="tape" aria-hidden="true"></span>
+        <Image
+          src={polaroidImage}
+          alt="Turquoise star and concho necklace on a velvet bust"
+          widths={[240, 360, 480]}
+          sizes="200px"
+        />
+        <figcaption class="hand">star &amp; concho ✦</figcaption>
+      </figure>
+
+      <div class="hero-seal hero-in" style="--i:5">
+        <Seal size={168} />
+      </div>
+
+      <div class="hero-scribble hand hero-in" style="--i:7" aria-hidden="true">
+        <svg viewBox="0 0 70 50"><path d="M64 42C46 40 26 30 12 10M12 10l1 13M12 10l12 4" /></svg>
+        <span>made one at a time</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding: 64px 0 96px;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  /* Artwork keeps its proportions and sits on the bottom edge; the box adds
+     ~160px of empty sky above it so the fade happens in the sky, not on the
+     cacti. */
+  .hero :global(.hero-desert) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    aspect-ratio: auto;
+    height: calc(32.5vw + 160px);
+    z-index: -1;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 180px);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 180px);
+  }
+  .hero :global(.hero-desert svg) {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+    gap: 64px;
+    align-items: center;
+  }
+
+  /* ---- Copy ---- */
+  .hero h1 {
+    font-size: clamp(58px, 7vw, 100px);
+    line-height: 0.92;
+    margin: 22px 0 26px;
+    max-width: 640px;
+  }
+  .hero h1 .line {
+    display: block;
+  }
+  .soul {
+    position: relative;
+    display: inline-block;
+    padding-right: 0.06em;
+  }
+  .swash {
+    position: absolute;
+    left: -2%;
+    right: -4%;
+    bottom: -0.08em;
+    width: 106%;
+    height: 0.26em;
+    overflow: visible;
+  }
+  .swash path {
+    fill: none;
+    stroke: var(--tt-turquoise);
+    stroke-width: 5;
+    stroke-linecap: round;
+    stroke-dasharray: 240;
+    stroke-dashoffset: 240;
+    animation: draw 1.1s 1.1s var(--ease-out-soft) forwards;
+  }
+  .hero p {
+    font-size: 18px;
+    line-height: 1.65;
+    color: #54483e;
+    max-width: 540px;
+    margin: 0 0 32px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .hero-note {
+    display: flex;
+    gap: 34px;
+    margin-top: 38px;
+    padding-top: 24px;
+    border-top: 1px dashed #d9c7ab;
+    font-size: 12.5px;
+    color: #54483e;
+  }
+  .hero-note > div {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .hero-note strong {
+    display: block;
+    color: var(--tt-ink);
+    font-size: 13.5px;
+    margin-bottom: 3px;
+  }
+  .note-icon {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--tt-sand);
+    flex: none;
+  }
+  .note-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: var(--tt-leather);
+    stroke-width: 1.7;
+    stroke-linejoin: round;
+  }
+
+  /* ---- Media collage ---- */
+  .hero-media {
+    position: relative;
+    padding: 0 0 0 40px;
+  }
+  .hero-arch {
+    aspect-ratio: 4 / 5;
+    border-radius: 999px 999px 26px 26px;
+    overflow: hidden;
+    background: var(--tt-sand);
+    box-shadow:
+      0 0 0 10px var(--tt-paper),
+      0 0 0 11px var(--tt-line),
+      0 40px 80px -40px rgba(58, 37, 24, 0.55);
+  }
+  .hero-arch :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 42%;
+    animation: slow-zoom 14s ease-out both;
+  }
+
+  .polaroid {
+    position: absolute;
+    left: -34px;
+    bottom: -28px;
+    width: 188px;
+    margin: 0;
+    padding: 10px 10px 8px;
+    background: #fffdf8;
+    box-shadow: 0 22px 40px -18px rgba(34, 26, 20, 0.45);
+    transform: rotate(-6deg);
+    transition: transform 0.5s var(--ease-out-soft);
+  }
+  .polaroid:hover {
+    transform: rotate(-2deg) translateY(-4px);
+  }
+  .polaroid :global(img) {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: 50% 35%;
+  }
+  .polaroid figcaption {
+    font-size: 21px;
+    text-align: center;
+    padding-top: 6px;
+    color: var(--tt-ink);
+  }
+  .tape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 76px;
+    height: 24px;
+    transform: translateX(-50%) rotate(3deg);
+    background: rgba(232, 201, 160, 0.75);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+
+  .hero-seal {
+    position: absolute;
+    top: 4%;
+    right: -38px;
+    filter: drop-shadow(0 18px 30px rgba(58, 37, 24, 0.28));
+  }
+
+  .hero-scribble {
+    position: absolute;
+    left: 172px;
+    bottom: -44px;
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    font-size: 26px;
+    transform: rotate(-4deg);
+  }
+  .hero-scribble svg {
+    width: 50px;
+    height: 36px;
+    margin-bottom: 10px;
+    fill: none;
+    stroke: var(--tt-leather);
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  /* ---- Entrance ---- */
+  .hero-in {
+    animation: rise 1s var(--ease-out-soft) both;
+    animation-delay: calc(var(--i, 0) * 110ms + 80ms);
+  }
+  .polaroid.hero-in {
+    animation-name: drop-in;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+  }
+  @keyframes drop-in {
+    from {
+      opacity: 0;
+      transform: translateY(-30px) rotate(-14deg);
+    }
+  }
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes slow-zoom {
+    from {
+      transform: scale(1.08);
+    }
+  }
+
+  @media (max-width: 960px) {
+    .hero {
+      padding: 40px 0 96px;
+    }
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 56px;
+    }
+    .hero-media {
+      max-width: 560px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+    }
+    .polaroid {
+      left: -12px;
+    }
+    .hero-seal {
+      right: -14px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 30px 0 84px;
+    }
+    .hero :global(.hero-desert) {
+      height: calc(58vw + 120px);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 130px);
+      mask-image: linear-gradient(to bottom, transparent 0, #000 130px);
+    }
+    .hero :global(.hero-desert svg) {
+      width: 180%;
+      left: -40%;
+    }
+    .hero-grid {
+      gap: 44px;
+    }
+    .hero h1 {
+      font-size: 54px;
+      margin: 16px 0 20px;
+    }
+    .hero p {
+      font-size: 16px;
+    }
+    .hero-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    .hero-note {
+      gap: 16px;
+      flex-direction: column;
+    }
+    .hero-media {
+      padding: 0 12px;
+    }
+    .hero-arch {
+      box-shadow:
+        0 0 0 7px var(--tt-paper),
+        0 0 0 8px var(--tt-line),
+        0 30px 60px -30px rgba(58, 37, 24, 0.55);
+    }
+    .polaroid {
+      width: 132px;
+      left: -4px;
+      bottom: -34px;
+      padding: 7px 7px 5px;
+    }
+    .polaroid figcaption {
+      font-size: 17px;
+    }
+    .hero-seal {
+      right: -6px;
+      top: -4px;
+    }
+    .hero-seal :global(.seal) {
+      --seal-size: 118px !important;
+    }
+    .hero-scribble {
+      left: 124px;
+      bottom: -62px;
+      font-size: 21px;
+    }
+    .hero-scribble svg {
+      width: 38px;
+      height: 28px;
+    }
+  }
+</style>

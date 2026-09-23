@@ -1,0 +1,194 @@
+---
+/**
+ * DesertScene
+ * The Texas Trinkets desert silhouette (sun, mesas, saguaros) rebuilt as
+ * independent depth layers so it can be recoloured per placement and
+ * animated with a gentle parallax "sunrise" as it scrolls into view.
+ *
+ * tone:
+ *  - "sand"    quiet tone-on-tone backdrop (hero)
+ *  - "sunset"  full brand colours; ground matches the footer (footer)
+ *  - "original" the artwork's own palette
+ */
+import { desertLayers } from './desert-scene.paths';
+
+interface Props {
+  tone?: 'sand' | 'sunset' | 'original';
+  /** Animate layers on scroll (sunrise parallax) */
+  parallax?: boolean;
+  /** Play a one-off sunrise when the page loads (use with parallax={false}) */
+  rise?: boolean;
+  /**
+   * Bottom edge of the artwork in SVG units (full art ends at 1413).
+   * Lower it to trim the solid foreground ground, e.g. when content
+   * sits directly below on the same colour.
+   */
+  bottom?: number;
+  class?: string;
+}
+
+const { tone = 'sunset', parallax = true, rise = false, bottom = 1413, class: className } = Astro.props;
+const top = 130;
+const viewHeight = bottom - top;
+const order = ['sun', 'far1', 'far2', 'mid', 'near', 'ground'] as const;
+---
+
+<div
+  class:list={['desert', `desert--${tone}`, { 'desert--rise': rise }, className]}
+  data-desert={parallax ? '' : undefined}
+  style={`--art-h:${viewHeight}`}
+  aria-hidden="true"
+>
+  <svg viewBox={`31 ${top} 3946 ${viewHeight}`} preserveAspectRatio="xMidYMax slice" focusable="false">
+    {
+      order.map((layer) => (
+        <g class={`layer layer-${layer}`}>
+          {desertLayers[layer].map((d) => (
+            <path d={d} />
+          ))}
+        </g>
+      ))
+    }
+  </svg>
+</div>
+
+<script>
+  // Sunrise parallax: --p goes 0 → 1 as the scene travels into view.
+  function initDesert() {
+    const scenes = document.querySelectorAll<HTMLElement>('[data-desert]:not([data-desert-ready])');
+    if (!scenes.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      scenes.forEach((s) => s.style.setProperty('--p', '1'));
+      return;
+    }
+
+    let ticking = false;
+    const update = () => {
+      const vh = window.innerHeight;
+      scenes.forEach((s) => {
+        const r = s.getBoundingClientRect();
+        // 0 when the scene's top is at the bottom of the viewport,
+        // 1 once its bottom edge has come fully into view.
+        const p = (vh - r.top) / Math.max(r.height, 1);
+        s.style.setProperty('--p', Math.min(1, Math.max(0, p)).toFixed(3));
+      });
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+
+    scenes.forEach((s) => s.setAttribute('data-desert-ready', ''));
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+  }
+
+  initDesert();
+  document.addEventListener('astro:page-load', initDesert);
+</script>
+
+<style>
+  @property --p {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 1;
+  }
+  .desert--rise {
+    animation: sunrise 2.6s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes sunrise {
+    from {
+      --p: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .desert--rise {
+      animation: none;
+    }
+  }
+
+  .desert {
+    --p: 1;
+    position: relative;
+    width: 100%;
+    /* keep the artwork's proportions; a min-height (set by the placement)
+       makes "slice" crop the sides on narrow screens instead of the sky */
+    aspect-ratio: 3946 / var(--art-h, 1283);
+    line-height: 0;
+    pointer-events: none;
+  }
+  .desert svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Depth parallax: far layers travel further than near ones */
+  .layer {
+    transition: transform 0.2s linear;
+    will-change: transform;
+  }
+  .layer-sun {
+    transform: translateY(calc((1 - var(--p)) * 320px));
+  }
+  .layer-far1 {
+    transform: translateY(calc((1 - var(--p)) * 150px));
+  }
+  .layer-far2 {
+    transform: translateY(calc((1 - var(--p)) * 110px));
+  }
+  .layer-mid {
+    transform: translateY(calc((1 - var(--p)) * 60px));
+  }
+  .layer-near {
+    transform: translateY(calc((1 - var(--p)) * 24px));
+  }
+
+  /* ---- Tones ---- */
+  .desert--original {
+    --c-sun: #ffffff;
+    --c-far1: #f99d1c;
+    --c-far2: #e9841d;
+    --c-mid: #ad5613;
+    --c-near: #00617e;
+    --c-ground: #004b64;
+  }
+  .desert--sunset {
+    --c-sun: #fffaf1;
+    --c-far1: #eeb265;
+    --c-far2: #dc8a45;
+    --c-mid: var(--tt-leather);
+    --c-near: var(--tt-turquoise-dark);
+    --c-ground: var(--tt-saddle);
+  }
+  .desert--sand {
+    --c-sun: #fbf5ea;
+    --c-far1: #f2e7d6;
+    --c-far2: #eee1cd;
+    --c-mid: #e9d9c0;
+    --c-near: #e4d0b3;
+    --c-ground: var(--hero-ground, #ddc6a4);
+  }
+  .layer-sun {
+    fill: var(--c-sun);
+  }
+  .layer-far1 {
+    fill: var(--c-far1);
+  }
+  .layer-far2 {
+    fill: var(--c-far2);
+  }
+  .layer-mid {
+    fill: var(--c-mid);
+  }
+  .layer-near {
+    fill: var(--c-near);
+  }
+  .layer-ground {
+    fill: var(--c-ground);
+  }
+</style>

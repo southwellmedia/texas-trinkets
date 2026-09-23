@@ -1,0 +1,275 @@
+/* =============================================================================
+   Texas Trinkets — shared brand layer
+   Section-specific styles live in each component's scoped <style>.
+   Brand colors (--tt-*) are defined in styles/themes/texas-trinkets.css.
+   ============================================================================= */
+
+/* Fraunces "soft" cut (rounded serifs) + Caveat for handwritten notes */
+@import '@fontsource-variable/fraunces/soft.css';
+@import '@fontsource-variable/fraunces/soft-italic.css';
+@import '@fontsource-variable/caveat/wght.css';
+
+:root {
+  --font-hand: var(--theme-font-hand);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  /* ground colour of the hero desert; the marquee paints it behind its tilt */
+  --hero-ground: #ddc6a4;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+body {
+  background-color: var(--tt-ivory);
+}
+
+/* Paper grain over everything — gives flat colour a handmade, printed feel */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .25  0 0 0 0 .15  0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--tt-desert);
+  color: var(--tt-ink);
+}
+
+.tt-container {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 750;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--tt-leather);
+}
+.eyebrow::before {
+  content: '✦';
+  font-size: 11px;
+  letter-spacing: 0;
+  color: var(--tt-turquoise);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 380;
+  letter-spacing: -0.025em;
+  font-variation-settings: 'SOFT' 100;
+}
+.display em {
+  font-style: italic;
+  font-weight: 350;
+  color: var(--tt-leather);
+}
+
+/* Handwritten margin notes */
+.hand {
+  font-family: var(--font-hand);
+  font-weight: 550;
+  font-size: 24px;
+  line-height: 1.1;
+  color: var(--tt-leather);
+}
+
+/* Leather "saddle stitch" inset outline */
+.stitched {
+  position: relative;
+}
+.stitched::after {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border: 1.5px dashed rgba(255, 250, 241, 0.55);
+  border-radius: calc(var(--stitch-radius, 18px) - 6px);
+  pointer-events: none;
+}
+
+/* ---------- Buttons ---------- */
+.tt-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 750;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s var(--ease-out-soft),
+    box-shadow 0.25s ease,
+    opacity 0.2s ease;
+}
+.tt-btn .arrow {
+  transition: transform 0.25s var(--ease-out-soft);
+}
+.tt-btn:hover .arrow {
+  transform: translateX(4px);
+}
+.tt-btn:focus-visible {
+  outline: 2px solid var(--tt-turquoise);
+  outline-offset: 3px;
+}
+.tt-btn-dark {
+  background: var(--tt-ink);
+  color: #fff;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12) inset;
+}
+.tt-btn-dark:hover {
+  background: var(--tt-leather);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -10px rgba(163, 86, 43, 0.7);
+}
+.tt-btn-dark:disabled {
+  opacity: 0.6;
+  cursor: progress;
+  transform: none;
+}
+.tt-btn-line {
+  border-color: var(--tt-ink);
+  background: transparent;
+  color: var(--tt-ink);
+}
+.tt-btn-line:hover {
+  background: var(--tt-paper);
+  transform: translateY(-2px);
+}
+.tt-btn-light {
+  background: var(--tt-paper);
+  color: var(--tt-ink);
+}
+.tt-btn-light:hover {
+  background: var(--tt-desert);
+  transform: translateY(-2px);
+}
+
+.tt-link {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  padding-bottom: 3px;
+  background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
+  transition: background-size 0.3s ease, color 0.2s ease;
+}
+.tt-link:hover {
+  color: var(--tt-leather);
+}
+.tt-link span {
+  transition: transform 0.25s var(--ease-out-soft);
+}
+.tt-link:hover span {
+  transform: translateX(4px);
+}
+
+/* ---------- Section heads ---------- */
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 30px;
+  margin-bottom: 42px;
+}
+.section-head h2 {
+  font-size: clamp(42px, 5vw, 66px);
+  line-height: 1;
+  margin: 14px 0 0;
+}
+.section-head p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--tt-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Keep anchored sections clear of the sticky header */
+section[id],
+main[id] {
+  scroll-margin-top: 84px;
+}
+
+/* ---------- Scroll reveal ----------
+   `reveal-ready` is set on <html> by an inline script before first paint,
+   so content stays visible if JS is off. */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.9s var(--ease-out-soft),
+    transform 0.9s var(--ease-out-soft);
+  transition-delay: calc(var(--d, 0) * 90ms);
+}
+.reveal-ready [data-reveal='fade'] {
+  transform: none;
+}
+.reveal-ready [data-reveal='scale'] {
+  transform: scale(0.96);
+}
+.reveal-ready [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .tt-container {
+    width: min(100% - 36px, 1180px);
+  }
+}
+
+@media (max-width: 640px) {
+  .tt-container {
+    width: calc(100% - 32px);
+  }
+  .tt-btn {
+    width: 100%;
+  }
+  .section-head {
+    display: block;
+  }
+  .section-head p {
+    margin-top: 16px;
+  }
+  .section-head h2 {
+    font-size: 44px;
+  }
+  .hand {
+    font-size: 21px;
+  }
+}

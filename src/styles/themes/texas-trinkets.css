@@ -1,0 +1,108 @@
+/* =============================================================================
+   Velocity Theme - Texas Trinkets
+   =============================================================================
+   Warm ivory paper, espresso ink, saddle leather and desert sand pulled from
+   the logo illustration, with turquoise reserved for the jewelry itself.
+   Follows the Velocity theme contract (see default.css) so every Velocity
+   component picks up the brand automatically.
+
+   The site is intentionally light-only; BaseLayout never adds `.dark`
+   unless a visitor has explicitly stored that preference, and no theme
+   toggle is rendered.
+   ============================================================================= */
+
+:root {
+  /* Brand palette ------------------------------------------------------- */
+  --tt-ivory: #f6efe3;
+  --tt-paper: #fffaf1;
+  --tt-ink: #221a14;
+  --tt-muted: #6e6258;
+  --tt-turquoise: #2f7d7b;
+  --tt-turquoise-dark: #225f5d;
+  --tt-turquoise-light: #8fc8c3;
+  --tt-leather: #a3562b;       /* rust shirt in the logo */
+  --tt-leather-dark: #7a3d1c;
+  --tt-saddle: #3a2518;        /* deep saddle brown for dark panels */
+  --tt-desert: #e8c9a0;        /* mesa sand in the logo */
+  --tt-line: #e0d3c0;
+  --tt-sand: #efe2cc;
+
+  /* Semantic tokens ----------------------------------------------------- */
+  --background: var(--tt-ivory);
+  --background-secondary: var(--tt-paper);
+  --background-tertiary: var(--tt-sand);
+  --background-elevated: var(--tt-paper);
+
+  --foreground: var(--tt-ink);
+  --foreground-secondary: #3d352f;
+  --foreground-muted: var(--tt-muted);
+  --foreground-subtle: #8a8178;
+
+  --border: var(--tt-line);
+  --border-strong: #cbc0b0;
+  --border-subtle: #ebe4d9;
+
+  --primary: var(--tt-ink);
+  --primary-hover: #000000;
+  --primary-foreground: #ffffff;
+
+  --secondary: var(--tt-sand);
+  --secondary-hover: #ddd0bd;
+  --secondary-foreground: var(--tt-ink);
+
+  --accent: var(--tt-leather);
+  --accent-hover: var(--tt-leather-dark);
+  --accent-light: #d7ebe9;
+
+  --muted: var(--tt-sand);
+  --muted-foreground: var(--tt-muted);
+
+  --card: var(--tt-paper);
+  --card-border: var(--tt-line);
+
+  --input-bg: #ffffff;
+  --input-border: var(--tt-line);
+  --input-focus: var(--tt-turquoise);
+
+  --ring: var(--tt-turquoise);
+
+  --destructive: var(--error);
+  --destructive-foreground: #ffffff;
+
+  --gradient-start: var(--tt-ivory);
+  --gradient-end: var(--tt-paper);
+
+  /* Inverted sections (custom-order card, footer) */
+  --surface-invert: var(--tt-saddle);
+  --surface-invert-secondary: #2e2823;
+  --surface-invert-tertiary: #3a332d;
+  --on-invert: #f7f3eb;
+  --on-invert-secondary: #d3cbc3;
+  --on-invert-muted: #bdb4ad;
+  --border-invert: rgba(255, 255, 255, 0.14);
+  --border-invert-strong: rgba(255, 255, 255, 0.24);
+
+  /* Typography ---------------------------------------------------------- */
+  --theme-font-sans: 'Manrope Variable', 'Manrope', Inter, ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --theme-font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --theme-font-hand: 'Caveat Variable', 'Bradley Hand', cursive;
+  --theme-font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
+  --theme-heading-weight: 400;
+  --theme-heading-tracking: -0.025em;
+  --theme-body-leading: 1.6;
+
+  /* Shadows ------------------------------------------------------------- */
+  --theme-shadow-sm: 0 1px 2px rgba(33, 28, 24, 0.05);
+  --theme-shadow-md: 0 4px 10px rgba(33, 28, 24, 0.06);
+  --theme-shadow-lg: 0 10px 24px rgba(33, 28, 24, 0.1);
+  --theme-shadow-xl: 0 18px 50px rgba(33, 28, 24, 0.18);
+
+  /* Radii --------------------------------------------------------------- */
+  --theme-radius-sm: 0.375rem;
+  --theme-radius-md: 0.5rem;
+  --theme-radius-lg: 0.75rem;   /* 12px — form fields */
+  --theme-radius-xl: 1.5rem;    /* 24px — photos & cards */
+  --theme-radius-full: 9999px;
+}

@@ -1,0 +1,339 @@
+---
+/**
+ * OrderForm
+ * "Start an order" card. Built from Velocity's Input / Select / Textarea
+ * components and posts to Velocity's /api/contact route.
+ */
+import Input from '@/components/ui/form/Input/Input.astro';
+import { selectVariants } from '@/components/ui/form/Select/select.variants';
+import Textarea from '@/components/ui/form/Textarea/Textarea.astro';
+import siteConfig from '@/config/site.config';
+import { Image } from 'astro:assets';
+import medallion from '@/assets/branding/tt-medallion.png';
+
+interface Props {
+  /** Pieces offered in the "What are you interested in?" select, grouped by photo */
+  groups: { label: string; pieces: string[] }[];
+}
+
+const { groups } = Astro.props;
+---
+
+<section id="contact" class="contact">
+  <div class="tt-container contact-card" data-reveal>
+    <div class="contact-intro">
+      <div class="watermark" aria-hidden="true">
+        <Image src={medallion} alt="" width={520} loading="lazy" />
+      </div>
+      <div class="eyebrow">Start an order</div>
+      <h2 class="display">Tell me what <em>caught</em> your eye.</h2>
+      <p>
+        Name a piece you saw above or describe something new. Nothing is charged until the details
+        feel right.
+      </p>
+      <div class="contact-mini">
+        <strong>Helpful to include:</strong><br />
+        Stone or charm you like · preferred chain length · budget range · whether it’s a gift
+      </div>
+      <p class="hand reply-note">I read every one ♡</p>
+    </div>
+
+    <form
+      class="order-form"
+      action="/api/contact"
+      method="POST"
+      data-order-form
+      data-fallback-email={siteConfig.email}
+      novalidate
+    >
+      <Input
+        id="order-name"
+        label="Name"
+        name="name"
+        placeholder="Your name"
+        autocomplete="name"
+        required
+        minlength={2}
+        size="lg"
+      />
+      <Input
+        id="order-email"
+        label="Email"
+        name="email"
+        type="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+        required
+        size="lg"
+      />
+      <div class="full space-y-1.5">
+        <label for="order-piece" class="text-sm font-medium leading-none">
+          What are you interested in?
+        </label>
+        <div class="relative">
+          <select id="order-piece" name="subject" class={selectVariants({ size: 'lg' })}>
+            <option value="Something custom">Something custom</option>
+            {
+              groups.map((g) => (
+                <optgroup label={g.label}>
+                  {g.pieces.map((p) => (
+                    <option value={p}>{p}</option>
+                  ))}
+                </optgroup>
+              ))
+            }
+          </select>
+          <svg
+            class="text-muted-foreground pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+      <Textarea
+        id="order-message"
+        class="full"
+        label="Tell us about it"
+        name="message"
+        rows={5}
+        placeholder="Stone, charm, chain length, who it’s for…"
+        required
+        minlength={10}
+      />
+
+      <!-- Honeypot field for spam protection -->
+      <div class="hidden" aria-hidden="true">
+        <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div class="full form-footer">
+        <button class="tt-btn tt-btn-dark" type="submit">Send My Request <span class="arrow" aria-hidden="true">→</span></button>
+        <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script>
+  function initOrderForm() {
+    const form = document.querySelector<HTMLFormElement>('[data-order-form]');
+    if (!form || form.dataset.ready) return;
+    form.dataset.ready = 'true';
+
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+    const status = form.querySelector<HTMLElement>('[data-form-status]')!;
+    const label = button.innerHTML;
+    const fallbackEmail = form.dataset.fallbackEmail;
+
+    const show = (msg: string, kind: 'ok' | 'error') => {
+      status.textContent = msg;
+      status.dataset.kind = kind;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      show('', 'ok');
+
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+        const data = await res.json().catch(() => null);
+
+        if (res.ok && data?.success) {
+          form.reset();
+          button.textContent = 'Thanks — we’ll be in touch';
+          show('Your request is on its way. We’ll reply by email soon.', 'ok');
+          return;
+        }
+
+        if (res.status === 400 && data?.errors) {
+          show(Object.values(data.errors).flat().join(' '), 'error');
+        } else {
+          sendByEmail();
+        }
+      } catch {
+        sendByEmail();
+      }
+      button.disabled = false;
+      button.innerHTML = label;
+    });
+
+    /**
+     * Fallback for static hosting (no server adapter, so /api/contact can't
+     * accept POSTs): open the visitor's email app with the request prefilled.
+     */
+    function sendByEmail() {
+      const fd = new FormData(form!);
+      const piece = String(fd.get('subject') || 'Something custom');
+      const body = [
+        `Name: ${fd.get('name')}`,
+        `Email: ${fd.get('email')}`,
+        `Interested in: ${piece}`,
+        '',
+        String(fd.get('message') || ''),
+      ].join('\n');
+      const href = `mailto:${fallbackEmail}?subject=${encodeURIComponent(
+        `Order request: ${piece}`
+      )}&body=${encodeURIComponent(body)}`;
+      window.location.href = href;
+      show(`Your email app should open with your request. If not, email us at ${fallbackEmail}.`, 'ok');
+    }
+  }
+
+  initOrderForm();
+  document.addEventListener('astro:page-load', initOrderForm);
+</script>
+
+<style>
+  .contact {
+    padding: 0 0 104px;
+  }
+  .contact-card {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    border: 1px solid var(--tt-line);
+    border-radius: 32px;
+    overflow: hidden;
+    background: var(--tt-paper);
+    box-shadow: 0 40px 80px -60px rgba(58, 37, 24, 0.6);
+  }
+  .contact-intro {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 58px;
+    background: var(--tt-sand);
+  }
+  .watermark {
+    position: absolute;
+    right: -120px;
+    bottom: -120px;
+    width: 340px;
+    z-index: -1;
+    opacity: 0.16;
+    filter: sepia(0.6) saturate(0.8);
+    border-radius: 50%;
+    overflow: hidden;
+    transform: rotate(-12deg);
+  }
+  .watermark :global(img) {
+    width: 100%;
+    height: auto;
+  }
+  .contact-intro .reply-note {
+    color: var(--tt-leather);
+    margin: 26px 0 0;
+    font-size: 26px;
+    transform: rotate(-3deg);
+    transform-origin: left;
+  }
+  .contact-intro h2 {
+    font-size: 50px;
+    line-height: 1;
+    margin: 14px 0 20px;
+  }
+  .contact-intro p {
+    color: var(--tt-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+  .contact-mini {
+    margin-top: 32px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--tt-muted);
+  }
+  .contact-mini strong {
+    color: var(--tt-ink);
+  }
+
+  .order-form {
+    padding: 58px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-content: start;
+  }
+  .order-form > :global(.full) {
+    grid-column: 1 / -1;
+  }
+
+  /* Tune Velocity form fields to the brand */
+  .order-form :global(label) {
+    font-size: 12px;
+    font-weight: 750;
+  }
+  .order-form :global(input),
+  .order-form :global(select),
+  .order-form :global(textarea) {
+    background: #fff;
+    border-color: var(--tt-line);
+    border-radius: 12px;
+    color: var(--tt-ink);
+  }
+  .order-form :global(input:focus-visible),
+  .order-form :global(select:focus-visible),
+  .order-form :global(textarea:focus-visible) {
+    border-color: var(--tt-turquoise);
+    --tw-ring-color: color-mix(in srgb, var(--tt-turquoise) 25%, transparent);
+  }
+
+  .form-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .form-status {
+    margin: 0;
+    font-size: 13px;
+    color: var(--tt-muted);
+  }
+  .form-status[data-kind='ok'] {
+    color: var(--tt-turquoise-dark);
+  }
+  .form-status[data-kind='error'] {
+    color: #a3372b;
+  }
+
+  @media (max-width: 960px) {
+    .contact-card {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 640px) {
+    .contact {
+      padding-bottom: 68px;
+    }
+    .contact-card {
+      border-radius: 20px;
+    }
+    .contact-intro {
+      padding: 34px 24px;
+    }
+    .contact-intro h2 {
+      font-size: 42px;
+    }
+    .order-form {
+      padding: 30px 20px;
+      grid-template-columns: 1fr;
+    }
+    .form-footer {
+      display: grid;
+    }
+  }
+</style>
