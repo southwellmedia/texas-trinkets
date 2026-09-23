@@ -1,0 +1,58 @@
+---
+import PageLayout from '@/layouts/PageLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = posts.sort(
+  (a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime()
+);
+---
+
+<PageLayout
+  title="Blog"
+  description="Read our latest articles and updates."
+>
+  <section class="py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl mb-8">Blog</h1>
+
+      {sortedPosts.length === 0 ? (
+        <div class="text-center py-12">
+          <p class="text-muted-foreground">No posts yet. Create your first post in</p>
+          <code class="bg-muted px-2 py-1 rounded text-sm mt-2 inline-block">
+            src/content/blog/
+          </code>
+        </div>
+      ) : (
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {sortedPosts.map((post) => (
+            <article class="group">
+              <a href={`/blog/${post.id}`} class="block">
+                {post.data.image && (
+                  <img
+                    src={post.data.image}
+                    alt={post.data.title}
+                    class="aspect-video w-full rounded-lg object-cover mb-4"
+                  />
+                )}
+                <h2 class="text-xl font-semibold group-hover:text-primary transition-colors">
+                  {post.data.title}
+                </h2>
+                <p class="mt-2 text-muted-foreground line-clamp-2">
+                  {post.data.description}
+                </p>
+                <time class="mt-2 text-sm text-muted-foreground block">
+                  {new Date(post.data.publishedAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+              </a>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</PageLayout>
