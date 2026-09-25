@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { z } from 'astro/zod';
 import { Resend } from 'resend';
-import { RESEND_API_KEY, ORDER_EMAIL_TO, ORDER_EMAIL_FROM } from 'astro:env/server';
+import { RESEND_API_KEY, ORDER_EMAIL_TO, ORDER_EMAIL_BCC, ORDER_EMAIL_FROM } from 'astro:env/server';
 
 /** Runs on demand (Vercel Function); the rest of the site stays static. */
 export const prerender = false;
@@ -20,6 +20,12 @@ const json = (body: unknown, status = 200) =>
     status,
     headers: { 'Content-Type': 'application/json' },
   });
+
+const emailList = (s?: string) =>
+  (s ?? '')
+    .split(',')
+    .map((e) => e.trim())
+    .filter(Boolean);
 
 const escapeHtml = (s: string) =>
   s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
@@ -95,7 +101,8 @@ export const POST: APIRoute = async ({ request }) => {
     const resend = new Resend(RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: ORDER_EMAIL_FROM ?? 'Texas Trinkets <onboarding@resend.dev>',
-      to: ORDER_EMAIL_TO.split(',').map((s) => s.trim()),
+      to: emailList(ORDER_EMAIL_TO),
+      bcc: emailList(ORDER_EMAIL_BCC),
       replyTo: email,
       subject: `Order request: ${piece} — ${name}`,
       text,

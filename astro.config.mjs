@@ -17,6 +17,7 @@ export default defineConfig({
       // Order-request email via Resend (Vercel Marketplace integration provides RESEND_API_KEY)
       RESEND_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
       ORDER_EMAIL_TO: envField.string({ context: 'server', access: 'secret', optional: true }),
+      ORDER_EMAIL_BCC: envField.string({ context: 'server', access: 'secret', optional: true }),
       ORDER_EMAIL_FROM: envField.string({
         context: 'server',
         access: 'secret',
