@@ -1,0 +1,15 @@
+{
+  "name": "Fleece Beanies",
+  "details": "Three soft fleece beanies",
+  "category": "beanies",
+  "status": "Available",
+  "imageAlt": "Three black fleece beanies: a teal gingham bow, I Am a Child of God with a sunrise, and a black-and-white gingham bow",
+  "imagePosition": "50% 50%",
+  "order": 26,
+  "pieces": [
+    { "name": "Teal Checkered Bow Fleece Beanie", "details": "Black fleece, teal gingham bow", "x": 12, "y": 55 },
+    { "name": "Child of God Fleece Beanie", "details": "Black fleece with a rainbow sunrise patch", "x": 49, "y": 82 },
+    { "name": "Black Checkered Bow Fleece Beanie", "details": "Black fleece, black gingham bow", "x": 60, "y": 42 }
+  ],
+  "image": "../../assets/images/fleece-beanies-trio.jpg"
+}

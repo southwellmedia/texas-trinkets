@@ -1,0 +1,21 @@
+{
+  "name": "More Faith Truckers",
+  "details": "Nine foam trucker caps",
+  "category": "hats",
+  "status": "Available",
+  "imageAlt": "Nine faith-themed trucker hats: Psalm 23:3, Jesus Is King, Just a Girly Girl Who Loves God, Be Joyful Always, Don't Sit at Tables Jesus Would Have Flipped, She Opens Her Mouth With Wisdom, Faith Over Fear, It's Never Luck It's Always God, and 'Tis So Sweet to Trust in Jesus",
+  "imagePosition": "50% 55%",
+  "order": 16,
+  "pieces": [
+    { "name": "Psalm 23:3 Trucker", "details": "Royal blue mesh, floral He Restores My Soul patch", "x": 49, "y": 11 },
+    { "name": "Jesus Is King Trucker", "details": "Lavender mesh with a crown patch", "x": 68, "y": 9 },
+    { "name": "Girly Girl Who Loves God Trucker", "details": "Royal blue mesh, pink script patch", "x": 86, "y": 13 },
+    { "name": "Be Joyful Always Trucker", "details": "Red mesh, 1 Thessalonians 5:16 patch", "x": 53, "y": 34 },
+    { "name": "Tables Jesus Would Have Flipped Trucker", "details": "Black mesh, white front, black patch", "x": 83, "y": 36 },
+    { "name": "Wisdom & Kindness Trucker", "details": "All-white mesh, Proverbs 31:26 patch", "x": 16, "y": 74 },
+    { "name": "Faith Over Fear Trucker", "details": "Hot pink mesh, pastel script patch", "x": 38, "y": 73 },
+    { "name": "It's Always God Trucker", "details": "Hot pink mesh, It's Never Luck patch", "x": 60, "y": 70 },
+    { "name": "'Tis So Sweet Trucker", "details": "Baby pink mesh with a strawberry patch", "x": 80, "y": 73 }
+  ],
+  "image": "../../assets/images/trucker-faith-rack-two.jpg"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Cowgirl Truckers",
+  "details": "Seven foam trucker caps",
+  "category": "hats",
+  "status": "Available",
+  "imageAlt": "Seven trucker hats on a rack: a highland cow, Be Real Not Perfect, Kind, a horse and rider, Well Behaved Women Rarely Make History, blue butterflies and Hot Girls Hit Curbs",
+  "imagePosition": "50% 50%",
+  "order": 14,
+  "pieces": [
+    { "name": "Highland Cow Trucker", "details": "Butter yellow mesh, fluffy highland cow patch", "x": 43, "y": 10 },
+    { "name": "Be Real Not Perfect Trucker", "details": "Black checkered mesh, script patch", "x": 84, "y": 8 },
+    { "name": "Kind Trucker", "details": "Sky blue mesh with a round Kind badge", "x": 47, "y": 36 },
+    { "name": "Horse & Rider Trucker", "details": "Black mesh, galloping horse silhouette", "x": 81, "y": 37 },
+    { "name": "Well Behaved Women Trucker", "details": "Black mesh, pink script patch", "x": 47, "y": 62 },
+    { "name": "Blue Butterflies Trucker", "details": "Navy mesh with three blue morpho butterflies", "x": 80, "y": 60 },
+    { "name": "Hot Girls Hit Curbs Trucker", "details": "All-black mesh, pink bubble letters", "x": 19, "y": 78 }
+  ],
+  "image": "../../assets/images/trucker-kind-cowgirl.jpg"
+}

@@ -66,6 +66,7 @@ const faqs = defineCollection({
 // "Available now". A shot can contain several pieces; each piece gets a
 // hotspot (x/y as % of the photo) in the shop-the-photo lightbox.
 const pieceStatus = z.enum(['Available', 'One of one', 'Made to order', 'Sold']);
+const productCategory = z.enum(['jewelry', 'earrings', 'hats', 'beanies']);
 
 const products = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/products' }),
@@ -77,6 +78,8 @@ const products = defineCollection({
       /** Card price line; omit to show "Ask for pricing" */
       priceRange: z.string().optional(),
       status: pieceStatus,
+      /** Shop filter group; defaults to jewelry for the original necklace shots */
+      category: productCategory.default('jewelry'),
       image: image(),
       imageAlt: z.string(),
       /** CSS object-position for the card crop, e.g. "8% 48%" */

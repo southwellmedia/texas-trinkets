@@ -1,0 +1,72 @@
+{
+  "name": "Turquoise Earrings",
+  "details": "Silver & turquoise drops",
+  "category": "earrings",
+  "status": "Available",
+  "imageAlt": "A black board of silver-tone and turquoise earrings: bull skulls, conchos, feathers, thunderbirds, crosses, dreamcatchers, cacti and dragonflies",
+  "imagePosition": "50% 40%",
+  "order": 32,
+  "pieces": [
+    {
+      "name": "Concho Square Drops",
+      "details": "Etched silver squares with a turquoise center",
+      "x": 10,
+      "y": 18
+    },
+    {
+      "name": "Turquoise Round Drops",
+      "details": "Big turquoise rounds on a silver stud",
+      "x": 24,
+      "y": 15
+    },
+    {
+      "name": "Bull Skull Drops",
+      "details": "Silver longhorn skull with turquoise",
+      "x": 57,
+      "y": 17
+    },
+    {
+      "name": "Feather Drops",
+      "details": "Long silver feathers with turquoise dots",
+      "x": 92,
+      "y": 18
+    },
+    {
+      "name": "Longhorn Turquoise Drops",
+      "details": "Small longhorn with a turquoise inlay",
+      "x": 12,
+      "y": 37
+    },
+    {
+      "name": "Dreamcatcher Drops",
+      "details": "Turquoise dreamcatcher with feather fringe",
+      "x": 40,
+      "y": 55
+    },
+    {
+      "name": "Thunderbird Drops",
+      "details": "Silver thunderbird with a turquoise heart",
+      "x": 76,
+      "y": 55
+    },
+    {
+      "name": "Turquoise Cross Teardrops",
+      "details": "Hammered teardrops set with a turquoise cross",
+      "x": 93,
+      "y": 57
+    },
+    {
+      "name": "Cactus Drops",
+      "details": "Silver cactus with a turquoise stone",
+      "x": 40,
+      "y": 90
+    },
+    {
+      "name": "Dragonfly Drops",
+      "details": "Silver dragonfly with turquoise wings",
+      "x": 74,
+      "y": 90
+    }
+  ],
+  "image": "../../assets/images/earrings-turquoise-board.jpg"
+}

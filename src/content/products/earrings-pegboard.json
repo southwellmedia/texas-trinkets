@@ -1,0 +1,60 @@
+{
+  "name": "The Earring Wall",
+  "details": "Mixed-metal western earrings",
+  "category": "earrings",
+  "status": "Available",
+  "imageAlt": "A black pegboard wall of silver- and gold-tone earrings: cross hoops, starbursts, stars, turquoise drops, feathers, longhorns and crosses",
+  "imagePosition": "50% 40%",
+  "order": 31,
+  "pieces": [
+    {
+      "name": "Cross Teardrop Hoops",
+      "details": "Open teardrops with a hanging cross",
+      "x": 14,
+      "y": 8
+    },
+    {
+      "name": "Starburst Hoops",
+      "details": "Big hoops with a crystal starburst",
+      "x": 78,
+      "y": 8
+    },
+    {
+      "name": "Square Star Dangles",
+      "details": "Open squares with star and burst charms",
+      "x": 23,
+      "y": 24
+    },
+    {
+      "name": "Star Hoops",
+      "details": "Thin hoops with a single star",
+      "x": 43,
+      "y": 49
+    },
+    {
+      "name": "Turquoise Drop Hoops",
+      "details": "Hoops with a turquoise teardrop or round stone",
+      "x": 71,
+      "y": 62
+    },
+    {
+      "name": "Feather & Star Drops",
+      "details": "Long chain drops with feathers and stars",
+      "x": 58,
+      "y": 71
+    },
+    {
+      "name": "Longhorn & Cross Charms",
+      "details": "Skull, cross and feather charms in square frames",
+      "x": 72,
+      "y": 84
+    },
+    {
+      "name": "Cross Dangles",
+      "details": "Ornate crosses on diamond frames",
+      "x": 85,
+      "y": 94
+    }
+  ],
+  "image": "../../assets/images/earrings-pegboard.jpg"
+}

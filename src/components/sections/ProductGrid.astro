@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { CATEGORIES } from '@/lib/shots';
 import ProductCard from './ProductCard.astro';
 import ShopThePhoto from './ShopThePhoto.astro';
 
@@ -8,6 +9,12 @@ interface Props {
 }
 
 const { products } = Astro.props;
+const counts = Object.fromEntries(
+  CATEGORIES.map((c) => [c.key, products.filter((p) => p.data.category === c.key).length])
+);
+const chips = [{ key: 'all', label: 'Everything', count: products.length }].concat(
+  CATEGORIES.filter((c) => counts[c.key] > 0).map((c) => ({ ...c, count: counts[c.key] }))
+);
 ---
 
 <section id="shop" class="shop">
@@ -18,12 +25,29 @@ const { products } = Astro.props;
         <h2 class="display">Find your <em>piece.</em></h2>
       </div>
       <p data-reveal style="--d:1">
-        A few current favorites. Every piece is finished in small batches, and some designs won’t
-        come around twice.
+        Jewelry, earrings, trucker hats and beanies. Every piece is finished in small batches, and
+        some designs won’t come around twice.
         <span class="hand shop-note">tap a photo to see every piece ↓</span>
       </p>
     </div>
-    <div class="products">
+
+    <div class="filters" role="group" aria-label="Filter the shop" data-reveal data-shop-filters>
+      {
+        chips.map((c, i) => (
+          <button
+            type="button"
+            class="chip"
+            data-filter={c.key}
+            aria-pressed={i === 0 ? 'true' : 'false'}
+          >
+            {c.label}
+            <span class="chip-count" aria-hidden="true">{c.count}</span>
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="products" data-shop-grid>
       {products.map((product, i) => <ProductCard product={product} index={i} />)}
     </div>
   </div>
@@ -31,6 +55,40 @@ const { products } = Astro.props;
 
 <ShopThePhoto shots={products} />
 
+<script>
+  const root = document.querySelector<HTMLElement>('[data-shop-filters]');
+  const grid = document.querySelector<HTMLElement>('[data-shop-grid]');
+  if (root && grid) {
+    const chips = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-filter]'));
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>('[data-category]'));
+
+    const apply = (key: string) => {
+      chips.forEach((c) => c.setAttribute('aria-pressed', c.dataset.filter === key ? 'true' : 'false'));
+      let i = 0;
+      cards.forEach((card) => {
+        const show = key === 'all' || card.dataset.category === key;
+        card.hidden = !show;
+        // Re-stagger the reveal delay for the cards that remain visible
+        if (show) card.style.setProperty('--d', String(i++ % 3));
+      });
+    };
+
+    chips.forEach((chip) =>
+      chip.addEventListener('click', () => {
+        const key = chip.dataset.filter ?? 'all';
+        apply(key);
+        const url = new URL(location.href);
+        if (key === 'all') url.searchParams.delete('shop');
+        else url.searchParams.set('shop', key);
+        history.replaceState(null, '', url);
+      })
+    );
+
+    // Deep link: /?shop=hats#shop
+    const initial = new URLSearchParams(location.search).get('shop');
+    if (initial && chips.some((c) => c.dataset.filter === initial)) apply(initial);
+  }
+</script>
 
 <style>
   .shop {
@@ -42,6 +100,59 @@ const { products } = Astro.props;
     transform: rotate(-3deg);
     transform-origin: left;
   }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 30px 0 34px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px 9px 16px;
+    border: 1.5px solid rgba(58, 37, 24, 0.18);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--tt-ink);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 750;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition:
+      background 0.25s ease,
+      border-color 0.25s ease,
+      color 0.25s ease,
+      transform 0.3s var(--ease-out-soft);
+  }
+  .chip:hover {
+    border-color: var(--tt-leather);
+    transform: translateY(-1px);
+  }
+  .chip:focus-visible {
+    outline: 2px solid var(--tt-turquoise);
+    outline-offset: 3px;
+  }
+  .chip[aria-pressed='true'] {
+    background: var(--tt-ink);
+    border-color: var(--tt-ink);
+    color: var(--tt-paper);
+  }
+  .chip-count {
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: rgba(58, 37, 24, 0.08);
+    color: var(--tt-muted);
+  }
+  .chip[aria-pressed='true'] .chip-count {
+    background: rgba(255, 250, 241, 0.16);
+    color: var(--tt-paper);
+  }
+
   .products {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -59,6 +170,14 @@ const { products } = Astro.props;
   @media (max-width: 640px) {
     .shop {
       padding: 68px 0;
+    }
+    .filters {
+      margin: 22px 0 24px;
+      gap: 6px;
+    }
+    .chip {
+      font-size: 12px;
+      padding: 8px 12px 8px 13px;
     }
     .products {
       gap: 13px;

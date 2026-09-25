@@ -1,0 +1,14 @@
+{
+  "name": "Fleece Bow Beanies",
+  "details": "Two soft fleece beanies",
+  "category": "beanies",
+  "status": "Available",
+  "imageAlt": "Two black fleece beanies laid flat, one with a red gingham bow and one with a pink gingham bow",
+  "imagePosition": "50% 50%",
+  "order": 25,
+  "pieces": [
+    { "name": "Red Checkered Bow Fleece Beanie", "details": "Black fleece, red gingham bow", "x": 11, "y": 72 },
+    { "name": "Pink Checkered Bow Fleece Beanie", "details": "Black fleece, pink gingham bow", "x": 57, "y": 70 }
+  ],
+  "image": "../../assets/images/fleece-beanies-bow-pair.jpg"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Black Beanie Trio",
+  "details": "Three cuffed knit beanies",
+  "category": "beanies",
+  "status": "Available",
+  "imageAlt": "Three black knit beanies laid flat: Beautiful Crazy, a pink football bow and a rainbow caterpillar",
+  "imagePosition": "50% 50%",
+  "order": 23,
+  "pieces": [
+    { "name": "Beautiful Crazy Beanie", "details": "Black knit, green script patch", "x": 20, "y": 78 },
+    { "name": "Football Bow Beanie", "details": "Black knit with a pink stitched football bow", "x": 45, "y": 25 },
+    { "name": "Caterpillar Beanie", "details": "Black knit with a rainbow caterpillar", "x": 82, "y": 80 }
+  ],
+  "image": "../../assets/images/beanies-black-trio.jpg"
+}

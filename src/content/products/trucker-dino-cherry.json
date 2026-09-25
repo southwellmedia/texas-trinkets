@@ -1,0 +1,16 @@
+{
+  "name": "Dino & Cherry Truckers",
+  "details": "Four foam trucker caps",
+  "category": "hats",
+  "status": "Available",
+  "imageAlt": "Four trucker hats on a wooden rack: a dinosaur skeleton on black, cherries with a pink bow on red, Free Hugs and a turquoise bull skull on light blue",
+  "imagePosition": "50% 40%",
+  "order": 11,
+  "pieces": [
+    { "name": "Dino Skeleton Trucker", "details": "Black mesh, cream front, embroidered raptor skeleton", "x": 31, "y": 15 },
+    { "name": "Cherry Bow Trucker", "details": "Red mesh with a cherries-and-ribbon patch", "x": 79, "y": 12 },
+    { "name": "Free Hugs (Just Kidding) Trucker", "details": "Light blue mesh, mustard patch", "x": 28, "y": 62 },
+    { "name": "Turquoise Bull Skull Trucker", "details": "Light blue mesh, turquoise concho skull", "x": 72, "y": 63 }
+  ],
+  "image": "../../assets/images/trucker-dino-cherry.jpg"
+}

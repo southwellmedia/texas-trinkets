@@ -1,0 +1,15 @@
+{
+  "name": "T-Rex & Silly Goose Beanies",
+  "details": "Three cuffed knit beanies",
+  "category": "beanies",
+  "status": "Available",
+  "imageAlt": "Three knit beanies laid flat: a T-rex bursting through black, a floral butterfly on cream and a got too silly goose on black",
+  "imagePosition": "50% 50%",
+  "order": 24,
+  "pieces": [
+    { "name": "T-Rex Beanie", "details": "Black knit, T-rex bursting through the cuff", "x": 24, "y": 78 },
+    { "name": "Floral Butterfly Beanie (Cream)", "details": "Cream knit, flower-winged butterfly", "x": 58, "y": 42 },
+    { "name": "Got Too Silly Goose Beanie", "details": "Black knit, goose-behind-bars patch", "x": 80, "y": 75 }
+  ],
+  "image": "../../assets/images/beanies-trex-trio.jpg"
+}

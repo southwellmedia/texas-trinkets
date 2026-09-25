@@ -39,3 +39,13 @@ export async function getShots(): Promise<Shot[]> {
   const shots = await getCollection('products', ({ data }) => data.featured);
   return shots.sort((a, b) => a.data.order - b.data.order);
 }
+
+export type Category = Shot['data']['category'];
+
+/** Shop filter chips, in display order */
+export const CATEGORIES: { key: Category; label: string }[] = [
+  { key: 'jewelry', label: 'Jewelry' },
+  { key: 'earrings', label: 'Earrings' },
+  { key: 'hats', label: 'Trucker Hats' },
+  { key: 'beanies', label: 'Beanies' },
+];

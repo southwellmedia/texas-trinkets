@@ -42,6 +42,7 @@ const { shots } = Astro.props;
                   src={shot.data.image}
                   alt={shot.data.imageAlt}
                   widths={[640, 960, 1400, 1800]}
+                  quality={78}
                   sizes="(max-width: 860px) 100vw, 880px"
                   loading="lazy"
                   decoding="async"
