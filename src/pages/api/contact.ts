@@ -37,14 +37,14 @@ function orderEmail({ name, email, piece, message }: { name: string; email: stri
     '',
     message,
     '',
-    '— Sent from the Texas Trinkets website. Reply to this email to answer them directly.',
+    '— Sent from the Texas Trinkets & Treasured website. Reply to this email to answer them directly.',
   ].join('\n');
 
   const html = `<!doctype html>
 <html><body style="margin:0;background:#f6efe3;font-family:Arial,Helvetica,sans-serif;color:#221a14">
   <div style="max-width:560px;margin:0 auto;padding:32px 20px">
     <div style="background:#3a2518;color:#f6efe3;border-radius:16px 16px 0 0;padding:22px 26px">
-      <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#e8c9a0">Texas Trinkets · New order request</div>
+      <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#e8c9a0">Texas Trinkets &amp; Treasured · New order request</div>
       <div style="font-family:Georgia,serif;font-size:26px;margin-top:8px">${escapeHtml(piece)}</div>
     </div>
     <div style="background:#fffaf1;border:1px solid #e0d3c0;border-top:0;border-radius:0 0 16px 16px;padding:24px 26px">
@@ -100,7 +100,7 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const resend = new Resend(RESEND_API_KEY);
     const { error } = await resend.emails.send({
-      from: ORDER_EMAIL_FROM ?? 'Texas Trinkets <onboarding@resend.dev>',
+      from: ORDER_EMAIL_FROM ?? 'Texas Trinkets & Treasured <onboarding@resend.dev>',
       to: emailList(ORDER_EMAIL_TO),
       bcc: emailList(ORDER_EMAIL_BCC),
       replyTo: email,

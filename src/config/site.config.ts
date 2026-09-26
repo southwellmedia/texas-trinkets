@@ -49,7 +49,7 @@ export interface SiteConfig {
 }
 
 const siteConfig: SiteConfig = {
-  name: 'Texas Trinkets',
+  name: 'Texas Trinkets & Treasured',
   description:
     'Handmade western jewelry with turquoise, silver and a whole lot of heart. Made in Texas, one piece at a time. Custom orders welcome.',
   url: SITE_URL || 'https://example.com',
@@ -65,7 +65,7 @@ const siteConfig: SiteConfig = {
   },
   branding: {
     logo: {
-      alt: 'Texas Trinkets',
+      alt: 'Texas Trinkets & Treasured',
     },
     favicon: {
       svg: '/favicon.svg',

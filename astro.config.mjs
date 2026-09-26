@@ -22,7 +22,7 @@ export default defineConfig({
         context: 'server',
         access: 'secret',
         optional: true,
-        default: 'Texas Trinkets <onboarding@resend.dev>',
+        default: 'Texas Trinkets & Treasured <onboarding@resend.dev>',
       }),
       NEWSLETTER_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
       GOOGLE_SITE_VERIFICATION: envField.string({ context: 'server', access: 'public', optional: true }),
