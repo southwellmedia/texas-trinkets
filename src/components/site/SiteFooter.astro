@@ -39,7 +39,7 @@ const followLinks = [...socialNav, nav[2]];
       </div>
 
       <div class="footer-wordmark display" aria-hidden="true">
-        Texas Trinkets<br /><em>&amp; Treasures</em>
+        <span>Texas Trinkets <em>&amp; Treasures</em></span>
       </div>
 
       <div class="footer-bottom">
@@ -118,13 +118,19 @@ const followLinks = [...socialNav, nav[2]];
   }
 
   .footer-wordmark {
-    font-size: clamp(50px, 14.5vw, 196px);
+    /* Sized against its own width so the full name spans the container */
+    container-type: inline-size;
     line-height: 0.85;
     white-space: nowrap;
     color: rgba(232, 201, 160, 0.16);
-    letter-spacing: -0.04em;
-    margin: 10px 0 0 -0.04em;
+    margin-top: 10px;
     user-select: none;
+  }
+  .footer-wordmark span {
+    display: block;
+    font-size: 8.8cqi;
+    letter-spacing: -0.04em;
+    margin-left: -0.04em;
   }
   .footer-wordmark em {
     color: rgba(232, 201, 160, 0.26);
