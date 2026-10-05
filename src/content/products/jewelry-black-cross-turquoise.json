@@ -1,0 +1,18 @@
+{
+  "name": "Black Cross & Turquoise",
+  "details": "Turquoise bars, black cross",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "A necklace with turquoise bars and a black cross pendant on a cream display bust",
+  "imagePosition": "50% 62%",
+  "order": 7.3,
+  "pieces": [
+    {
+      "name": "Black Cross & Turquoise",
+      "details": "Turquoise bars, black cross",
+      "x": 50,
+      "y": 72
+    }
+  ],
+  "image": "../../assets/images/jewelry-black-cross-turquoise.jpg"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Turquoise Drops",
+  "details": "Five turquoise pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five turquoise pendants: a mosaic teardrop, a rose longhorn, a turquoise cluster oval, a wire-wrapped stone and a turquoise teardrop",
+  "imagePosition": "50% 50%",
+  "order": 7.1,
+  "pieces": [
+    {
+      "name": "Turquoise Mosaic Teardrop",
+      "details": "Teardrop set with tiny turquoise",
+      "x": 8,
+      "y": 62
+    },
+    {
+      "name": "Rose Longhorn Pendant",
+      "details": "Longhorn with roses and turquoise",
+      "x": 24,
+      "y": 58
+    },
+    {
+      "name": "Turquoise Cluster Oval",
+      "details": "Squash-blossom style turquoise cluster",
+      "x": 46,
+      "y": 68
+    },
+    {
+      "name": "Wire-Wrapped Stone Pendant",
+      "details": "Wire-wrapped turquoise and white stone",
+      "x": 74,
+      "y": 68
+    },
+    {
+      "name": "Turquoise Teardrop Pendant",
+      "details": "Matrix turquoise teardrop",
+      "x": 90,
+      "y": 64
+    }
+  ],
+  "image": "../../assets/images/jewelry-turquoise-drops-row.jpg"
+}

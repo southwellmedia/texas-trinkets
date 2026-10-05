@@ -8,7 +8,7 @@
     {
       "name": "Turquoise Cross Necklace",
       "details": "Statement turquoise cross on concho & scroll links",
-      "price": "$48–65",
+      "price": "$35",
       "x": 11,
       "y": 68
     },
@@ -16,26 +16,31 @@
       "name": "Silver Scroll Cross",
       "details": "Etched silver cross with a turquoise heart",
       "x": 28,
-      "y": 56
+      "y": 56,
+      "price": "$25"
     },
     {
       "name": "Crystal Filigree Cross",
       "details": "Lace filigree cross with crystal accents & star links",
       "x": 46,
-      "y": 62
+      "y": 62,
+      "status": "Sold"
     },
     {
       "name": "Turquoise Dot Filigree Cross",
       "details": "Filigree cross set with small turquoise stones",
       "x": 64,
-      "y": 59
+      "y": 59,
+      "price": "$30"
     },
     {
       "name": "Celtic Knot Turquoise Cross",
       "details": "Turquoise cross on Celtic-knot & slab-stone links",
       "x": 84,
-      "y": 68
+      "y": 68,
+      "price": "$35"
     }
   ],
-  "image": "../../assets/images/turquoise-cross-necklace.jpg"
+  "image": "../../assets/images/turquoise-cross-necklace.jpg",
+  "priceRange": "$25–35"
 }

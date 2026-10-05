@@ -1,0 +1,48 @@
+{
+  "name": "Turquoise Charm Pendants",
+  "details": "Six silver & turquoise pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Six silver pendants on black velvet: a turquoise butterfly, a turquoise matrix oval, an etched diamond concho, a feather, a turquoise star and a scrolled square",
+  "imagePosition": "50% 50%",
+  "order": 7,
+  "pieces": [
+    {
+      "name": "Turquoise Butterfly Pendant",
+      "details": "Silver butterfly set with turquoise",
+      "x": 10,
+      "y": 70
+    },
+    {
+      "name": "Turquoise Matrix Oval",
+      "details": "Oval turquoise with gold matrix",
+      "x": 25,
+      "y": 58
+    },
+    {
+      "name": "Etched Diamond Concho",
+      "details": "Stamped diamond concho, turquoise center",
+      "x": 40,
+      "y": 75
+    },
+    {
+      "name": "Silver Feather Pendant",
+      "details": "Detailed silver feather with a turquoise top",
+      "x": 58,
+      "y": 70
+    },
+    {
+      "name": "Turquoise Star Pendant",
+      "details": "Puffy turquoise star in silver",
+      "x": 73,
+      "y": 72
+    },
+    {
+      "name": "Scroll Square Turquoise",
+      "details": "Turquoise square in a scrolled frame",
+      "x": 91,
+      "y": 62
+    }
+  ],
+  "image": "../../assets/images/jewelry-turquoise-charm-row.jpg"
+}

@@ -7,16 +7,77 @@
   "imagePosition": "50% 55%",
   "order": 22,
   "pieces": [
-    { "name": "Monarch Beanie (Cream)", "details": "Cream knit with a monarch butterfly", "x": 38, "y": 12 },
-    { "name": "Pink Bow Beanie", "details": "Black knit with a satin pink bow patch", "x": 55, "y": 21 },
-    { "name": "Pink Butterfly Beanie", "details": "Cream knit, pink butterfly & flowers", "x": 78, "y": 40 },
-    { "name": "Teal Checkered Bow Beanie", "details": "Navy knit with a teal gingham bow", "x": 41, "y": 40 },
-    { "name": "Black Checkered Bow Beanie", "details": "Gray knit with a black gingham bow", "x": 63, "y": 55 },
-    { "name": "God Don't Play 'Bout Me Beanie", "details": "Black knit, pink & gold patch", "x": 12, "y": 60 },
-    { "name": "Not Easy Being a Cowgirl Beanie", "details": "Orange knit with a cowgirl boots patch", "x": 33, "y": 62 },
-    { "name": "Blue Butterfly Beanie", "details": "Rust knit with a blue morpho butterfly", "x": 9, "y": 88 },
-    { "name": "Two Monarchs Beanie", "details": "Rust knit with two monarch butterflies", "x": 26, "y": 90 },
-    { "name": "Floral Butterfly Beanie", "details": "Rust knit, flower-winged butterfly patch", "x": 49, "y": 82 }
+    {
+      "name": "Monarch Beanie (Cream)",
+      "details": "Cream knit with a monarch butterfly",
+      "x": 38,
+      "y": 12,
+      "price": "$16"
+    },
+    {
+      "name": "Pink Bow Beanie",
+      "details": "Black knit with a satin pink bow patch",
+      "x": 55,
+      "y": 21,
+      "price": "$16"
+    },
+    {
+      "name": "Pink Butterfly Beanie",
+      "details": "Cream knit, pink butterfly & flowers",
+      "x": 78,
+      "y": 40,
+      "price": "$16"
+    },
+    {
+      "name": "Teal Checkered Bow Beanie",
+      "details": "Navy knit with a teal gingham bow",
+      "x": 41,
+      "y": 40,
+      "price": "$16"
+    },
+    {
+      "name": "Black Checkered Bow Beanie",
+      "details": "Gray knit with a black gingham bow",
+      "x": 63,
+      "y": 55,
+      "price": "$16"
+    },
+    {
+      "name": "God Don't Play 'Bout Me Beanie",
+      "details": "Black knit, pink & gold patch",
+      "x": 12,
+      "y": 60,
+      "price": "$16"
+    },
+    {
+      "name": "Not Easy Being a Cowgirl Beanie",
+      "details": "Orange knit with a cowgirl boots patch",
+      "x": 33,
+      "y": 62,
+      "price": "$16"
+    },
+    {
+      "name": "Blue Butterfly Beanie",
+      "details": "Rust knit with a blue morpho butterfly",
+      "x": 9,
+      "y": 88,
+      "price": "$16"
+    },
+    {
+      "name": "Two Monarchs Beanie",
+      "details": "Rust knit with two monarch butterflies",
+      "x": 26,
+      "y": 90,
+      "price": "$16"
+    },
+    {
+      "name": "Floral Butterfly Beanie",
+      "details": "Rust knit, flower-winged butterfly patch",
+      "x": 49,
+      "y": 82,
+      "price": "$16"
+    }
   ],
-  "image": "../../assets/images/beanies-bows-butterflies.jpg"
+  "image": "../../assets/images/beanies-bows-butterflies.jpg",
+  "priceRange": "$16"
 }

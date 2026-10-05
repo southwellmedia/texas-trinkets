@@ -1,0 +1,30 @@
+{
+  "name": "Turquoise Statements",
+  "details": "Three statement necklaces",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Three statement necklaces: a turquoise teardrop on filigree, a heart-concho lace drop and a sunburst concho with turquoise",
+  "imagePosition": "50% 50%",
+  "order": 7.02,
+  "pieces": [
+    {
+      "name": "Turquoise Teardrop Filigree Necklace",
+      "details": "Big matrix turquoise under filigree links",
+      "x": 14,
+      "y": 70
+    },
+    {
+      "name": "Heart Concho Lace Necklace",
+      "details": "Heart conchos with a lace filigree drop",
+      "x": 48,
+      "y": 78
+    },
+    {
+      "name": "Sunburst Concho Turquoise Necklace",
+      "details": "Sunburst conchos and a turquoise teardrop",
+      "x": 83,
+      "y": 72
+    }
+  ],
+  "image": "../../assets/images/jewelry-turquoise-statement-trio.jpg"
+}

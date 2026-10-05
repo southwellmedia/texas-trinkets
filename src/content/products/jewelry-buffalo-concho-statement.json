@@ -1,0 +1,18 @@
+{
+  "name": "Buffalo Concho Statement",
+  "details": "Turquoise conchos & bull skull",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "A statement necklace with turquoise conchos, buffalo medallions and a bull skull drop on a cream display bust",
+  "imagePosition": "50% 62%",
+  "order": 7.28,
+  "pieces": [
+    {
+      "name": "Buffalo Concho Statement",
+      "details": "Turquoise conchos & bull skull",
+      "x": 55,
+      "y": 72
+    }
+  ],
+  "image": "../../assets/images/jewelry-buffalo-concho-statement.jpg"
+}

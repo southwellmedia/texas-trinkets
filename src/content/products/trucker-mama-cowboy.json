@@ -7,10 +7,35 @@
   "imagePosition": "50% 55%",
   "order": 12,
   "pieces": [
-    { "name": "Well Behaved Women Trucker", "details": "Black mesh with a pink script patch", "x": 14, "y": 54 },
-    { "name": "MAMA Chenille Trucker", "details": "Pink gingham mesh, chenille MAMA letters", "x": 42, "y": 53 },
-    { "name": "Make America Cowboy Again Trucker", "details": "Baby pink mesh, boot & hat patch", "x": 67, "y": 40 },
-    { "name": "Hippie Soul Trucker", "details": "Red mesh, folk-floral patch", "x": 86, "y": 64 }
+    {
+      "name": "Well Behaved Women Trucker",
+      "details": "Black mesh with a pink script patch",
+      "x": 14,
+      "y": 54,
+      "price": "$18"
+    },
+    {
+      "name": "MAMA Chenille Trucker",
+      "details": "Pink gingham mesh, chenille MAMA letters",
+      "x": 42,
+      "y": 53,
+      "price": "$18"
+    },
+    {
+      "name": "Make America Cowboy Again Trucker",
+      "details": "Baby pink mesh, boot & hat patch",
+      "x": 67,
+      "y": 40,
+      "price": "$18"
+    },
+    {
+      "name": "Hippie Soul Trucker",
+      "details": "Red mesh, folk-floral patch",
+      "x": 86,
+      "y": 64,
+      "price": "$18"
+    }
   ],
-  "image": "../../assets/images/trucker-mama-cowboy.jpg"
+  "image": "../../assets/images/trucker-mama-cowboy.jpg",
+  "priceRange": "$18"
 }

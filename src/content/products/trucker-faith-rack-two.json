@@ -7,15 +7,70 @@
   "imagePosition": "50% 55%",
   "order": 16,
   "pieces": [
-    { "name": "Psalm 23:3 Trucker", "details": "Royal blue mesh, floral He Restores My Soul patch", "x": 49, "y": 11 },
-    { "name": "Jesus Is King Trucker", "details": "Lavender mesh with a crown patch", "x": 68, "y": 9 },
-    { "name": "Girly Girl Who Loves God Trucker", "details": "Royal blue mesh, pink script patch", "x": 86, "y": 13 },
-    { "name": "Be Joyful Always Trucker", "details": "Red mesh, 1 Thessalonians 5:16 patch", "x": 53, "y": 34 },
-    { "name": "Tables Jesus Would Have Flipped Trucker", "details": "Black mesh, white front, black patch", "x": 83, "y": 36 },
-    { "name": "Wisdom & Kindness Trucker", "details": "All-white mesh, Proverbs 31:26 patch", "x": 16, "y": 74 },
-    { "name": "Faith Over Fear Trucker", "details": "Hot pink mesh, pastel script patch", "x": 38, "y": 73 },
-    { "name": "It's Always God Trucker", "details": "Hot pink mesh, It's Never Luck patch", "x": 60, "y": 70 },
-    { "name": "'Tis So Sweet Trucker", "details": "Baby pink mesh with a strawberry patch", "x": 80, "y": 73 }
+    {
+      "name": "Psalm 23:3 Trucker",
+      "details": "Royal blue mesh, floral He Restores My Soul patch",
+      "x": 49,
+      "y": 11,
+      "price": "$18"
+    },
+    {
+      "name": "Jesus Is King Trucker",
+      "details": "Lavender mesh with a crown patch",
+      "x": 68,
+      "y": 9,
+      "price": "$18"
+    },
+    {
+      "name": "Girly Girl Who Loves God Trucker",
+      "details": "Royal blue mesh, pink script patch",
+      "x": 86,
+      "y": 13,
+      "price": "$18"
+    },
+    {
+      "name": "Be Joyful Always Trucker",
+      "details": "Red mesh, 1 Thessalonians 5:16 patch",
+      "x": 53,
+      "y": 34,
+      "price": "$18"
+    },
+    {
+      "name": "Tables Jesus Would Have Flipped Trucker",
+      "details": "Black mesh, white front, black patch",
+      "x": 83,
+      "y": 36,
+      "price": "$18"
+    },
+    {
+      "name": "Wisdom & Kindness Trucker",
+      "details": "All-white mesh, Proverbs 31:26 patch",
+      "x": 16,
+      "y": 74,
+      "price": "$18"
+    },
+    {
+      "name": "Faith Over Fear Trucker",
+      "details": "Hot pink mesh, pastel script patch",
+      "x": 38,
+      "y": 73,
+      "price": "$18"
+    },
+    {
+      "name": "It's Always God Trucker",
+      "details": "Hot pink mesh, It's Never Luck patch",
+      "x": 60,
+      "y": 70,
+      "price": "$18"
+    },
+    {
+      "name": "'Tis So Sweet Trucker",
+      "details": "Baby pink mesh with a strawberry patch",
+      "x": 80,
+      "y": 73,
+      "price": "$18"
+    }
   ],
-  "image": "../../assets/images/trucker-faith-rack-two.jpg"
+  "image": "../../assets/images/trucker-faith-rack-two.jpg",
+  "priceRange": "$18"
 }

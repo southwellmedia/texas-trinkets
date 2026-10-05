@@ -7,12 +7,49 @@
   "imagePosition": "50% 30%",
   "order": 30,
   "pieces": [
-    { "name": "Cross Teardrop Hoops", "details": "Double teardrop hoops with a hanging cross, silver or gold", "x": 20, "y": 7 },
-    { "name": "Starburst Dangles", "details": "Open frames with a crystal starburst charm", "x": 62, "y": 15 },
-    { "name": "Horseshoe & Diamond Drops", "details": "Square frames with horseshoe, quatrefoil and star charms", "x": 12, "y": 26 },
-    { "name": "Pavé Circle Drops", "details": "Crystal-set circles on tiny studs", "x": 50, "y": 38 },
-    { "name": "Mini Diamond Dangles", "details": "Small open diamonds with cross, heart and horseshoe charms", "x": 30, "y": 66 },
-    { "name": "Hammered Studs", "details": "Gold-tone hammered studs with star, heart and teardrop accents", "x": 55, "y": 92 }
+    {
+      "name": "Cross Teardrop Hoops",
+      "details": "Double teardrop hoops with a hanging cross, silver or gold",
+      "x": 20,
+      "y": 7,
+      "price": "$10–15"
+    },
+    {
+      "name": "Starburst Dangles",
+      "details": "Open frames with a crystal starburst charm",
+      "x": 62,
+      "y": 15,
+      "price": "$10–15"
+    },
+    {
+      "name": "Horseshoe & Diamond Drops",
+      "details": "Square frames with horseshoe, quatrefoil and star charms",
+      "x": 12,
+      "y": 26,
+      "price": "$10–15"
+    },
+    {
+      "name": "Pavé Circle Drops",
+      "details": "Crystal-set circles on tiny studs",
+      "x": 50,
+      "y": 38,
+      "price": "$10–15"
+    },
+    {
+      "name": "Mini Diamond Dangles",
+      "details": "Small open diamonds with cross, heart and horseshoe charms",
+      "x": 30,
+      "y": 66,
+      "price": "$10–15"
+    },
+    {
+      "name": "Hammered Studs",
+      "details": "Gold-tone hammered studs with star, heart and teardrop accents",
+      "x": 55,
+      "y": 92,
+      "price": "$10–15"
+    }
   ],
-  "image": "../../assets/images/earrings-gold-silver-board.jpg"
+  "image": "../../assets/images/earrings-gold-silver-board.jpg",
+  "priceRange": "$10–15"
 }

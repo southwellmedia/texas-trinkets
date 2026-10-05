@@ -1,0 +1,18 @@
+{
+  "name": "Filigree Bull Skull Necklace",
+  "details": "Turquoise & filigree links",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "A filigree necklace with turquoise stones and a bull skull pendant on a cream display bust",
+  "imagePosition": "50% 62%",
+  "order": 7.29,
+  "pieces": [
+    {
+      "name": "Filigree Bull Skull Necklace",
+      "details": "Turquoise & filigree links",
+      "x": 50,
+      "y": 72
+    }
+  ],
+  "image": "../../assets/images/jewelry-filigree-bull-skull.jpg"
+}

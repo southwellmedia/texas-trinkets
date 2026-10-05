@@ -1,0 +1,42 @@
+{
+  "name": "Sea Turtle & Friends",
+  "details": "Five turquoise pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five pendants: a turquoise sea turtle, a turquoise daisy halo, a cow with a flower, a gold sunburst concho and a turquoise matrix teardrop",
+  "imagePosition": "50% 50%",
+  "order": 7.26,
+  "pieces": [
+    {
+      "name": "Turquoise Sea Turtle",
+      "details": "Silver sea turtle with turquoise",
+      "x": 11,
+      "y": 64
+    },
+    {
+      "name": "Turquoise Daisy Halo",
+      "details": "Daisy and turquoise chips in gold",
+      "x": 34,
+      "y": 48
+    },
+    {
+      "name": "Cow & Flower Pendant",
+      "details": "Cow outline with a turquoise flower",
+      "x": 50,
+      "y": 70
+    },
+    {
+      "name": "Gold Sunburst Concho",
+      "details": "Gold sunburst concho, turquoise center",
+      "x": 69,
+      "y": 57
+    },
+    {
+      "name": "Turquoise Matrix Teardrop",
+      "details": "Turquoise teardrop with matrix",
+      "x": 89,
+      "y": 70
+    }
+  ],
+  "image": "../../assets/images/jewelry-turquoise-keepsakes.jpg"
+}

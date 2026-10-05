@@ -1,0 +1,42 @@
+{
+  "name": "Gold Charm Pendants",
+  "details": "Five gold-tone pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five gold-tone pendants: a rose in a frame, a crystal bar cross, a gold leaf, a black crystal cross and an opal teardrop",
+  "imagePosition": "50% 50%",
+  "order": 7.04,
+  "pieces": [
+    {
+      "name": "Gold Rose Frame Pendant",
+      "details": "Crystal rose in a scalloped frame",
+      "x": 13,
+      "y": 60
+    },
+    {
+      "name": "Crystal Bar Cross",
+      "details": "Slim cross lined with crystals",
+      "x": 32,
+      "y": 55
+    },
+    {
+      "name": "Gold Leaf Pendant",
+      "details": "Oversized textured gold leaf",
+      "x": 50,
+      "y": 65
+    },
+    {
+      "name": "Black Crystal Cross",
+      "details": "Slim cross with black crystals",
+      "x": 69,
+      "y": 50
+    },
+    {
+      "name": "Opal Teardrop Frame Pendant",
+      "details": "Opal teardrop in a scalloped frame",
+      "x": 84,
+      "y": 68
+    }
+  ],
+  "image": "../../assets/images/jewelry-gold-charm-row.jpg"
+}

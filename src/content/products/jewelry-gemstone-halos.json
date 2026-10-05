@@ -1,0 +1,42 @@
+{
+  "name": "Gemstone Halos",
+  "details": "Five gold halo pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five gold halo pendants: a butterfly, a white quartz teardrop, a green stone teardrop, a white stone drop and a glitter butterfly",
+  "imagePosition": "50% 50%",
+  "order": 7.22,
+  "pieces": [
+    {
+      "name": "Butterfly Halo",
+      "details": "Crystal butterfly in a ring",
+      "x": 8,
+      "y": 45
+    },
+    {
+      "name": "White Quartz Teardrop Halo",
+      "details": "White stone teardrop in gold",
+      "x": 26,
+      "y": 75
+    },
+    {
+      "name": "Green Stone Teardrop Halo",
+      "details": "Green stone teardrop in gold",
+      "x": 48,
+      "y": 50
+    },
+    {
+      "name": "White Stone Drop Halo",
+      "details": "Long white stone in gold",
+      "x": 67,
+      "y": 72
+    },
+    {
+      "name": "Glitter Butterfly Halo",
+      "details": "Glitter butterfly in gold",
+      "x": 88,
+      "y": 48
+    }
+  ],
+  "image": "../../assets/images/jewelry-gemstone-halos.jpg"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Turquoise Keepsake Pendants",
+  "details": "Six silver & turquoise pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Six silver and turquoise pendants: a heart sunburst, an Aztec diamond, a dragonfly, a moon with a hummingbird, a tooled oval and a scrolled medallion",
+  "imagePosition": "50% 50%",
+  "order": 7.23,
+  "pieces": [
+    {
+      "name": "Turquoise Heart Sunburst",
+      "details": "Turquoise heart in a sunburst",
+      "x": 10,
+      "y": 60
+    },
+    {
+      "name": "Aztec Turquoise Pendant",
+      "details": "Aztec diamond with turquoise",
+      "x": 25,
+      "y": 62
+    },
+    {
+      "name": "Turquoise Dragonfly",
+      "details": "Silver dragonfly with turquoise",
+      "x": 40,
+      "y": 65
+    },
+    {
+      "name": "Turquoise Moon & Hummingbird",
+      "details": "Turquoise moon, hummingbird & flowers",
+      "x": 58,
+      "y": 62
+    },
+    {
+      "name": "Tooled Oval Concho",
+      "details": "Tooled oval concho",
+      "x": 74,
+      "y": 62
+    },
+    {
+      "name": "Scroll Turquoise Medallion",
+      "details": "Scrolled medallion, turquoise center",
+      "x": 90,
+      "y": 62
+    }
+  ],
+  "image": "../../assets/images/jewelry-turquoise-charm-row-two.jpg"
+}

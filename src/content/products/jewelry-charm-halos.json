@@ -1,0 +1,66 @@
+{
+  "name": "Charm Halos",
+  "details": "Nine halo charm pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Nine halo pendants: an angelfish, mushrooms, an anchor, a beaded cross, a phoenix, a gold filigree, a turquoise sun, a ship wheel and a music note",
+  "imagePosition": "50% 50%",
+  "order": 7.18,
+  "pieces": [
+    {
+      "name": "Angelfish Halo",
+      "details": "Angelfish in a ring",
+      "x": 6,
+      "y": 35
+    },
+    {
+      "name": "Mushroom Halo",
+      "details": "Mushrooms in a gold ring",
+      "x": 15,
+      "y": 48
+    },
+    {
+      "name": "Anchor Halo",
+      "details": "Anchor in a gold ring",
+      "x": 23,
+      "y": 35
+    },
+    {
+      "name": "Beaded Cross Halo",
+      "details": "Beaded cross in a large ring",
+      "x": 34,
+      "y": 55
+    },
+    {
+      "name": "Phoenix Pendant",
+      "details": "Detailed silver phoenix",
+      "x": 49,
+      "y": 30
+    },
+    {
+      "name": "Gold Filigree Halo",
+      "details": "Gold filigree in a ring",
+      "x": 65,
+      "y": 58
+    },
+    {
+      "name": "Turquoise Sun Halo",
+      "details": "Gold sun with turquoise",
+      "x": 77,
+      "y": 36
+    },
+    {
+      "name": "Ship's Wheel Halo",
+      "details": "Ship's wheel in a ring",
+      "x": 85,
+      "y": 62
+    },
+    {
+      "name": "Music Note Halo",
+      "details": "Music note in a ring",
+      "x": 94,
+      "y": 40
+    }
+  ],
+  "image": "../../assets/images/jewelry-charm-halos.jpg"
+}

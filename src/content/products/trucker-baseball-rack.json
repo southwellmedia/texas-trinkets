@@ -7,14 +7,63 @@
   "imagePosition": "50% 50%",
   "order": 17,
   "pieces": [
-    { "name": "Baseball Bow Trucker (Blue)", "details": "Royal blue mesh, baseball & orange bow patch", "x": 29, "y": 11 },
-    { "name": "Baseball Badge Trucker", "details": "Royal blue mesh with a round Baseball badge", "x": 54, "y": 9 },
-    { "name": "Baseball Bow Trucker (Blue, right)", "details": "Royal blue mesh, baseball & orange bow patch", "x": 85, "y": 12 },
-    { "name": "Red Checkered Bow Trucker", "details": "Red mesh, red gingham bow patch", "x": 35, "y": 33 },
-    { "name": "Checkered Bow Baseball Trucker", "details": "Royal blue mesh, black gingham bow over a baseball", "x": 73, "y": 34 },
-    { "name": "Softball Bow Trucker", "details": "All-black mesh with a yellow softball bow", "x": 23, "y": 74 },
-    { "name": "Baseball Heart Trucker", "details": "Red mesh with a stitched baseball heart", "x": 52, "y": 75 },
-    { "name": "Baseball Bow Trucker (Black)", "details": "All-black mesh, white baseball bow patch", "x": 72, "y": 74 }
+    {
+      "name": "Baseball Bow Trucker (Blue)",
+      "details": "Royal blue mesh, baseball & orange bow patch",
+      "x": 29,
+      "y": 11,
+      "price": "$18"
+    },
+    {
+      "name": "Baseball Badge Trucker",
+      "details": "Royal blue mesh with a round Baseball badge",
+      "x": 54,
+      "y": 9,
+      "price": "$18"
+    },
+    {
+      "name": "Baseball Bow Trucker (Blue, right)",
+      "details": "Royal blue mesh, baseball & orange bow patch",
+      "x": 85,
+      "y": 12,
+      "price": "$18"
+    },
+    {
+      "name": "Red Checkered Bow Trucker",
+      "details": "Red mesh, red gingham bow patch",
+      "x": 35,
+      "y": 33,
+      "price": "$18"
+    },
+    {
+      "name": "Checkered Bow Baseball Trucker",
+      "details": "Royal blue mesh, black gingham bow over a baseball",
+      "x": 73,
+      "y": 34,
+      "price": "$18"
+    },
+    {
+      "name": "Softball Bow Trucker",
+      "details": "All-black mesh with a yellow softball bow",
+      "x": 23,
+      "y": 74,
+      "price": "$18"
+    },
+    {
+      "name": "Baseball Heart Trucker",
+      "details": "Red mesh with a stitched baseball heart",
+      "x": 52,
+      "y": 75,
+      "price": "$18"
+    },
+    {
+      "name": "Baseball Bow Trucker (Black)",
+      "details": "All-black mesh, white baseball bow patch",
+      "x": 72,
+      "y": 74,
+      "price": "$18"
+    }
   ],
-  "image": "../../assets/images/trucker-baseball-rack.jpg"
+  "image": "../../assets/images/trucker-baseball-rack.jpg",
+  "priceRange": "$18"
 }

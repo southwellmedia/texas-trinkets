@@ -1,0 +1,48 @@
+{
+  "name": "Texas Charms",
+  "details": "Six Texas pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Six pendants: five Texas-shaped charms and a navy horse cameo",
+  "imagePosition": "50% 50%",
+  "order": 7.17,
+  "pieces": [
+    {
+      "name": "Blue Star Texas Charm",
+      "details": "Texas with a blue star",
+      "x": 8,
+      "y": 60
+    },
+    {
+      "name": "Crystal Texas Outline",
+      "details": "Texas outline lined with crystals",
+      "x": 24,
+      "y": 62
+    },
+    {
+      "name": "Navy Horse Cameo",
+      "details": "Horse cameo on navy",
+      "x": 42,
+      "y": 70
+    },
+    {
+      "name": "Texas Sunburst Charm",
+      "details": "Texas with a sunburst",
+      "x": 61,
+      "y": 68
+    },
+    {
+      "name": "Open Texas Outline",
+      "details": "Open silver Texas outline",
+      "x": 77,
+      "y": 64
+    },
+    {
+      "name": "Tooled Texas Charm",
+      "details": "Etched silver Texas",
+      "x": 92,
+      "y": 63
+    }
+  ],
+  "image": "../../assets/images/jewelry-texas-charms.jpg"
+}

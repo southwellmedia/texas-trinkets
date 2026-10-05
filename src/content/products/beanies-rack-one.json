@@ -7,16 +7,77 @@
   "imagePosition": "50% 55%",
   "order": 20,
   "pieces": [
-    { "name": "Be Still & Know Beanie", "details": "Olive knit, daisy-shaped patch", "x": 46, "y": 12 },
-    { "name": "Turquoise Concho Beanie", "details": "Black knit with a turquoise cluster patch", "x": 70, "y": 27 },
-    { "name": "Hippie Soul Beanie", "details": "Brown knit, folk-floral Hippie Soul patch", "x": 89, "y": 44 },
-    { "name": "Bull Skull Beanie", "details": "Light gray knit, black skull patch", "x": 12, "y": 55 },
-    { "name": "Circle Logo Beanie", "details": "Black knit with a round black-and-white patch", "x": 30, "y": 55 },
-    { "name": "Well Behaved Women Beanie", "details": "Oatmeal knit, pink script patch", "x": 55, "y": 45 },
-    { "name": "Beautiful Crazy Beanie", "details": "Black knit, green script patch", "x": 14, "y": 85 },
-    { "name": "Created With a Purpose Beanie", "details": "Red knit with a cross patch", "x": 31, "y": 89 },
-    { "name": "Lunchbox Critter Beanie", "details": "Rust knit with a cartoon critter patch", "x": 49, "y": 79 },
-    { "name": "MOM Beanie", "details": "Black knit with a white MOM patch", "x": 67, "y": 88 }
+    {
+      "name": "Be Still & Know Beanie",
+      "details": "Olive knit, daisy-shaped patch",
+      "x": 46,
+      "y": 12,
+      "price": "$16"
+    },
+    {
+      "name": "Turquoise Concho Beanie",
+      "details": "Black knit with a turquoise cluster patch",
+      "x": 70,
+      "y": 27,
+      "price": "$16"
+    },
+    {
+      "name": "Hippie Soul Beanie",
+      "details": "Brown knit, folk-floral Hippie Soul patch",
+      "x": 89,
+      "y": 44,
+      "price": "$16"
+    },
+    {
+      "name": "Bull Skull Beanie",
+      "details": "Light gray knit, black skull patch",
+      "x": 12,
+      "y": 55,
+      "price": "$16"
+    },
+    {
+      "name": "Circle Logo Beanie",
+      "details": "Black knit with a round black-and-white patch",
+      "x": 30,
+      "y": 55,
+      "price": "$16"
+    },
+    {
+      "name": "Well Behaved Women Beanie",
+      "details": "Oatmeal knit, pink script patch",
+      "x": 55,
+      "y": 45,
+      "price": "$16"
+    },
+    {
+      "name": "Beautiful Crazy Beanie",
+      "details": "Black knit, green script patch",
+      "x": 14,
+      "y": 85,
+      "price": "$16"
+    },
+    {
+      "name": "Created With a Purpose Beanie",
+      "details": "Red knit with a cross patch",
+      "x": 31,
+      "y": 89,
+      "price": "$16"
+    },
+    {
+      "name": "Lunchbox Critter Beanie",
+      "details": "Rust knit with a cartoon critter patch",
+      "x": 49,
+      "y": 79,
+      "price": "$16"
+    },
+    {
+      "name": "MOM Beanie",
+      "details": "Black knit with a white MOM patch",
+      "x": 67,
+      "y": 88,
+      "price": "$16"
+    }
   ],
-  "image": "../../assets/images/beanies-rack-one.jpg"
+  "image": "../../assets/images/beanies-rack-one.jpg",
+  "priceRange": "$16"
 }

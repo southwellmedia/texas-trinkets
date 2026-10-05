@@ -1,0 +1,36 @@
+{
+  "name": "Silver Charm Circles",
+  "details": "Four silver charm pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Four silver pendants: a star in double rings, a unicorn, a heart halo and a star with a double ring",
+  "imagePosition": "50% 50%",
+  "order": 7.05,
+  "pieces": [
+    {
+      "name": "Star Halo Pendant",
+      "details": "Star inside double rings",
+      "x": 14,
+      "y": 68
+    },
+    {
+      "name": "Unicorn Pendant",
+      "details": "Silver unicorn charm",
+      "x": 39,
+      "y": 74
+    },
+    {
+      "name": "Heart Halo Pendant",
+      "details": "Crystal heart in a ring",
+      "x": 64,
+      "y": 74
+    },
+    {
+      "name": "Double Ring Star Pendant",
+      "details": "Ring and star drop",
+      "x": 89,
+      "y": 72
+    }
+  ],
+  "image": "../../assets/images/jewelry-silver-charm-circles.jpg"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Gold Charms",
+  "details": "Five gold-tone charms",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five gold-tone charms: a filigree medallion, a rose gold saguaro, an elephant, a Texas charm and a horseshoe halo",
+  "imagePosition": "50% 50%",
+  "order": 7.12,
+  "pieces": [
+    {
+      "name": "Gold Filigree Medallion",
+      "details": "Lacy gold medallion",
+      "x": 11,
+      "y": 48
+    },
+    {
+      "name": "Rose Gold Saguaro Pendant",
+      "details": "Open saguaro cactus in rose gold",
+      "x": 23,
+      "y": 65
+    },
+    {
+      "name": "Gold Elephant Charm",
+      "details": "Crystal-studded elephant",
+      "x": 45,
+      "y": 60
+    },
+    {
+      "name": "Gold Texas Charm",
+      "details": "Texas with a star",
+      "x": 68,
+      "y": 70
+    },
+    {
+      "name": "Lucky Horseshoe Halo",
+      "details": "Crystal horseshoe in a gold ring",
+      "x": 90,
+      "y": 55
+    }
+  ],
+  "image": "../../assets/images/jewelry-gold-charms-row.jpg"
+}

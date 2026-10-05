@@ -1,0 +1,42 @@
+{
+  "name": "Longhorns & Buffalo",
+  "details": "Five western pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five western pendants: a turquoise longhorn, a buffalo-nickel blossom, a turquoise bull skull, a tooled cross and an etched bull skull",
+  "imagePosition": "50% 50%",
+  "order": 7.15,
+  "pieces": [
+    {
+      "name": "Turquoise Longhorn Pendant",
+      "details": "Longhorn with turquoise accents",
+      "x": 11,
+      "y": 68
+    },
+    {
+      "name": "Buffalo Nickel Blossom Pendant",
+      "details": "Buffalo nickel in turquoise petals",
+      "x": 32,
+      "y": 80
+    },
+    {
+      "name": "Turquoise Bull Skull Pendant",
+      "details": "Bull skull with a turquoise stone",
+      "x": 51,
+      "y": 77
+    },
+    {
+      "name": "Tooled Turquoise Cross",
+      "details": "Long tooled cross with turquoise",
+      "x": 70,
+      "y": 82
+    },
+    {
+      "name": "Etched Bull Skull Pendant",
+      "details": "Etched bull skull, turquoise center",
+      "x": 90,
+      "y": 77
+    }
+  ],
+  "image": "../../assets/images/jewelry-longhorn-buffalo-row.jpg"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Turquoise Diamond Cross",
+  "details": "Turquoise diamonds, tooled cross",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "A necklace with turquoise diamond links and a tooled silver cross with a turquoise center",
+  "imagePosition": "50% 62%",
+  "order": 7.35,
+  "pieces": [
+    {
+      "name": "Turquoise Diamond Cross",
+      "details": "Turquoise diamonds, tooled cross",
+      "x": 52,
+      "y": 72
+    }
+  ],
+  "image": "../../assets/images/jewelry-turquoise-diamond-cross.jpg"
+}

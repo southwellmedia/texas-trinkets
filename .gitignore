@@ -60,3 +60,7 @@ package-lock.json
 southwell-astro-boilerplate-docs.md
 southwell-astro-boilerplate-prd.md
 .vercel
+
+# Raw photo uploads (full-size originals & HEIC). The site uses optimized
+# copies in src/assets/images; anything in public/ would be deployed as-is.
+public/assets/100526/

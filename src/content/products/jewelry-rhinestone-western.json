@@ -1,0 +1,36 @@
+{
+  "name": "Rhinestone Western",
+  "details": "Four gold-tone pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Four pendants: a rhinestone saguaro, a rhinestone longhorn, a hammered open cross and a gold turquoise concho",
+  "imagePosition": "50% 50%",
+  "order": 7.25,
+  "pieces": [
+    {
+      "name": "Rhinestone Saguaro Pendant",
+      "details": "Sparkly saguaro cactus",
+      "x": 11,
+      "y": 55
+    },
+    {
+      "name": "Rhinestone Longhorn Pendant",
+      "details": "Sparkly longhorn",
+      "x": 37,
+      "y": 58
+    },
+    {
+      "name": "Hammered Open Cross",
+      "details": "Hammered open cross",
+      "x": 63,
+      "y": 65
+    },
+    {
+      "name": "Gold Turquoise Concho",
+      "details": "Gold concho with turquoise",
+      "x": 88,
+      "y": 72
+    }
+  ],
+  "image": "../../assets/images/jewelry-rhinestone-western.jpg"
+}

@@ -7,10 +7,35 @@
   "imagePosition": "50% 40%",
   "order": 11,
   "pieces": [
-    { "name": "Dino Skeleton Trucker", "details": "Black mesh, cream front, embroidered raptor skeleton", "x": 31, "y": 15 },
-    { "name": "Cherry Bow Trucker", "details": "Red mesh with a cherries-and-ribbon patch", "x": 79, "y": 12 },
-    { "name": "Free Hugs (Just Kidding) Trucker", "details": "Light blue mesh, mustard patch", "x": 28, "y": 62 },
-    { "name": "Turquoise Bull Skull Trucker", "details": "Light blue mesh, turquoise concho skull", "x": 72, "y": 63 }
+    {
+      "name": "Dino Skeleton Trucker",
+      "details": "Black mesh, cream front, embroidered raptor skeleton",
+      "x": 31,
+      "y": 15,
+      "price": "$18"
+    },
+    {
+      "name": "Cherry Bow Trucker",
+      "details": "Red mesh with a cherries-and-ribbon patch",
+      "x": 79,
+      "y": 12,
+      "price": "$18"
+    },
+    {
+      "name": "Free Hugs (Just Kidding) Trucker",
+      "details": "Light blue mesh, mustard patch",
+      "x": 28,
+      "y": 62,
+      "price": "$18"
+    },
+    {
+      "name": "Turquoise Bull Skull Trucker",
+      "details": "Light blue mesh, turquoise concho skull",
+      "x": 72,
+      "y": 63,
+      "price": "$18"
+    }
   ],
-  "image": "../../assets/images/trucker-dino-cherry.jpg"
+  "image": "../../assets/images/trucker-dino-cherry.jpg",
+  "priceRange": "$18"
 }

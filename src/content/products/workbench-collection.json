@@ -10,50 +10,59 @@
       "name": "Black Stone Concho Necklace",
       "details": "Black stones, conchos & a filigree rosette",
       "x": 33,
-      "y": 18
+      "y": 18,
+      "price": "$35"
     },
     {
       "name": "Turquoise Rosette Necklace",
       "details": "Silver rosettes with turquoise centers",
       "x": 56,
-      "y": 26
+      "y": 26,
+      "price": "$35"
     },
     {
       "name": "Turquoise Blossom Concho",
       "details": "Blossom conchos and turquoise links",
       "x": 77,
-      "y": 37
+      "y": 37,
+      "price": "$35"
     },
     {
       "name": "Dreamcatcher Feather Necklace",
       "details": "Dreamcatcher medallion with feather drops",
       "x": 85,
-      "y": 57
+      "y": 57,
+      "price": "$40"
     },
     {
       "name": "Turquoise Teardrop Necklace",
       "details": "Double chain with turquoise teardrops",
       "x": 5,
-      "y": 64
+      "y": 64,
+      "price": "$16"
     },
     {
       "name": "Daisy & Turquoise Necklace",
       "details": "Silver daisies over a round turquoise drop",
       "x": 52,
-      "y": 74
+      "y": 74,
+      "price": "$16"
     },
     {
       "name": "Turquoise Star Charm Chain",
       "details": "Turquoise links with a star charm",
       "x": 10,
-      "y": 90
+      "y": 90,
+      "price": "$16"
     },
     {
       "name": "Feather & Rosette Necklace",
       "details": "Silver feather, rosettes & turquoise",
       "x": 86,
-      "y": 80
+      "y": 80,
+      "price": "$45"
     }
   ],
-  "image": "../../assets/images/custom-jewelry-spread.jpg"
+  "image": "../../assets/images/custom-jewelry-spread.jpg",
+  "priceRange": "$16–45"
 }

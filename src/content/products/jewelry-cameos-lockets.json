@@ -1,0 +1,42 @@
+{
+  "name": "Cameos & Lockets",
+  "details": "Five cameos & lockets",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five pendants: a cat cameo, a silver floral locket, a carved buffalo, a gold floral locket and a lady cameo",
+  "imagePosition": "50% 50%",
+  "order": 7.19,
+  "pieces": [
+    {
+      "name": "Cat Cameo Pendant",
+      "details": "Cat cameo in a filigree frame",
+      "x": 9,
+      "y": 72
+    },
+    {
+      "name": "Silver Floral Locket",
+      "details": "Engraved silver locket",
+      "x": 28,
+      "y": 65
+    },
+    {
+      "name": "Carved Buffalo Pendant",
+      "details": "Ivory-tone buffalo with silver horns",
+      "x": 49,
+      "y": 75
+    },
+    {
+      "name": "Gold Floral Locket",
+      "details": "Engraved gold locket",
+      "x": 72,
+      "y": 68
+    },
+    {
+      "name": "Lady Cameo Pendant",
+      "details": "Classic lady cameo",
+      "x": 90,
+      "y": 68
+    }
+  ],
+  "image": "../../assets/images/jewelry-cameos-lockets.jpg"
+}

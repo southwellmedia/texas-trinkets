@@ -9,6 +9,27 @@ interface Props {
 }
 
 const { products } = Astro.props;
+
+/** Cards shown before "Show more" (per filter) */
+const PAGE = 12;
+
+// "Everything" view: interleave categories so hats, beanies and earrings
+// surface early while jewelry (the core line) still leads. Each category
+// keeps its own order, so the filtered views are unchanged.
+const pattern = ['jewelry', 'jewelry', 'hats', 'beanies', 'earrings'] as const;
+const queues: Record<string, typeof products> = Object.fromEntries(
+  CATEGORIES.map((c) => [c.key, products.filter((p) => p.data.category === c.key)])
+);
+const mixed: typeof products = [];
+while (pattern.some((k) => queues[k]?.length)) {
+  for (const key of pattern) {
+    const next = queues[key]?.shift();
+    if (next) mixed.push(next);
+  }
+}
+// categories outside the pattern (future additions) are appended as-is
+mixed.push(...products.filter((p) => !mixed.includes(p)));
+
 const counts = Object.fromEntries(
   CATEGORIES.map((c) => [c.key, products.filter((p) => p.data.category === c.key).length])
 );
@@ -47,13 +68,23 @@ const chips = [{ key: 'all', label: 'Everything', count: products.length }].conc
       }
     </div>
 
-    <div class="products" data-shop-grid>
-      {products.map((product, i) => <ProductCard product={product} index={i} />)}
+    <div class="products" data-shop-grid data-page={PAGE}>
+      {
+        mixed.map((product, i) => (
+          <ProductCard product={product} index={i} collapsed={i >= PAGE} />
+        ))
+      }
+    </div>
+
+    <div class="more" data-shop-more hidden={mixed.length <= PAGE}>
+      <button type="button" class="tt-btn tt-btn-line more-btn" data-shop-more-btn>
+        Show more <span class="more-count" data-shop-more-count>{mixed.length - PAGE}</span>
+      </button>
     </div>
   </div>
 </section>
 
-<ShopThePhoto shots={products} />
+<ShopThePhoto shots={mixed} />
 
 <script>
   const root = document.querySelector<HTMLElement>('[data-shop-filters]');
@@ -61,17 +92,45 @@ const chips = [{ key: 'all', label: 'Everything', count: products.length }].conc
   if (root && grid) {
     const chips = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-filter]'));
     const cards = Array.from(grid.querySelectorAll<HTMLElement>('[data-category]'));
+    const more = document.querySelector<HTMLElement>('[data-shop-more]');
+    const moreBtn = document.querySelector<HTMLButtonElement>('[data-shop-more-btn]');
+    const moreCount = document.querySelector<HTMLElement>('[data-shop-more-count]');
+    const PAGE = Number(grid.dataset.page) || 12;
+    let current = 'all';
+    let limit = PAGE;
+
+    const render = () => {
+      const list = cards.filter((c) => current === 'all' || c.dataset.category === current);
+      cards.forEach((card) => {
+        card.hidden = true;
+        card.removeAttribute('data-collapsed');
+      });
+      list.forEach((card, i) => {
+        const show = i < limit;
+        card.hidden = !show;
+        // Re-stagger the reveal delay for the cards that remain visible
+        if (show) card.style.setProperty('--d', String(i % 3));
+      });
+      const left = list.length - limit;
+      if (more) more.hidden = left <= 0;
+      if (moreCount) moreCount.textContent = String(Math.max(0, left));
+      return list;
+    };
 
     const apply = (key: string) => {
       chips.forEach((c) => c.setAttribute('aria-pressed', c.dataset.filter === key ? 'true' : 'false'));
-      let i = 0;
-      cards.forEach((card) => {
-        const show = key === 'all' || card.dataset.category === key;
-        card.hidden = !show;
-        // Re-stagger the reveal delay for the cards that remain visible
-        if (show) card.style.setProperty('--d', String(i++ % 3));
-      });
+      current = key;
+      limit = PAGE;
+      render();
     };
+
+    moreBtn?.addEventListener('click', () => {
+      const firstNew = limit;
+      limit += PAGE;
+      const list = render();
+      // Move focus to the first newly revealed card for keyboard users
+      list[firstNew]?.focus({ preventScroll: true });
+    });
 
     chips.forEach((chip) =>
       chip.addEventListener('click', () => {
@@ -157,6 +216,31 @@ const chips = [{ key: 'all', label: 'Everything', count: products.length }].conc
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 34px 26px;
+  }
+  /* Collapsed until "Show more" — only when JS is running, so no-JS
+     visitors still see every card. */
+  :global(.reveal-ready) .products > :global([data-collapsed]) {
+    display: none;
+  }
+
+  .more {
+    display: flex;
+    justify-content: center;
+    margin-top: 46px;
+  }
+  .more[hidden] {
+    display: none;
+  }
+  .more-count {
+    display: inline-grid;
+    place-items: center;
+    min-width: 26px;
+    height: 22px;
+    padding: 0 7px;
+    border-radius: 999px;
+    background: var(--tt-sand);
+    font-size: 11px;
+    font-weight: 800;
   }
 
   @media (max-width: 960px) {

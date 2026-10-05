@@ -1,0 +1,48 @@
+{
+  "name": "Nail & Wire Crosses",
+  "details": "Six silver crosses",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Six silver cross necklaces including nail-and-wire crosses and a braided cross",
+  "imagePosition": "50% 50%",
+  "order": 7.2,
+  "pieces": [
+    {
+      "name": "Driftwood Cross",
+      "details": "Textured cross pendant",
+      "x": 5,
+      "y": 56
+    },
+    {
+      "name": "Open Silver Cross",
+      "details": "Slim open cross",
+      "x": 21,
+      "y": 48
+    },
+    {
+      "name": "Nail & Wire Cross",
+      "details": "Nail cross wrapped in wire",
+      "x": 38,
+      "y": 58
+    },
+    {
+      "name": "Petite Nail Cross",
+      "details": "Small wire-wrapped nail cross",
+      "x": 54,
+      "y": 57
+    },
+    {
+      "name": "Braided Silver Cross",
+      "details": "Large braided cross",
+      "x": 75,
+      "y": 68
+    },
+    {
+      "name": "Horseshoe Nail Cross",
+      "details": "Horseshoe-nail cross",
+      "x": 91,
+      "y": 40
+    }
+  ],
+  "image": "../../assets/images/jewelry-nail-crosses.jpg"
+}

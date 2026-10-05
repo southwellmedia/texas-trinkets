@@ -1,0 +1,60 @@
+{
+  "name": "Silver & Gold Charms",
+  "details": "Eight charm pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Eight pendants: a scroll hoop, a black crystal tag, two heart halos, a gold dragonfly, a crescent moon with a cat, a mermaid tail and a double ring",
+  "imagePosition": "50% 50%",
+  "order": 7.27,
+  "pieces": [
+    {
+      "name": "Scroll Hoop Pendant",
+      "details": "Engraved open hoop",
+      "x": 6,
+      "y": 45
+    },
+    {
+      "name": "Black Crystal Tag",
+      "details": "Tag filled with black crystals",
+      "x": 22,
+      "y": 59
+    },
+    {
+      "name": "Red Heart Gold Halo",
+      "details": "Red heart in a gold ring",
+      "x": 33,
+      "y": 28
+    },
+    {
+      "name": "Gold Dragonfly Pendant",
+      "details": "Large gold dragonfly",
+      "x": 46,
+      "y": 62
+    },
+    {
+      "name": "Pink Heart Halo",
+      "details": "Pink heart in a gold ring",
+      "x": 58,
+      "y": 32
+    },
+    {
+      "name": "Crescent Moon & Cat",
+      "details": "Filigree moon with a cat",
+      "x": 70,
+      "y": 45
+    },
+    {
+      "name": "Mermaid Tail Halo",
+      "details": "Iridescent mermaid tail in a ring",
+      "x": 85,
+      "y": 58
+    },
+    {
+      "name": "Double Ring Pendant",
+      "details": "Mixed-metal double ring",
+      "x": 94,
+      "y": 45
+    }
+  ],
+  "image": "../../assets/images/jewelry-silver-gold-charms.jpg"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Turquoise Cross Board",
+  "details": "Five statement crosses",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five turquoise and silver statement cross necklaces on a velvet board, including a buffalo-nickel cross",
+  "imagePosition": "50% 50%",
+  "order": 7.03,
+  "pieces": [
+    {
+      "name": "Turquoise Concho Cross",
+      "details": "Turquoise teardrop cross on concho links",
+      "x": 9,
+      "y": 75
+    },
+    {
+      "name": "Silver Scroll Cross",
+      "details": "Etched silver cross with a turquoise heart",
+      "x": 25,
+      "y": 64
+    },
+    {
+      "name": "Buffalo Nickel Cross",
+      "details": "Tooled cross under buffalo-nickel blossoms",
+      "x": 46,
+      "y": 82
+    },
+    {
+      "name": "Turquoise Dot Filigree Cross",
+      "details": "Filigree cross set with turquoise dots",
+      "x": 67,
+      "y": 72
+    },
+    {
+      "name": "Celtic Knot Turquoise Cross",
+      "details": "Turquoise cross on Celtic-knot links",
+      "x": 89,
+      "y": 78
+    }
+  ],
+  "image": "../../assets/images/jewelry-cross-board-buffalo.jpg"
+}

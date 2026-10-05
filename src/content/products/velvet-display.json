@@ -10,32 +10,38 @@
       "name": "Rhinestone Cross Statement Necklace",
       "details": "Turquoise cross with rhinestone side crosses",
       "x": 27,
-      "y": 80
+      "y": 80,
+      "price": "$55"
     },
     {
       "name": "Filigree Lace Pendant",
       "details": "Oversized lace filigree drop with turquoise",
       "x": 53,
-      "y": 70
+      "y": 70,
+      "price": "$35"
     },
     {
       "name": "Open Teardrop Filigree",
       "details": "Airy silver teardrop on filigree links",
       "x": 69,
-      "y": 61
+      "y": 61,
+      "price": "$35"
     },
     {
       "name": "Turquoise Oval Concho",
       "details": "Oval concho with a turquoise center",
       "x": 83,
-      "y": 62
+      "y": 62,
+      "price": "$25"
     },
     {
       "name": "Turquoise Sunburst Oval",
       "details": "Sunburst oval inlaid with turquoise",
       "x": 95,
-      "y": 70
+      "y": 70,
+      "price": "$30"
     }
   ],
-  "image": "../../assets/images/story-velvet-display.jpg"
+  "image": "../../assets/images/story-velvet-display.jpg",
+  "priceRange": "$25–55"
 }

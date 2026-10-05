@@ -1,0 +1,42 @@
+{
+  "name": "Halo Charms",
+  "details": "Five gold & silver halo pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five halo pendants: a red crystal in gold, a silver cross, a petite cross, an etched cross and a red heart",
+  "imagePosition": "50% 50%",
+  "order": 7.01,
+  "pieces": [
+    {
+      "name": "Ruby Crystal Halo",
+      "details": "Red crystal in a gold ring",
+      "x": 10,
+      "y": 82
+    },
+    {
+      "name": "Silver Cross Halo",
+      "details": "Simple cross floating in a silver ring",
+      "x": 32,
+      "y": 50
+    },
+    {
+      "name": "Petite Cross Halo",
+      "details": "Tiny cross in a large gold ring",
+      "x": 48,
+      "y": 82
+    },
+    {
+      "name": "Etched Cross Halo",
+      "details": "Etched open cross in a silver ring",
+      "x": 65,
+      "y": 52
+    },
+    {
+      "name": "Red Heart Halo",
+      "details": "Red enamel heart in gold",
+      "x": 86,
+      "y": 78
+    }
+  ],
+  "image": "../../assets/images/jewelry-halo-charms.jpg"
+}

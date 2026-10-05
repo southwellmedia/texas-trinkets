@@ -7,9 +7,28 @@
   "imagePosition": "50% 50%",
   "order": 23,
   "pieces": [
-    { "name": "Beautiful Crazy Beanie", "details": "Black knit, green script patch", "x": 20, "y": 78 },
-    { "name": "Football Bow Beanie", "details": "Black knit with a pink stitched football bow", "x": 45, "y": 25 },
-    { "name": "Caterpillar Beanie", "details": "Black knit with a rainbow caterpillar", "x": 82, "y": 80 }
+    {
+      "name": "Beautiful Crazy Beanie",
+      "details": "Black knit, green script patch",
+      "x": 20,
+      "y": 78,
+      "price": "$16"
+    },
+    {
+      "name": "Football Bow Beanie",
+      "details": "Black knit with a pink stitched football bow",
+      "x": 45,
+      "y": 25,
+      "price": "$16"
+    },
+    {
+      "name": "Caterpillar Beanie",
+      "details": "Black knit with a rainbow caterpillar",
+      "x": 82,
+      "y": 80,
+      "price": "$16"
+    }
   ],
-  "image": "../../assets/images/beanies-black-trio.jpg"
+  "image": "../../assets/images/beanies-black-trio.jpg",
+  "priceRange": "$16"
 }

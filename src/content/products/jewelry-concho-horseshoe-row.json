@@ -1,0 +1,42 @@
+{
+  "name": "Conchos & Horseshoes",
+  "details": "Five western pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five western pendants: a rose concho, a horse head oval, a turquoise circle medallion, a star horseshoe and a turquoise teardrop on blossoms",
+  "imagePosition": "50% 50%",
+  "order": 7.07,
+  "pieces": [
+    {
+      "name": "Rose Concho Necklace",
+      "details": "Sunburst concho on rose links",
+      "x": 9,
+      "y": 52
+    },
+    {
+      "name": "Horse Head Oval Pendant",
+      "details": "Silver horse in an etched oval",
+      "x": 32,
+      "y": 80
+    },
+    {
+      "name": "Turquoise Circle Medallion",
+      "details": "Open circle with turquoise and tooling",
+      "x": 49,
+      "y": 62
+    },
+    {
+      "name": "Star Horseshoe Pendant",
+      "details": "Tooled horseshoe with a star",
+      "x": 66,
+      "y": 80
+    },
+    {
+      "name": "Blossom Turquoise Teardrop",
+      "details": "Turquoise teardrop on blossom links",
+      "x": 87,
+      "y": 62
+    }
+  ],
+  "image": "../../assets/images/jewelry-concho-horseshoe-row.jpg"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Feral & Cowgirl Trio",
+  "details": "Three cuffed knit beanies",
+  "category": "beanies",
+  "status": "Available",
+  "imageAlt": "Three knit beanies: a black Feral patch, an orange It’s Not Easy Being a Cowgirl patch and a black flag patch",
+  "imagePosition": "50% 50%",
+  "order": 28,
+  "pieces": [
+    {
+      "name": "Feral Beanie",
+      "details": "Black knit with a Feral patch",
+      "x": 25,
+      "y": 77,
+      "price": "$16"
+    },
+    {
+      "name": "It’s Not Easy Being a Cowgirl Beanie",
+      "details": "Orange knit with a cowgirl boots patch",
+      "x": 49,
+      "y": 49,
+      "price": "$16"
+    },
+    {
+      "name": "American Flag Beanie",
+      "details": "Black knit with a black & white flag patch",
+      "x": 80,
+      "y": 64,
+      "price": "$16"
+    }
+  ],
+  "image": "../../assets/images/beanies-feral-cowgirl-trio.jpg",
+  "priceRange": "$16"
+}

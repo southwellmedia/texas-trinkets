@@ -1,7 +1,7 @@
 {
   "name": "Turquoise Slab Pendant",
   "details": "Long chain · statement stone",
-  "priceRange": "$60–85",
+  "priceRange": "$40",
   "status": "Made to order",
   "imageAlt": "Turquoise slab pendant",
   "order": 4,
@@ -9,7 +9,7 @@
     {
       "name": "Turquoise Slab Pendant",
       "details": "Free-form turquoise slab with red matrix on a long snake chain",
-      "price": "$60–85",
+      "price": "$40",
       "x": 50,
       "y": 57
     }

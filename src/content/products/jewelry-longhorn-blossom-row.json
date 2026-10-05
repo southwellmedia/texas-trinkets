@@ -1,0 +1,36 @@
+{
+  "name": "Longhorns & Blossoms",
+  "details": "Four turquoise statement necklaces",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Four turquoise necklaces: a longhorn skull, a turquoise medallion on rings, a longhorn on star links and a turquoise blossom",
+  "imagePosition": "50% 50%",
+  "order": 7.06,
+  "pieces": [
+    {
+      "name": "Turquoise Longhorn Skull Necklace",
+      "details": "Etched longhorn with a turquoise center",
+      "x": 13,
+      "y": 72
+    },
+    {
+      "name": "Turquoise Medallion Ring Necklace",
+      "details": "Filigree medallion on silver rings",
+      "x": 35,
+      "y": 77
+    },
+    {
+      "name": "Longhorn Star-Link Necklace",
+      "details": "Longhorn skull on turquoise star links",
+      "x": 57,
+      "y": 73
+    },
+    {
+      "name": "Turquoise Blossom Filigree Necklace",
+      "details": "Turquoise squash blossom under filigree",
+      "x": 85,
+      "y": 77
+    }
+  ],
+  "image": "../../assets/images/jewelry-longhorn-blossom-row.jpg"
+}

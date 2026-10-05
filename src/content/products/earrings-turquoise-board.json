@@ -11,62 +11,73 @@
       "name": "Concho Square Drops",
       "details": "Etched silver squares with a turquoise center",
       "x": 10,
-      "y": 18
+      "y": 18,
+      "price": "$10–15"
     },
     {
       "name": "Turquoise Round Drops",
       "details": "Big turquoise rounds on a silver stud",
       "x": 24,
-      "y": 15
+      "y": 15,
+      "price": "$10–15"
     },
     {
       "name": "Bull Skull Drops",
       "details": "Silver longhorn skull with turquoise",
       "x": 57,
-      "y": 17
+      "y": 17,
+      "price": "$10–15"
     },
     {
       "name": "Feather Drops",
       "details": "Long silver feathers with turquoise dots",
       "x": 92,
-      "y": 18
+      "y": 18,
+      "price": "$10–15"
     },
     {
       "name": "Longhorn Turquoise Drops",
       "details": "Small longhorn with a turquoise inlay",
       "x": 12,
-      "y": 37
+      "y": 37,
+      "price": "$10–15"
     },
     {
       "name": "Dreamcatcher Drops",
       "details": "Turquoise dreamcatcher with feather fringe",
       "x": 40,
-      "y": 55
+      "y": 55,
+      "price": "$10–15"
     },
     {
       "name": "Thunderbird Drops",
       "details": "Silver thunderbird with a turquoise heart",
       "x": 76,
-      "y": 55
+      "y": 55,
+      "price": "$10–15"
     },
     {
       "name": "Turquoise Cross Teardrops",
       "details": "Hammered teardrops set with a turquoise cross",
       "x": 93,
-      "y": 57
+      "y": 57,
+      "price": "$10–15"
     },
     {
       "name": "Cactus Drops",
       "details": "Silver cactus with a turquoise stone",
       "x": 40,
-      "y": 90
+      "y": 90,
+      "price": "$10–15"
     },
     {
       "name": "Dragonfly Drops",
       "details": "Silver dragonfly with turquoise wings",
       "x": 74,
-      "y": 90
+      "y": 90,
+      "price": "$10–15"
     }
   ],
-  "image": "../../assets/images/earrings-turquoise-board.jpg"
+  "image": "../../assets/images/earrings-turquoise-board.jpg",
+  "priceRange": "$10–15"
 }

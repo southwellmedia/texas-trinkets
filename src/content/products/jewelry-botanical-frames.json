@@ -1,0 +1,60 @@
+{
+  "name": "Botanical Frames",
+  "details": "Eight framed charm pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Eight framed pendants with feathers, flowers, a starburst, an elephant, a butterfly and a rose in gold and silver frames",
+  "imagePosition": "50% 50%",
+  "order": 7.13,
+  "pieces": [
+    {
+      "name": "Gold Feather Diamond Frame",
+      "details": "Feather in a gold diamond",
+      "x": 11,
+      "y": 73
+    },
+    {
+      "name": "Gold Flower Diamond Frame",
+      "details": "Flower in a gold diamond",
+      "x": 18,
+      "y": 35
+    },
+    {
+      "name": "Starburst Halo",
+      "details": "Crystal starburst in a ring",
+      "x": 33,
+      "y": 45
+    },
+    {
+      "name": "Elephant Halo",
+      "details": "Silver elephant in a ring",
+      "x": 41,
+      "y": 66
+    },
+    {
+      "name": "Gold Butterfly Halo",
+      "details": "Butterfly in a gold ring",
+      "x": 57,
+      "y": 32
+    },
+    {
+      "name": "Rose Halo",
+      "details": "Open rose in a ring",
+      "x": 64,
+      "y": 64
+    },
+    {
+      "name": "Silver Flower Diamond Frame",
+      "details": "Flower in a silver diamond",
+      "x": 79,
+      "y": 38
+    },
+    {
+      "name": "Gold Lily Diamond Frame",
+      "details": "Lily in a gold diamond",
+      "x": 89,
+      "y": 74
+    }
+  ],
+  "image": "../../assets/images/jewelry-botanical-frames.jpg"
+}

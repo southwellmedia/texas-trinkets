@@ -7,8 +7,21 @@
   "imagePosition": "50% 50%",
   "order": 25,
   "pieces": [
-    { "name": "Red Checkered Bow Fleece Beanie", "details": "Black fleece, red gingham bow", "x": 11, "y": 72 },
-    { "name": "Pink Checkered Bow Fleece Beanie", "details": "Black fleece, pink gingham bow", "x": 57, "y": 70 }
+    {
+      "name": "Red Checkered Bow Fleece Beanie",
+      "details": "Black fleece, red gingham bow",
+      "x": 11,
+      "y": 72,
+      "price": "$16"
+    },
+    {
+      "name": "Pink Checkered Bow Fleece Beanie",
+      "details": "Black fleece, pink gingham bow",
+      "x": 57,
+      "y": 70,
+      "price": "$16"
+    }
   ],
-  "image": "../../assets/images/fleece-beanies-bow-pair.jpg"
+  "image": "../../assets/images/fleece-beanies-bow-pair.jpg",
+  "priceRange": "$16"
 }

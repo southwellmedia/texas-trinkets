@@ -7,11 +7,42 @@
   "imagePosition": "50% 45%",
   "order": 10,
   "pieces": [
-    { "name": "Free Hugs (Just Kidding) Trucker", "details": "Light blue mesh, white front, mustard patch", "x": 28, "y": 17 },
-    { "name": "Turquoise Bull Skull Trucker", "details": "Light blue mesh with a turquoise concho skull patch", "x": 73, "y": 16 },
-    { "name": "Make America Cowboy Again Trucker", "details": "Baby pink mesh, embroidered boot & hat patch", "x": 19, "y": 46 },
-    { "name": "Hippie Soul Trucker", "details": "Red mesh, folk-floral Hippie Soul patch", "x": 48, "y": 66 },
-    { "name": "Horse & Rider Trucker", "details": "Black checkered mesh with a galloping horse patch", "x": 80, "y": 50 }
+    {
+      "name": "Free Hugs (Just Kidding) Trucker",
+      "details": "Light blue mesh, white front, mustard patch",
+      "x": 28,
+      "y": 17,
+      "price": "$18"
+    },
+    {
+      "name": "Turquoise Bull Skull Trucker",
+      "details": "Light blue mesh with a turquoise concho skull patch",
+      "x": 73,
+      "y": 16,
+      "price": "$18"
+    },
+    {
+      "name": "Make America Cowboy Again Trucker",
+      "details": "Baby pink mesh, embroidered boot & hat patch",
+      "x": 19,
+      "y": 46,
+      "price": "$18"
+    },
+    {
+      "name": "Hippie Soul Trucker",
+      "details": "Red mesh, folk-floral Hippie Soul patch",
+      "x": 48,
+      "y": 66,
+      "price": "$18"
+    },
+    {
+      "name": "Horse & Rider Trucker",
+      "details": "Black checkered mesh with a galloping horse patch",
+      "x": 80,
+      "y": 50,
+      "price": "$18"
+    }
   ],
-  "image": "../../assets/images/trucker-western-five.jpg"
+  "image": "../../assets/images/trucker-western-five.jpg",
+  "priceRange": "$18"
 }

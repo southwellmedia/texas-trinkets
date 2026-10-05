@@ -1,0 +1,18 @@
+{
+  "name": "Filigree Cross & Pearl",
+  "details": "Ornate cross with a pearl drop",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "An ornate silver filigree cross with a pearl drop on a black display",
+  "imagePosition": "50% 52%",
+  "order": 7.34,
+  "pieces": [
+    {
+      "name": "Filigree Cross & Pearl",
+      "details": "Ornate cross with a pearl drop",
+      "x": 50,
+      "y": 62
+    }
+  ],
+  "image": "../../assets/images/jewelry-filigree-cross-pearl.jpg"
+}

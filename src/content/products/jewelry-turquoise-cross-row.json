@@ -1,0 +1,42 @@
+{
+  "name": "Turquoise Crosses",
+  "details": "Five turquoise crosses",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five turquoise and silver cross pendants, from a Maltese-style cross to a crystal statement cross",
+  "imagePosition": "50% 50%",
+  "order": 7.24,
+  "pieces": [
+    {
+      "name": "Turquoise Maltese Cross",
+      "details": "Rounded cross set with turquoise",
+      "x": 11,
+      "y": 48
+    },
+    {
+      "name": "Aztec Turquoise Cross",
+      "details": "Stamped cross with turquoise",
+      "x": 27,
+      "y": 70
+    },
+    {
+      "name": "Etched Silver Cross",
+      "details": "Etched silver cross",
+      "x": 47,
+      "y": 65
+    },
+    {
+      "name": "Turquoise Inlay Cross",
+      "details": "Cross with turquoise inlay",
+      "x": 68,
+      "y": 75
+    },
+    {
+      "name": "Crystal & Turquoise Statement Cross",
+      "details": "Ornate cross with crystals and turquoise",
+      "x": 87,
+      "y": 55
+    }
+  ],
+  "image": "../../assets/images/jewelry-turquoise-cross-row.jpg"
+}

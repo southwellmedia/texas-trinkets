@@ -1,0 +1,18 @@
+{
+  "name": "Turquoise Saguaro Necklace",
+  "details": "Turquoise bead cactus",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "A necklace with turquoise bars, a filigree centerpiece and a saguaro cactus made of turquoise beads",
+  "imagePosition": "50% 65%",
+  "order": 7.36,
+  "pieces": [
+    {
+      "name": "Turquoise Saguaro Necklace",
+      "details": "Turquoise bead cactus",
+      "x": 55,
+      "y": 75
+    }
+  ],
+  "image": "../../assets/images/jewelry-turquoise-saguaro.jpg"
+}

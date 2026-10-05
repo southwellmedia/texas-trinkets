@@ -1,0 +1,18 @@
+{
+  "name": "Filigree Cross Statement",
+  "details": "Filigree links & ornate cross",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "A filigree statement necklace with an ornate silver cross set with a black stone",
+  "imagePosition": "50% 65%",
+  "order": 7.37,
+  "pieces": [
+    {
+      "name": "Filigree Cross Statement",
+      "details": "Filigree links & ornate cross",
+      "x": 50,
+      "y": 75
+    }
+  ],
+  "image": "../../assets/images/jewelry-filigree-cross-statement.jpg"
+}

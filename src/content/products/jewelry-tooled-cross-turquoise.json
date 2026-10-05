@@ -1,0 +1,18 @@
+{
+  "name": "Tooled Cross & Turquoise",
+  "details": "Turquoise bars, tooled cross",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "A necklace with turquoise bars, scroll links and a tooled silver cross with a turquoise center",
+  "imagePosition": "50% 68%",
+  "order": 7.31,
+  "pieces": [
+    {
+      "name": "Tooled Cross & Turquoise",
+      "details": "Turquoise bars, tooled cross",
+      "x": 52,
+      "y": 78
+    }
+  ],
+  "image": "../../assets/images/jewelry-tooled-cross-turquoise.jpg"
+}

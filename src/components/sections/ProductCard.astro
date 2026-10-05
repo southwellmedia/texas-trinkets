@@ -6,9 +6,11 @@ import { piecesOf } from '@/lib/shots';
 interface Props {
   product: CollectionEntry<'products'>;
   index?: number;
+  /** Hidden until the shop's "Show more" button reveals it */
+  collapsed?: boolean;
 }
 
-const { product, index = 0 } = Astro.props;
+const { product, index = 0, collapsed = false } = Astro.props;
 const { name, details, priceRange, status, category, image, imageAlt, imagePosition } = product.data;
 const statusKey = status.toLowerCase().replace(/\s+/g, '-');
 const count = piecesOf(product).length;
@@ -20,6 +22,7 @@ const multi = count > 1;
   href={`#shop/${product.id}`}
   data-open-shot={product.id}
   data-category={category}
+  data-collapsed={collapsed ? '' : undefined}
   data-reveal
   style={`--d:${index % 3}`}
   aria-label={multi

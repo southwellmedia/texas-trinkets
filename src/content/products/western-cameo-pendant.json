@@ -10,33 +10,38 @@
       "name": "Carved Buffalo Pendant",
       "details": "Ivory-tone buffalo with silver horns",
       "x": 12,
-      "y": 44
+      "y": 44,
+      "price": "$35"
     },
     {
       "name": "Horse Head Oval Pendant",
       "details": "Silver horse framed in an etched oval",
       "x": 33,
-      "y": 45
+      "y": 45,
+      "price": "$25"
     },
     {
       "name": "Cracked Turquoise Pendant",
       "details": "Rectangular turquoise in an ornate silver frame",
       "x": 52,
-      "y": 40
+      "y": 40,
+      "price": "$35"
     },
     {
       "name": "Tribal Bison Charm",
       "details": "Copper-tone bison with turquoise inlay",
       "x": 71,
-      "y": 47
+      "y": 47,
+      "price": "$25"
     },
     {
       "name": "Western Cameo Pendant",
       "details": "Horse cameo on navy, silver bezel",
-      "price": "$38–52",
+      "price": "$30",
       "x": 91,
       "y": 53
     }
   ],
-  "image": "../../assets/images/western-cameo-pendant.jpg"
+  "image": "../../assets/images/western-cameo-pendant.jpg",
+  "priceRange": "$25–35"
 }

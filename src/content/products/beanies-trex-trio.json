@@ -7,9 +7,28 @@
   "imagePosition": "50% 50%",
   "order": 24,
   "pieces": [
-    { "name": "T-Rex Beanie", "details": "Black knit, T-rex bursting through the cuff", "x": 24, "y": 78 },
-    { "name": "Floral Butterfly Beanie (Cream)", "details": "Cream knit, flower-winged butterfly", "x": 58, "y": 42 },
-    { "name": "Got Too Silly Goose Beanie", "details": "Black knit, goose-behind-bars patch", "x": 80, "y": 75 }
+    {
+      "name": "T-Rex Beanie",
+      "details": "Black knit, T-rex bursting through the cuff",
+      "x": 24,
+      "y": 78,
+      "price": "$16"
+    },
+    {
+      "name": "Floral Butterfly Beanie (Cream)",
+      "details": "Cream knit, flower-winged butterfly",
+      "x": 58,
+      "y": 42,
+      "price": "$16"
+    },
+    {
+      "name": "Got Too Silly Goose Beanie",
+      "details": "Black knit, goose-behind-bars patch",
+      "x": 80,
+      "y": 75,
+      "price": "$16"
+    }
   ],
-  "image": "../../assets/images/beanies-trex-trio.jpg"
+  "image": "../../assets/images/beanies-trex-trio.jpg",
+  "priceRange": "$16"
 }

@@ -1,0 +1,48 @@
+{
+  "name": "Turquoise Halos",
+  "details": "Six turquoise pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Six pendants: a scalloped turquoise oval, a turquoise square halo, an orange and turquoise stone, a feather halo, a turquoise dot halo and a rope-framed oval",
+  "imagePosition": "50% 50%",
+  "order": 7.09,
+  "pieces": [
+    {
+      "name": "Scalloped Turquoise Oval",
+      "details": "Turquoise oval in a scalloped frame",
+      "x": 9,
+      "y": 72
+    },
+    {
+      "name": "Turquoise Square Halo",
+      "details": "Turquoise square in a silver ring",
+      "x": 24,
+      "y": 64
+    },
+    {
+      "name": "Orange & Turquoise Stone Pendant",
+      "details": "Bright orange and turquoise stone",
+      "x": 41,
+      "y": 70
+    },
+    {
+      "name": "Feather Halo Pendant",
+      "details": "Feather and turquoise in a ring",
+      "x": 56,
+      "y": 70
+    },
+    {
+      "name": "Turquoise Dot Halo",
+      "details": "Turquoise drop in a ring",
+      "x": 72,
+      "y": 66
+    },
+    {
+      "name": "Rope Oval Turquoise Pendant",
+      "details": "Turquoise oval in a rope frame",
+      "x": 89,
+      "y": 75
+    }
+  ],
+  "image": "../../assets/images/jewelry-turquoise-halo-row.jpg"
+}

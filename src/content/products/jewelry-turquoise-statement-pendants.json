@@ -1,0 +1,42 @@
+{
+  "name": "Turquoise Statement Pendants",
+  "details": "Five bold turquoise pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five bold turquoise pendants: a round stone, an arrowhead, a scalloped bar, a cluster oval and a cracked turquoise rectangle",
+  "imagePosition": "50% 50%",
+  "order": 7.11,
+  "pieces": [
+    {
+      "name": "Round Turquoise Pendant",
+      "details": "Big round turquoise in a beaded bezel",
+      "x": 10,
+      "y": 72
+    },
+    {
+      "name": "Arrowhead Turquoise Pendant",
+      "details": "Stamped arrowhead with turquoise",
+      "x": 27,
+      "y": 68
+    },
+    {
+      "name": "Scalloped Turquoise Bar",
+      "details": "Turquoise bar in a scalloped frame",
+      "x": 47,
+      "y": 78
+    },
+    {
+      "name": "Turquoise Cluster Oval",
+      "details": "Turquoise and silver cluster",
+      "x": 60,
+      "y": 68
+    },
+    {
+      "name": "Cracked Turquoise Rectangle",
+      "details": "Large turquoise in an ornate frame",
+      "x": 83,
+      "y": 80
+    }
+  ],
+  "image": "../../assets/images/jewelry-turquoise-statement-pendants.jpg"
+}

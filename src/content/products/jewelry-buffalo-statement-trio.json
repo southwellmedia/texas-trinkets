@@ -1,0 +1,30 @@
+{
+  "name": "Buffalo & Cross Statements",
+  "details": "Three statement necklaces",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Three statement necklaces: a star longhorn skull on rings, a buffalo-nickel turquoise blossom and a turquoise cross on filigree",
+  "imagePosition": "50% 50%",
+  "order": 7.14,
+  "pieces": [
+    {
+      "name": "Star Longhorn Skull Necklace",
+      "details": "Longhorn with turquoise-studded horns",
+      "x": 11,
+      "y": 47
+    },
+    {
+      "name": "Buffalo Blossom Statement Necklace",
+      "details": "Buffalo nickel ringed in turquoise",
+      "x": 46,
+      "y": 80
+    },
+    {
+      "name": "Turquoise Cross Filigree Necklace",
+      "details": "Turquoise cross under filigree",
+      "x": 86,
+      "y": 68
+    }
+  ],
+  "image": "../../assets/images/jewelry-buffalo-statement-trio.jpg"
+}

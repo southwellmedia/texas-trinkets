@@ -1,0 +1,42 @@
+{
+  "name": "Arrowheads & Compass",
+  "details": "Five silver & gold pendants",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five pendants: a silver arrowhead, a simple cross, a gold arrowhead, a tooled arrow charm and a compass rose",
+  "imagePosition": "50% 50%",
+  "order": 7.16,
+  "pieces": [
+    {
+      "name": "Silver Arrowhead Pendant",
+      "details": "Wire-wrapped silver arrowhead",
+      "x": 10,
+      "y": 55
+    },
+    {
+      "name": "Simple Silver Cross",
+      "details": "Clean, classic cross",
+      "x": 26,
+      "y": 50
+    },
+    {
+      "name": "Gold Arrowhead Pendant",
+      "details": "Gold arrowhead on a snake chain",
+      "x": 48,
+      "y": 82
+    },
+    {
+      "name": "Tooled Arrow Charm",
+      "details": "Etched arrow point",
+      "x": 74,
+      "y": 55
+    },
+    {
+      "name": "Compass Rose Pendant",
+      "details": "Compass star in an etched ring",
+      "x": 90,
+      "y": 57
+    }
+  ],
+  "image": "../../assets/images/jewelry-arrowhead-compass-row.jpg"
+}

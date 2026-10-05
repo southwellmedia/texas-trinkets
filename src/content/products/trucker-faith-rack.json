@@ -7,13 +7,56 @@
   "imagePosition": "50% 50%",
   "order": 15,
   "pieces": [
-    { "name": "Praise the Lord Trucker", "details": "Royal blue mesh, navy script patch", "x": 42, "y": 10 },
-    { "name": "Ask Me About Jesus Trucker", "details": "Royal blue mesh with a dove patch", "x": 80, "y": 9 },
-    { "name": "Follow the Word Not the Herd Trucker", "details": "Pink mesh, round Isaiah 30:21 badge", "x": 40, "y": 35 },
-    { "name": "Fight the Good Fight Trucker", "details": "Pink mesh with pastel block letters", "x": 79, "y": 34 },
-    { "name": "Faith Over Fear Trucker", "details": "White mesh, cross & floral patch", "x": 44, "y": 56 },
-    { "name": "Clothed With Strength & Dignity Trucker", "details": "White mesh, Proverbs 31:25 patch", "x": 75, "y": 60 },
-    { "name": "Nothing Shall Be Impossible Trucker", "details": "Red mesh, Luke 1:37 patch", "x": 18, "y": 73 }
+    {
+      "name": "Praise the Lord Trucker",
+      "details": "Royal blue mesh, navy script patch",
+      "x": 42,
+      "y": 10,
+      "price": "$18"
+    },
+    {
+      "name": "Ask Me About Jesus Trucker",
+      "details": "Royal blue mesh with a dove patch",
+      "x": 80,
+      "y": 9,
+      "price": "$18"
+    },
+    {
+      "name": "Follow the Word Not the Herd Trucker",
+      "details": "Pink mesh, round Isaiah 30:21 badge",
+      "x": 40,
+      "y": 35,
+      "price": "$18"
+    },
+    {
+      "name": "Fight the Good Fight Trucker",
+      "details": "Pink mesh with pastel block letters",
+      "x": 79,
+      "y": 34,
+      "price": "$18"
+    },
+    {
+      "name": "Faith Over Fear Trucker",
+      "details": "White mesh, cross & floral patch",
+      "x": 44,
+      "y": 56,
+      "price": "$18"
+    },
+    {
+      "name": "Clothed With Strength & Dignity Trucker",
+      "details": "White mesh, Proverbs 31:25 patch",
+      "x": 75,
+      "y": 60,
+      "price": "$18"
+    },
+    {
+      "name": "Nothing Shall Be Impossible Trucker",
+      "details": "Red mesh, Luke 1:37 patch",
+      "x": 18,
+      "y": 73,
+      "price": "$18"
+    }
   ],
-  "image": "../../assets/images/trucker-faith-rack.jpg"
+  "image": "../../assets/images/trucker-faith-rack.jpg",
+  "priceRange": "$18"
 }

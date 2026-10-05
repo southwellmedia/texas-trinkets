@@ -7,13 +7,56 @@
   "imagePosition": "50% 50%",
   "order": 13,
   "pieces": [
-    { "name": "Pink Bull Skull Trucker", "details": "Bubblegum pink mesh, black skull patch", "x": 46, "y": 10 },
-    { "name": "Butterfly Bouquet Trucker", "details": "Hot pink mesh, butterfly & flowers patch", "x": 80, "y": 9 },
-    { "name": "Pretty Girls Hit Curbs Trucker", "details": "Hot pink mesh, pink bubble letters", "x": 43, "y": 34 },
-    { "name": "Cartoon Girl Trucker", "details": "Black mesh with a pigtailed cartoon girl patch", "x": 81, "y": 34 },
-    { "name": "Got Too Silly Goose Trucker", "details": "Black checkered mesh, goose-in-jail patch", "x": 41, "y": 55 },
-    { "name": "Rainbow Horse Trucker", "details": "Sky blue mesh with a painted rainbow horse", "x": 18, "y": 73 },
-    { "name": "Caterpillar Trucker", "details": "Navy mesh with a rainbow caterpillar patch", "x": 78, "y": 62 }
+    {
+      "name": "Pink Bull Skull Trucker",
+      "details": "Bubblegum pink mesh, black skull patch",
+      "x": 46,
+      "y": 10,
+      "price": "$18"
+    },
+    {
+      "name": "Butterfly Bouquet Trucker",
+      "details": "Hot pink mesh, butterfly & flowers patch",
+      "x": 80,
+      "y": 9,
+      "price": "$18"
+    },
+    {
+      "name": "Pretty Girls Hit Curbs Trucker",
+      "details": "Hot pink mesh, pink bubble letters",
+      "x": 43,
+      "y": 34,
+      "price": "$18"
+    },
+    {
+      "name": "Cartoon Girl Trucker",
+      "details": "Black mesh with a pigtailed cartoon girl patch",
+      "x": 81,
+      "y": 34,
+      "price": "$18"
+    },
+    {
+      "name": "Got Too Silly Goose Trucker",
+      "details": "Black checkered mesh, goose-in-jail patch",
+      "x": 41,
+      "y": 55,
+      "price": "$18"
+    },
+    {
+      "name": "Rainbow Horse Trucker",
+      "details": "Sky blue mesh with a painted rainbow horse",
+      "x": 18,
+      "y": 73,
+      "price": "$18"
+    },
+    {
+      "name": "Caterpillar Trucker",
+      "details": "Navy mesh with a rainbow caterpillar patch",
+      "x": 78,
+      "y": 62,
+      "price": "$18"
+    }
   ],
-  "image": "../../assets/images/trucker-playful-rack.jpg"
+  "image": "../../assets/images/trucker-playful-rack.jpg",
+  "priceRange": "$18"
 }

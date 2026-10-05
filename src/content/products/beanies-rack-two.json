@@ -7,17 +7,84 @@
   "imagePosition": "50% 55%",
   "order": 21,
   "pieces": [
-    { "name": "Flag Beanie", "details": "Black knit with a monochrome American flag", "x": 49, "y": 15 },
-    { "name": "Bull Skull Beanie (White)", "details": "White knit, black skull patch", "x": 65, "y": 30 },
-    { "name": "Be Real Not Perfect Beanie", "details": "Black knit, white script patch", "x": 90, "y": 34 },
-    { "name": "MAMA Chenille Beanie", "details": "Black knit with pink chenille letters", "x": 50, "y": 44 },
-    { "name": "Free Hugs Beanie (Tan)", "details": "Tan knit, mustard Free Hugs patch", "x": 75, "y": 60 },
-    { "name": "Monarch Beanie", "details": "Red knit with a monarch butterfly", "x": 7, "y": 68 },
-    { "name": "Mountains Beanie", "details": "Black knit, white mountain range patch", "x": 28, "y": 66 },
-    { "name": "FERAL Beanie", "details": "Red knit with a black FERAL patch", "x": 46, "y": 70 },
-    { "name": "Free Hugs Beanie (Black)", "details": "Black knit, mustard Free Hugs patch", "x": 65, "y": 85 },
-    { "name": "Free Hugs Beanie (Orange)", "details": "Orange knit, mustard Free Hugs patch", "x": 10, "y": 84 },
-    { "name": "Yellow Butterfly Beanie", "details": "Olive knit with a yellow swallowtail", "x": 30, "y": 92 }
+    {
+      "name": "Flag Beanie",
+      "details": "Black knit with a monochrome American flag",
+      "x": 49,
+      "y": 15,
+      "price": "$16"
+    },
+    {
+      "name": "Bull Skull Beanie (White)",
+      "details": "White knit, black skull patch",
+      "x": 65,
+      "y": 30,
+      "price": "$16"
+    },
+    {
+      "name": "Be Real Not Perfect Beanie",
+      "details": "Black knit, white script patch",
+      "x": 90,
+      "y": 34,
+      "price": "$16"
+    },
+    {
+      "name": "MAMA Chenille Beanie",
+      "details": "Black knit with pink chenille letters",
+      "x": 50,
+      "y": 44,
+      "price": "$16"
+    },
+    {
+      "name": "Free Hugs Beanie (Tan)",
+      "details": "Tan knit, mustard Free Hugs patch",
+      "x": 75,
+      "y": 60,
+      "price": "$16"
+    },
+    {
+      "name": "Monarch Beanie",
+      "details": "Red knit with a monarch butterfly",
+      "x": 7,
+      "y": 68,
+      "price": "$16"
+    },
+    {
+      "name": "Mountains Beanie",
+      "details": "Black knit, white mountain range patch",
+      "x": 28,
+      "y": 66,
+      "price": "$16"
+    },
+    {
+      "name": "FERAL Beanie",
+      "details": "Red knit with a black FERAL patch",
+      "x": 46,
+      "y": 70,
+      "price": "$16"
+    },
+    {
+      "name": "Free Hugs Beanie (Black)",
+      "details": "Black knit, mustard Free Hugs patch",
+      "x": 65,
+      "y": 85,
+      "price": "$16"
+    },
+    {
+      "name": "Free Hugs Beanie (Orange)",
+      "details": "Orange knit, mustard Free Hugs patch",
+      "x": 10,
+      "y": 84,
+      "price": "$16"
+    },
+    {
+      "name": "Yellow Butterfly Beanie",
+      "details": "Olive knit with a yellow swallowtail",
+      "x": 30,
+      "y": 92,
+      "price": "$16"
+    }
   ],
-  "image": "../../assets/images/beanies-rack-two.jpg"
+  "image": "../../assets/images/beanies-rack-two.jpg",
+  "priceRange": "$16"
 }

@@ -1,0 +1,42 @@
+{
+  "name": "Pocketknife Pendants",
+  "details": "Five mini pocketknife necklaces",
+  "category": "jewelry",
+  "status": "Available",
+  "imageAlt": "Five mini pocketknife pendants in gold and silver tones",
+  "imagePosition": "50% 50%",
+  "order": 7.21,
+  "pieces": [
+    {
+      "name": "Gold Etched Pocketknife",
+      "details": "Etched gold mini knife",
+      "x": 8,
+      "y": 72
+    },
+    {
+      "name": "Gold Scroll Pocketknife",
+      "details": "Scroll-engraved gold mini knife",
+      "x": 30,
+      "y": 58
+    },
+    {
+      "name": "Snake-Chain Pocketknife",
+      "details": "Gold mini knife on a snake chain",
+      "x": 49,
+      "y": 74
+    },
+    {
+      "name": "Gold Floral Pocketknife",
+      "details": "Floral gold mini knife",
+      "x": 72,
+      "y": 58
+    },
+    {
+      "name": "Silver Pocketknife",
+      "details": "Etched silver mini knife",
+      "x": 93,
+      "y": 68
+    }
+  ],
+  "image": "../../assets/images/jewelry-pocketknife-pendants.jpg"
+}

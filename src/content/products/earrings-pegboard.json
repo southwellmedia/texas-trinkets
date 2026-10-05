@@ -11,50 +11,59 @@
       "name": "Cross Teardrop Hoops",
       "details": "Open teardrops with a hanging cross",
       "x": 14,
-      "y": 8
+      "y": 8,
+      "price": "$10–15"
     },
     {
       "name": "Starburst Hoops",
       "details": "Big hoops with a crystal starburst",
       "x": 78,
-      "y": 8
+      "y": 8,
+      "price": "$10–15"
     },
     {
       "name": "Square Star Dangles",
       "details": "Open squares with star and burst charms",
       "x": 23,
-      "y": 24
+      "y": 24,
+      "price": "$10–15"
     },
     {
       "name": "Star Hoops",
       "details": "Thin hoops with a single star",
       "x": 43,
-      "y": 49
+      "y": 49,
+      "price": "$10–15"
     },
     {
       "name": "Turquoise Drop Hoops",
       "details": "Hoops with a turquoise teardrop or round stone",
       "x": 71,
-      "y": 62
+      "y": 62,
+      "price": "$10–15"
     },
     {
       "name": "Feather & Star Drops",
       "details": "Long chain drops with feathers and stars",
       "x": 58,
-      "y": 71
+      "y": 71,
+      "price": "$10–15"
     },
     {
       "name": "Longhorn & Cross Charms",
       "details": "Skull, cross and feather charms in square frames",
       "x": 72,
-      "y": 84
+      "y": 84,
+      "price": "$10–15"
     },
     {
       "name": "Cross Dangles",
       "details": "Ornate crosses on diamond frames",
       "x": 85,
-      "y": 94
+      "y": 94,
+      "price": "$10–15"
     }
   ],
-  "image": "../../assets/images/earrings-pegboard.jpg"
+  "image": "../../assets/images/earrings-pegboard.jpg",
+  "priceRange": "$10–15"
 }

@@ -1,7 +1,7 @@
 {
   "name": "Star & Concho Necklace",
   "details": "Turquoise · silver tone",
-  "priceRange": "$55–75",
+  "priceRange": "$45",
   "status": "Available",
   "imageAlt": "Turquoise star and concho necklace",
   "order": 3,
@@ -9,7 +9,7 @@
     {
       "name": "Star & Concho Necklace",
       "details": "Turquoise conchos, crystal stars and a double turquoise drop",
-      "price": "$55–75",
+      "price": "$45",
       "x": 53,
       "y": 80
     }
