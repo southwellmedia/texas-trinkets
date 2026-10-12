@@ -11,8 +11,10 @@
       "name": "Filigree Black Cross",
       "details": "Filigree V & black cross",
       "x": 52,
-      "y": 75
+      "y": 75,
+      "price": "$45"
     }
   ],
-  "image": "../../assets/images/jewelry-filigree-black-cross.jpg"
+  "image": "../../assets/images/jewelry-filigree-black-cross.jpg",
+  "priceRange": "$45"
 }

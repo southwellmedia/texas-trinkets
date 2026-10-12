@@ -11,8 +11,10 @@
       "name": "Turquoise Saguaro Necklace",
       "details": "Turquoise bead cactus",
       "x": 55,
-      "y": 75
+      "y": 75,
+      "price": "$55"
     }
   ],
-  "image": "../../assets/images/jewelry-turquoise-saguaro.jpg"
+  "image": "../../assets/images/jewelry-turquoise-saguaro.jpg",
+  "priceRange": "$55"
 }

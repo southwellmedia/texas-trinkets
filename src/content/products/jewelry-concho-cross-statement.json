@@ -11,8 +11,10 @@
       "name": "Concho Cross Statement",
       "details": "Turquoise conchos & tooled cross",
       "x": 52,
-      "y": 75
+      "y": 75,
+      "price": "$80"
     }
   ],
-  "image": "../../assets/images/jewelry-concho-cross-statement.jpg"
+  "image": "../../assets/images/jewelry-concho-cross-statement.jpg",
+  "priceRange": "$80"
 }

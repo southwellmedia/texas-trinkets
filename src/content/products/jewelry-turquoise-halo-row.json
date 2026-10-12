@@ -11,38 +11,45 @@
       "name": "Scalloped Turquoise Oval",
       "details": "Turquoise oval in a scalloped frame",
       "x": 9,
-      "y": 72
+      "y": 72,
+      "price": "$30"
     },
     {
       "name": "Turquoise Square Halo",
       "details": "Turquoise square in a silver ring",
       "x": 24,
-      "y": 64
+      "y": 64,
+      "price": "$26"
     },
     {
       "name": "Orange & Turquoise Stone Pendant",
       "details": "Bright orange and turquoise stone",
       "x": 41,
-      "y": 70
+      "y": 70,
+      "price": "$28"
     },
     {
       "name": "Feather Halo Pendant",
       "details": "Feather and turquoise in a ring",
       "x": 56,
-      "y": 70
+      "y": 70,
+      "price": "$26"
     },
     {
       "name": "Turquoise Dot Halo",
       "details": "Turquoise drop in a ring",
       "x": 72,
-      "y": 66
+      "y": 66,
+      "price": "$26"
     },
     {
       "name": "Rope Oval Turquoise Pendant",
       "details": "Turquoise oval in a rope frame",
       "x": 89,
-      "y": 75
+      "y": 75,
+      "price": "$30"
     }
   ],
-  "image": "../../assets/images/jewelry-turquoise-halo-row.jpg"
+  "image": "../../assets/images/jewelry-turquoise-halo-row.jpg",
+  "priceRange": "$26–30"
 }

@@ -11,32 +11,38 @@
       "name": "Fleur Cross Pendant",
       "details": "Fleur-de-lis cross with a halo",
       "x": 8,
-      "y": 40
+      "y": 40,
+      "price": "$24"
     },
     {
       "name": "Filigree Silver Cross",
       "details": "Slim filigree cross",
       "x": 25,
-      "y": 52
+      "y": 52,
+      "price": "$24"
     },
     {
       "name": "Patina Turquoise Cross",
       "details": "Large verdigris cross with a turquoise center",
       "x": 50,
-      "y": 65
+      "y": 65,
+      "price": "$26"
     },
     {
       "name": "Open Turquoise Cross",
       "details": "Cut-out cross with turquoise accents",
       "x": 74,
-      "y": 52
+      "y": 52,
+      "price": "$24"
     },
     {
       "name": "Lace Filigree Cross",
       "details": "Lacy filigree cross",
       "x": 90,
-      "y": 40
+      "y": 40,
+      "price": "$24"
     }
   ],
-  "image": "../../assets/images/jewelry-cross-pendant-row.jpg"
+  "image": "../../assets/images/jewelry-cross-pendant-row.jpg",
+  "priceRange": "$24–26"
 }

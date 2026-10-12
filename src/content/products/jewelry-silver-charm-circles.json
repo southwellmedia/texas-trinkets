@@ -11,26 +11,31 @@
       "name": "Star Halo Pendant",
       "details": "Star inside double rings",
       "x": 14,
-      "y": 68
+      "y": 68,
+      "price": "$24"
     },
     {
       "name": "Unicorn Pendant",
       "details": "Silver unicorn charm",
       "x": 39,
-      "y": 74
+      "y": 74,
+      "price": "$24"
     },
     {
       "name": "Heart Halo Pendant",
       "details": "Crystal heart in a ring",
       "x": 64,
-      "y": 74
+      "y": 74,
+      "price": "$24"
     },
     {
       "name": "Double Ring Star Pendant",
       "details": "Ring and star drop",
       "x": 89,
-      "y": 72
+      "y": 72,
+      "price": "$24"
     }
   ],
-  "image": "../../assets/images/jewelry-silver-charm-circles.jpg"
+  "image": "../../assets/images/jewelry-silver-charm-circles.jpg",
+  "priceRange": "$24"
 }

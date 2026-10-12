@@ -11,20 +11,24 @@
       "name": "Turquoise Teardrop Filigree Necklace",
       "details": "Big matrix turquoise under filigree links",
       "x": 14,
-      "y": 70
+      "y": 70,
+      "price": "$35"
     },
     {
       "name": "Heart Concho Lace Necklace",
       "details": "Heart conchos with a lace filigree drop",
       "x": 48,
-      "y": 78
+      "y": 78,
+      "price": "$35"
     },
     {
       "name": "Sunburst Concho Turquoise Necklace",
       "details": "Sunburst conchos and a turquoise teardrop",
       "x": 83,
-      "y": 72
+      "y": 72,
+      "price": "$35"
     }
   ],
-  "image": "../../assets/images/jewelry-turquoise-statement-trio.jpg"
+  "image": "../../assets/images/jewelry-turquoise-statement-trio.jpg",
+  "priceRange": "$35"
 }

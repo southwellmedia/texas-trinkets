@@ -11,8 +11,10 @@
       "name": "Filigree Cross & Pearl",
       "details": "Ornate cross with a pearl drop",
       "x": 50,
-      "y": 62
+      "y": 62,
+      "price": "$45"
     }
   ],
-  "image": "../../assets/images/jewelry-filigree-cross-pearl.jpg"
+  "image": "../../assets/images/jewelry-filigree-cross-pearl.jpg",
+  "priceRange": "$45"
 }

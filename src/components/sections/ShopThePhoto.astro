@@ -80,6 +80,13 @@ const { shots } = Astro.props;
               <span class="counter" aria-hidden="true">
                 {s + 1} / {shots.length}
               </span>
+              <button class="pins-toggle" type="button" data-pins-toggle aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                <span data-pins-label>Hide numbers</span>
+              </button>
             </div>
 
             <aside class="panel">
@@ -223,6 +230,18 @@ const { shots } = Astro.props;
       if (e.key === 'ArrowRight') step(1);
       if (e.key === 'ArrowLeft') step(-1);
     });
+
+    // Hide/show the numbered pins so the pieces underneath can be seen
+    const pinToggles = [...dialog.querySelectorAll<HTMLButtonElement>('[data-pins-toggle]')];
+    pinToggles.forEach((btn) =>
+      btn.addEventListener('click', () => {
+        const hidden = dialog.classList.toggle('pins-hidden');
+        pinToggles.forEach((b) => {
+          b.setAttribute('aria-pressed', String(hidden));
+          b.querySelector('[data-pins-label]')!.textContent = hidden ? 'Show numbers' : 'Hide numbers';
+        });
+      })
+    );
 
     dialog.querySelectorAll('[data-stp-close]').forEach((b) => b.addEventListener('click', close));
     dialog.querySelectorAll('[data-stp-next]').forEach((b) => b.addEventListener('click', () => step(1)));
@@ -517,6 +536,65 @@ const { shots } = Astro.props;
     z-index: 3;
   }
 
+  /* While browsing the photo, shrink every pin but the one under the
+     cursor to a small dot so the pieces underneath stay visible */
+  @media (hover: hover) {
+    .stage:hover .spot:not(:hover):not(.is-hover) .spot-num {
+      transform: scale(0.36);
+      color: transparent;
+    }
+    .stage:hover .spot:not(:hover):not(.is-hover)::before {
+      opacity: 0;
+      animation: none;
+    }
+  }
+
+  /* "Hide numbers" toggle */
+  .spot {
+    transition: opacity 0.2s ease;
+  }
+  .stp.pins-hidden .spot {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .pins-toggle {
+    position: absolute;
+    left: 14px;
+    bottom: 5px;
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 24px;
+    padding: 0 10px;
+    border: 1px solid rgba(255, 250, 241, 0.3);
+    border-radius: 999px;
+    background: rgba(34, 22, 14, 0.55);
+    color: var(--tt-paper);
+    font: inherit;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .pins-toggle:hover,
+  .pins-toggle[aria-pressed='true'] {
+    background: var(--tt-leather);
+  }
+  .pins-toggle svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+  .pins-toggle:focus-visible {
+    outline: 2px solid var(--tt-turquoise-light);
+    outline-offset: 2px;
+  }
+
   .nav {
     position: absolute;
     top: 50%;
@@ -803,6 +881,12 @@ const { shots } = Astro.props;
     }
     .spot-num {
       font-size: 11px;
+    }
+    .pins-toggle {
+      top: 14px;
+      bottom: auto;
+      left: 10px;
+      height: 28px;
     }
   }
 

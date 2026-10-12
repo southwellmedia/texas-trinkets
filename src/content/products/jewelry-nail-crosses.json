@@ -11,38 +11,45 @@
       "name": "Driftwood Cross",
       "details": "Textured cross pendant",
       "x": 5,
-      "y": 56
+      "y": 56,
+      "price": "$28"
     },
     {
       "name": "Open Silver Cross",
       "details": "Slim open cross",
       "x": 21,
-      "y": 48
+      "y": 48,
+      "price": "$26"
     },
     {
       "name": "Nail & Wire Cross",
       "details": "Nail cross wrapped in wire",
       "x": 38,
-      "y": 58
+      "y": 58,
+      "price": "$28"
     },
     {
       "name": "Petite Nail Cross",
       "details": "Small wire-wrapped nail cross",
       "x": 54,
-      "y": 57
+      "y": 57,
+      "price": "$26"
     },
     {
       "name": "Braided Silver Cross",
       "details": "Large braided cross",
       "x": 75,
-      "y": 68
+      "y": 68,
+      "price": "$28"
     },
     {
       "name": "Horseshoe Nail Cross",
       "details": "Horseshoe-nail cross",
       "x": 91,
-      "y": 40
+      "y": 40,
+      "price": "$26"
     }
   ],
-  "image": "../../assets/images/jewelry-nail-crosses.jpg"
+  "image": "../../assets/images/jewelry-nail-crosses.jpg",
+  "priceRange": "$26–28"
 }

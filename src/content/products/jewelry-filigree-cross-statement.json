@@ -11,8 +11,10 @@
       "name": "Filigree Cross Statement",
       "details": "Filigree links & ornate cross",
       "x": 50,
-      "y": 75
+      "y": 75,
+      "price": "$45"
     }
   ],
-  "image": "../../assets/images/jewelry-filigree-cross-statement.jpg"
+  "image": "../../assets/images/jewelry-filigree-cross-statement.jpg",
+  "priceRange": "$45"
 }

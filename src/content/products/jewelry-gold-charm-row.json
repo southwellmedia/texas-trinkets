@@ -11,32 +11,38 @@
       "name": "Gold Rose Frame Pendant",
       "details": "Crystal rose in a scalloped frame",
       "x": 13,
-      "y": 60
+      "y": 60,
+      "price": "$28"
     },
     {
       "name": "Crystal Bar Cross",
       "details": "Slim cross lined with crystals",
       "x": 32,
-      "y": 55
+      "y": 55,
+      "price": "$24"
     },
     {
       "name": "Gold Leaf Pendant",
       "details": "Oversized textured gold leaf",
       "x": 50,
-      "y": 65
+      "y": 65,
+      "price": "$30"
     },
     {
       "name": "Black Crystal Cross",
       "details": "Slim cross with black crystals",
       "x": 69,
-      "y": 50
+      "y": 50,
+      "price": "$24"
     },
     {
       "name": "Opal Teardrop Frame Pendant",
       "details": "Opal teardrop in a scalloped frame",
       "x": 84,
-      "y": 68
+      "y": 68,
+      "price": "$28"
     }
   ],
-  "image": "../../assets/images/jewelry-gold-charm-row.jpg"
+  "image": "../../assets/images/jewelry-gold-charm-row.jpg",
+  "priceRange": "$24–30"
 }

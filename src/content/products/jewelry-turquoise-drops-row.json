@@ -11,32 +11,38 @@
       "name": "Turquoise Mosaic Teardrop",
       "details": "Teardrop set with tiny turquoise",
       "x": 8,
-      "y": 62
+      "y": 62,
+      "price": "$26"
     },
     {
       "name": "Rose Longhorn Pendant",
       "details": "Longhorn with roses and turquoise",
       "x": 24,
-      "y": 58
+      "y": 58,
+      "price": "$26"
     },
     {
       "name": "Turquoise Cluster Oval",
       "details": "Squash-blossom style turquoise cluster",
       "x": 46,
-      "y": 68
+      "y": 68,
+      "price": "$28"
     },
     {
       "name": "Wire-Wrapped Stone Pendant",
       "details": "Wire-wrapped turquoise and white stone",
       "x": 74,
-      "y": 68
+      "y": 68,
+      "price": "$26"
     },
     {
       "name": "Turquoise Teardrop Pendant",
       "details": "Matrix turquoise teardrop",
       "x": 90,
-      "y": 64
+      "y": 64,
+      "price": "$28"
     }
   ],
-  "image": "../../assets/images/jewelry-turquoise-drops-row.jpg"
+  "image": "../../assets/images/jewelry-turquoise-drops-row.jpg",
+  "priceRange": "$26–28"
 }

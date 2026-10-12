@@ -11,32 +11,38 @@
       "name": "Turquoise Maltese Cross",
       "details": "Rounded cross set with turquoise",
       "x": 11,
-      "y": 48
+      "y": 48,
+      "price": "$30"
     },
     {
       "name": "Aztec Turquoise Cross",
       "details": "Stamped cross with turquoise",
       "x": 27,
-      "y": 70
+      "y": 70,
+      "price": "$28"
     },
     {
       "name": "Etched Silver Cross",
       "details": "Etched silver cross",
       "x": 47,
-      "y": 65
+      "y": 65,
+      "price": "$26"
     },
     {
       "name": "Turquoise Inlay Cross",
       "details": "Cross with turquoise inlay",
       "x": 68,
-      "y": 75
+      "y": 75,
+      "price": "$28"
     },
     {
       "name": "Crystal & Turquoise Statement Cross",
       "details": "Ornate cross with crystals and turquoise",
       "x": 87,
-      "y": 55
+      "y": 55,
+      "price": "$30"
     }
   ],
-  "image": "../../assets/images/jewelry-turquoise-cross-row.jpg"
+  "image": "../../assets/images/jewelry-turquoise-cross-row.jpg",
+  "priceRange": "$26–30"
 }

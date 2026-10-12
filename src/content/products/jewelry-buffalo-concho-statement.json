@@ -11,8 +11,10 @@
       "name": "Buffalo Concho Statement",
       "details": "Turquoise conchos & bull skull",
       "x": 55,
-      "y": 72
+      "y": 72,
+      "price": "$80"
     }
   ],
-  "image": "../../assets/images/jewelry-buffalo-concho-statement.jpg"
+  "image": "../../assets/images/jewelry-buffalo-concho-statement.jpg",
+  "priceRange": "$80"
 }

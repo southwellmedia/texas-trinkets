@@ -11,32 +11,38 @@
       "name": "Turquoise Sea Turtle",
       "details": "Silver sea turtle with turquoise",
       "x": 11,
-      "y": 64
+      "y": 64,
+      "price": "$30"
     },
     {
       "name": "Turquoise Daisy Halo",
       "details": "Daisy and turquoise chips in gold",
       "x": 34,
-      "y": 48
+      "y": 48,
+      "price": "$28"
     },
     {
       "name": "Cow & Flower Pendant",
       "details": "Cow outline with a turquoise flower",
       "x": 50,
-      "y": 70
+      "y": 70,
+      "price": "$30"
     },
     {
       "name": "Gold Sunburst Concho",
       "details": "Gold sunburst concho, turquoise center",
       "x": 69,
-      "y": 57
+      "y": 57,
+      "price": "$28"
     },
     {
       "name": "Turquoise Matrix Teardrop",
       "details": "Turquoise teardrop with matrix",
       "x": 89,
-      "y": 70
+      "y": 70,
+      "price": "$28"
     }
   ],
-  "image": "../../assets/images/jewelry-turquoise-keepsakes.jpg"
+  "image": "../../assets/images/jewelry-turquoise-keepsakes.jpg",
+  "priceRange": "$28–30"
 }

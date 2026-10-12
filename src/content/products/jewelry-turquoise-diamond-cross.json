@@ -11,8 +11,10 @@
       "name": "Turquoise Diamond Cross",
       "details": "Turquoise diamonds, tooled cross",
       "x": 52,
-      "y": 72
+      "y": 72,
+      "price": "$55"
     }
   ],
-  "image": "../../assets/images/jewelry-turquoise-diamond-cross.jpg"
+  "image": "../../assets/images/jewelry-turquoise-diamond-cross.jpg",
+  "priceRange": "$55"
 }

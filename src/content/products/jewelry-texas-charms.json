@@ -8,41 +8,48 @@
   "order": 7.17,
   "pieces": [
     {
-      "name": "Blue Star Texas Charm",
-      "details": "Texas with a blue star",
+      "name": "Lone Star Texas Charm",
+      "details": "Texas with a lone star",
       "x": 8,
-      "y": 60
+      "y": 60,
+      "price": "$28"
     },
     {
       "name": "Crystal Texas Outline",
       "details": "Texas outline lined with crystals",
       "x": 24,
-      "y": 62
+      "y": 62,
+      "price": "$22"
     },
     {
       "name": "Navy Horse Cameo",
       "details": "Horse cameo on navy",
       "x": 42,
-      "y": 70
+      "y": 70,
+      "price": "$30"
     },
     {
       "name": "Texas Sunburst Charm",
       "details": "Texas with a sunburst",
       "x": 61,
-      "y": 68
+      "y": 68,
+      "price": "$22"
     },
     {
       "name": "Open Texas Outline",
       "details": "Open silver Texas outline",
       "x": 77,
-      "y": 64
+      "y": 64,
+      "price": "$28"
     },
     {
       "name": "Tooled Texas Charm",
       "details": "Etched silver Texas",
       "x": 92,
-      "y": 63
+      "y": 63,
+      "price": "$28"
     }
   ],
-  "image": "../../assets/images/jewelry-texas-charms.jpg"
+  "image": "../../assets/images/jewelry-texas-charms.jpg",
+  "priceRange": "$22–30"
 }

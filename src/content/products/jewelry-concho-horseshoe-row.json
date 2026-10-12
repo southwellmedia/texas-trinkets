@@ -11,32 +11,38 @@
       "name": "Rose Concho Necklace",
       "details": "Sunburst concho on rose links",
       "x": 9,
-      "y": 52
+      "y": 52,
+      "price": "$26"
     },
     {
       "name": "Horse Head Oval Pendant",
       "details": "Silver horse in an etched oval",
       "x": 32,
-      "y": 80
+      "y": 80,
+      "price": "$26"
     },
     {
       "name": "Turquoise Circle Medallion",
       "details": "Open circle with turquoise and tooling",
       "x": 49,
-      "y": 62
+      "y": 62,
+      "price": "$26"
     },
     {
       "name": "Star Horseshoe Pendant",
       "details": "Tooled horseshoe with a star",
       "x": 66,
-      "y": 80
+      "y": 80,
+      "price": "$24"
     },
     {
       "name": "Blossom Turquoise Teardrop",
       "details": "Turquoise teardrop on blossom links",
       "x": 87,
-      "y": 62
+      "y": 62,
+      "price": "$30"
     }
   ],
-  "image": "../../assets/images/jewelry-concho-horseshoe-row.jpg"
+  "image": "../../assets/images/jewelry-concho-horseshoe-row.jpg",
+  "priceRange": "$24–30"
 }

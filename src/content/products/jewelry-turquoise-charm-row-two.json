@@ -11,38 +11,45 @@
       "name": "Turquoise Heart Sunburst",
       "details": "Turquoise heart in a sunburst",
       "x": 10,
-      "y": 60
+      "y": 60,
+      "price": "$28"
     },
     {
       "name": "Aztec Turquoise Pendant",
       "details": "Aztec diamond with turquoise",
       "x": 25,
-      "y": 62
+      "y": 62,
+      "price": "$26"
     },
     {
       "name": "Turquoise Dragonfly",
       "details": "Silver dragonfly with turquoise",
       "x": 40,
-      "y": 65
+      "y": 65,
+      "price": "$30"
     },
     {
       "name": "Turquoise Moon & Hummingbird",
       "details": "Turquoise moon, hummingbird & flowers",
       "x": 58,
-      "y": 62
+      "y": 62,
+      "price": "$28"
     },
     {
       "name": "Tooled Oval Concho",
       "details": "Tooled oval concho",
       "x": 74,
-      "y": 62
+      "y": 62,
+      "price": "$30"
     },
     {
       "name": "Scroll Turquoise Medallion",
       "details": "Scrolled medallion, turquoise center",
       "x": 90,
-      "y": 62
+      "y": 62,
+      "price": "$26"
     }
   ],
-  "image": "../../assets/images/jewelry-turquoise-charm-row-two.jpg"
+  "image": "../../assets/images/jewelry-turquoise-charm-row-two.jpg",
+  "priceRange": "$26–30"
 }

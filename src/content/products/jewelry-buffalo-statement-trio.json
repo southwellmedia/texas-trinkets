@@ -11,20 +11,24 @@
       "name": "Star Longhorn Skull Necklace",
       "details": "Longhorn with turquoise-studded horns",
       "x": 11,
-      "y": 47
+      "y": 47,
+      "price": "$30"
     },
     {
       "name": "Buffalo Blossom Statement Necklace",
       "details": "Buffalo nickel ringed in turquoise",
       "x": 46,
-      "y": 80
+      "y": 80,
+      "price": "$45"
     },
     {
       "name": "Turquoise Cross Filigree Necklace",
       "details": "Turquoise cross under filigree",
       "x": 86,
-      "y": 68
+      "y": 68,
+      "price": "$30"
     }
   ],
-  "image": "../../assets/images/jewelry-buffalo-statement-trio.jpg"
+  "image": "../../assets/images/jewelry-buffalo-statement-trio.jpg",
+  "priceRange": "$30–45"
 }

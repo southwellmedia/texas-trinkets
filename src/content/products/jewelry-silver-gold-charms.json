@@ -11,50 +11,59 @@
       "name": "Scroll Hoop Pendant",
       "details": "Engraved open hoop",
       "x": 6,
-      "y": 45
+      "y": 45,
+      "price": "$26"
     },
     {
       "name": "Black Crystal Tag",
       "details": "Tag filled with black crystals",
       "x": 22,
-      "y": 59
+      "y": 59,
+      "price": "$26"
     },
     {
       "name": "Red Heart Gold Halo",
       "details": "Red heart in a gold ring",
       "x": 33,
-      "y": 28
+      "y": 28,
+      "price": "$26"
     },
     {
       "name": "Gold Dragonfly Pendant",
       "details": "Large gold dragonfly",
       "x": 46,
-      "y": 62
+      "y": 62,
+      "price": "$28"
     },
     {
       "name": "Pink Heart Halo",
       "details": "Pink heart in a gold ring",
       "x": 58,
-      "y": 32
+      "y": 32,
+      "price": "$26"
     },
     {
       "name": "Crescent Moon & Cat",
       "details": "Filigree moon with a cat",
       "x": 70,
-      "y": 45
+      "y": 45,
+      "price": "$28"
     },
     {
       "name": "Mermaid Tail Halo",
       "details": "Iridescent mermaid tail in a ring",
       "x": 85,
-      "y": 58
+      "y": 58,
+      "price": "$30"
     },
     {
       "name": "Double Ring Pendant",
       "details": "Mixed-metal double ring",
       "x": 94,
-      "y": 45
+      "y": 45,
+      "price": "$28"
     }
   ],
-  "image": "../../assets/images/jewelry-silver-gold-charms.jpg"
+  "image": "../../assets/images/jewelry-silver-gold-charms.jpg",
+  "priceRange": "$26–30"
 }

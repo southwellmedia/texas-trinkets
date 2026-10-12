@@ -11,8 +11,10 @@
       "name": "Tooled Cross & Turquoise",
       "details": "Turquoise bars, tooled cross",
       "x": 52,
-      "y": 78
+      "y": 78,
+      "price": "$55"
     }
   ],
-  "image": "../../assets/images/jewelry-tooled-cross-turquoise.jpg"
+  "image": "../../assets/images/jewelry-tooled-cross-turquoise.jpg",
+  "priceRange": "$55"
 }

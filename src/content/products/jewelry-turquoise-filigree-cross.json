@@ -11,8 +11,10 @@
       "name": "Turquoise Filigree Cross",
       "details": "Ornate turquoise cross",
       "x": 50,
-      "y": 62
+      "y": 62,
+      "price": "$45"
     }
   ],
-  "image": "../../assets/images/jewelry-turquoise-filigree-cross.jpg"
+  "image": "../../assets/images/jewelry-turquoise-filigree-cross.jpg",
+  "priceRange": "$45"
 }

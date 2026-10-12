@@ -11,32 +11,38 @@
       "name": "Silver Arrowhead Pendant",
       "details": "Wire-wrapped silver arrowhead",
       "x": 10,
-      "y": 55
+      "y": 55,
+      "price": "$26"
     },
     {
       "name": "Simple Silver Cross",
       "details": "Clean, classic cross",
       "x": 26,
-      "y": 50
+      "y": 50,
+      "price": "$26"
     },
     {
       "name": "Gold Arrowhead Pendant",
       "details": "Gold arrowhead on a snake chain",
       "x": 48,
-      "y": 82
+      "y": 82,
+      "price": "$26"
     },
     {
       "name": "Tooled Arrow Charm",
       "details": "Etched arrow point",
       "x": 74,
-      "y": 55
+      "y": 55,
+      "price": "$26"
     },
     {
       "name": "Compass Rose Pendant",
       "details": "Compass star in an etched ring",
       "x": 90,
-      "y": 57
+      "y": 57,
+      "price": "$26"
     }
   ],
-  "image": "../../assets/images/jewelry-arrowhead-compass-row.jpg"
+  "image": "../../assets/images/jewelry-arrowhead-compass-row.jpg",
+  "priceRange": "$26"
 }

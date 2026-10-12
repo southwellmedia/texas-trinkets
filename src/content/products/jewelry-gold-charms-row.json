@@ -11,32 +11,38 @@
       "name": "Gold Filigree Medallion",
       "details": "Lacy gold medallion",
       "x": 11,
-      "y": 48
+      "y": 48,
+      "price": "$26"
     },
     {
       "name": "Rose Gold Saguaro Pendant",
       "details": "Open saguaro cactus in rose gold",
       "x": 23,
-      "y": 65
+      "y": 65,
+      "price": "$28"
     },
     {
       "name": "Gold Elephant Charm",
       "details": "Crystal-studded elephant",
       "x": 45,
-      "y": 60
+      "y": 60,
+      "price": "$26"
     },
     {
       "name": "Gold Texas Charm",
       "details": "Texas with a star",
       "x": 68,
-      "y": 70
+      "y": 70,
+      "price": "$28"
     },
     {
       "name": "Lucky Horseshoe Halo",
       "details": "Crystal horseshoe in a gold ring",
       "x": 90,
-      "y": 55
+      "y": 55,
+      "price": "$28"
     }
   ],
-  "image": "../../assets/images/jewelry-gold-charms-row.jpg"
+  "image": "../../assets/images/jewelry-gold-charms-row.jpg",
+  "priceRange": "$26–28"
 }

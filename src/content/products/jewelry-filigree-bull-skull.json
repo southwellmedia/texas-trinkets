@@ -11,8 +11,10 @@
       "name": "Filigree Bull Skull Necklace",
       "details": "Turquoise & filigree links",
       "x": 50,
-      "y": 72
+      "y": 72,
+      "price": "$65"
     }
   ],
-  "image": "../../assets/images/jewelry-filigree-bull-skull.jpg"
+  "image": "../../assets/images/jewelry-filigree-bull-skull.jpg",
+  "priceRange": "$65"
 }

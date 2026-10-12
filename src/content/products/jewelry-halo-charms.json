@@ -11,32 +11,38 @@
       "name": "Ruby Crystal Halo",
       "details": "Red crystal in a gold ring",
       "x": 10,
-      "y": 82
+      "y": 82,
+      "price": "$28"
     },
     {
       "name": "Silver Cross Halo",
       "details": "Simple cross floating in a silver ring",
       "x": 32,
-      "y": 50
+      "y": 50,
+      "price": "$24"
     },
     {
       "name": "Petite Cross Halo",
       "details": "Tiny cross in a large gold ring",
       "x": 48,
-      "y": 82
+      "y": 82,
+      "price": "$24"
     },
     {
       "name": "Etched Cross Halo",
       "details": "Etched open cross in a silver ring",
       "x": 65,
-      "y": 52
+      "y": 52,
+      "price": "$24"
     },
     {
       "name": "Red Heart Halo",
       "details": "Red enamel heart in gold",
       "x": 86,
-      "y": 78
+      "y": 78,
+      "price": "$24"
     }
   ],
-  "image": "../../assets/images/jewelry-halo-charms.jpg"
+  "image": "../../assets/images/jewelry-halo-charms.jpg",
+  "priceRange": "$24–28"
 }
